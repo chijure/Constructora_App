@@ -85,8 +85,8 @@ Debido al crecimiento de la constructora J&amp;J, se tiene la necesidad de desar
 | Cuando:                                                                 | Espero:                                                    | 
 | ------------------------------------------------------------------------|:----------------------------------------------------------:| 
 | Para la separación se debe buscar el departamento e ingresar la información del voucher y el monto depositado.         
-|                                                                         | Confirmación del registro.                                 | 
-|                                                                         | Mensaje de error si no se ingresan los datos requeridos.   |
+| Confirmación del registro.                                                                                                           | 
+| Mensaje de error si no se ingresan los datos requeridos.                                                                             |
 
 ##  HU09. Registrar ventas: 
 * Para la venta, el asesor registrar si la compra se realizará al contado, o financiado mediante el banco.
