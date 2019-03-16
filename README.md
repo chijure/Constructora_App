@@ -100,11 +100,11 @@ Debido al crecimiento de la constructora J&amp;J, se tiene la necesidad de desar
 
 | Cuando:                                                                 | Espero:                                                    | 
 | ------------------------------------------------------------------------|:----------------------------------------------------------:| 
-| Para el caso de la compra al contado, se debe registrar los datos de la | * Confirmación del registro.                               | 
-| operación bancaria y el monto, se debe descontar la cantidad que se     | * Mensaje de error si no se ingresan los datos requeridos. |
-| utilizó en la separación.                                               |                                                            |
-| Si la compra es financiada, se debe registrar el pago del 10% que debe  |                                                            |
-| realizar el cliente y el monto que será financiado por el banco.        |                                                            |
+| Para el caso de la compra al contado, se debe registrar los datos de la operación bancaria y el monto, se debe descontar la cantidad que se utilizó en la separación. Si la compra es financiada, se debe registrar el pago del 10% que debe realizar el cliente y el monto que será financiado por el banco.| * Confirmación del registro.                               | 
+|      | * Mensaje de error si no se ingresan los datos requeridos. |
+|                                               |                                                            |
+|   |                                                            |
+|         |                                                            |
 
 ##  HU10. Reporte:
 * Para el gerente es importante contar con un reporte.
