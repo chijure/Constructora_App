@@ -9,8 +9,8 @@ Debido al crecimiento de la constructora J&amp;J, se tiene la necesidad de desar
 ##  HU01. 
 * Solicitud de cotización: El cliente desde la página web puede enviar una solicitud de cotización.
 
-## * HU02. 
-Registrar usuarios del sistema: El administrador tiene la posibilidad de registrar nuevos usuarios para acceder al sistema: Los perfiles de los usuarios pueden ser: Administrador, Gerente, Asesor.
+##  HU02. 
+* Registrar usuarios del sistema: El administrador tiene la posibilidad de registrar nuevos usuarios para acceder al sistema: Los perfiles de los usuarios pueden ser: Administrador, Gerente, Asesor.
 
 ##  HU03. 
 * Registro de un nuevo proyecto: Como administrador debo registrar un nuevo proyecto.
@@ -36,4 +36,5 @@ Registrar usuarios del sistema: El administrador tiene la posibilidad de registr
 ##  HU10. 
 * Reporte: Para el gerente es importante contar con un reporte.
 
-## * HU11. Administrar precio base: Conforme pasa el tiempo y la construcción avanza el costo del precio base puede cambiar. 
+##  HU11. 
+* Administrar precio base: Conforme pasa el tiempo y la construcción avanza el costo del precio base puede cambiar. 
