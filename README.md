@@ -72,8 +72,8 @@ Debido al crecimiento de la constructora J&amp;J, se tiene la necesidad de desar
 | Cuando:                                                                 | Espero:                                                     
 | ------------------------------------------------------------------------|:----------------------------------------------------------:| 
 | Para la proforma se debe visualizar todos los datos del cliente, y el sistema debe calcular el costo del departamento en base a:     |
-| Costo = Precio base por metro cuadrado * Área del departamento          | Confirmación del registro.                                 |  |                                                                         |Mensaje de error si no se ingresan los datos requeridos.    | 
-| Adicional se genera un descuento dependiendo el piso:                   |                                                            |
+| Costo = Precio base por metro cuadrado * Área del departamento          | Confirmación del registro.                                 | 
+| Adicional se genera un descuento dependiendo el piso:                   |Mensaje de error si no se ingresan los datos requeridos.    |
 | 1er piso: no hay descuento                                              |                                                            |
 | 2do piso: 1%                                                            |                                                            |
 | 3er piso: 2%                                                            |                                                            |
