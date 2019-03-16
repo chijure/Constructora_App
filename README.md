@@ -9,7 +9,7 @@ Debido al crecimiento de la constructora J&amp;J, se tiene la necesidad de desar
 ##  HU01. Solicitud de cotización: 
 * El cliente desde la página web puede enviar una solicitud de cotización.
 
-| ### Cuando:                                                              | ### Espero:                                               | 
+| Cuando:                                                                 | Espero:                                                    | 
 | ------------------------------------------------------------------------|:----------------------------------------------------------:| 
 | Hace clic en el botón cotizar, se abre un formulario que solicita.      | * Confirmación del registro.                               | 
 | *	DNI                                                                   | * Mensaje de error si no se ingresan los datos requeridos. |
@@ -22,7 +22,7 @@ Debido al crecimiento de la constructora J&amp;J, se tiene la necesidad de desar
 ##  HU02. Registrar usuarios del sistema: 
 * El administrador tiene la posibilidad de registrar nuevos usuarios para acceder al sistema: Los perfiles de los usuarios pueden ser: Administrador, Gerente, Asesor.
 
-| ### Cuando:                                                              | ### Espero:                                               | 
+| Cuando:                                                                 | Espero:                                                    | 
 | ------------------------------------------------------------------------|:----------------------------------------------------------:| 
 | Para el registro de un nuevo usuario se solicita.                       | * Confirmación de creación.                                | 
 | *	DNI                                                                   | * Mensaje de error si no se ingresan los datos requeridos. |
@@ -34,7 +34,7 @@ Debido al crecimiento de la constructora J&amp;J, se tiene la necesidad de desar
 ##  HU03. Registro de un nuevo proyecto: 
 * Como administrador debo registrar un nuevo proyecto.
 
-| ### Cuando:                                                              | ### Espero:                                               | 
+| Cuando:                                                                 | Espero:                                                    | 
 | ------------------------------------------------------------------------|:----------------------------------------------------------:| 
 | Para registrar un nuevo proyecto se solicita:                           | * Confirmación del registro.                               | 
 | *	Nombre del proyecto                                                   | * Mensaje de error si no se ingresan los datos requeridos. |
@@ -44,7 +44,7 @@ Debido al crecimiento de la constructora J&amp;J, se tiene la necesidad de desar
 ##  HU04. Registro de tipos de departamento: 
 * Como administrador, para cada proyecto registrado se debe registrar los tipos de departamento.
 
-| ### Cuando:                                                              | ### Espero:                                               | 
+| Cuando:                                                                 |Espero:                                                     | 
 | ------------------------------------------------------------------------|:----------------------------------------------------------:| 
 | Para registrar los tipos de departamento se requiere:                   | * Confirmación del creación.                               | 
 | *	Nombre del tipo                                                       | * Mensaje de error si no se ingresan los datos requeridos. |
@@ -67,7 +67,7 @@ Debido al crecimiento de la constructora J&amp;J, se tiene la necesidad de desar
 ##  HU06. Mantenimiento de citas: 
 * Las citas pueden ser modificadas, por que muchas de las veces los clientes tienen improvistos y cambian la fecha y hora de la cita.
 
-| ### Cuando:                                                               | ### Espero:                                              | 
+| Cuando:                                                                   | Espero:                                                  | 
 | --------------------------------------------------------------------------|:--------------------------------------------------------:| 
 | El asesor debe realizar la búsqueda de la cita y realizar la modificación.| * Confirmación del registro.                             | 
 |                                                                           | * Mensaje de error si no se ingresan los datos requeridos| 
@@ -75,7 +75,7 @@ Debido al crecimiento de la constructora J&amp;J, se tiene la necesidad de desar
 ##  HU07. Generación de proformas: 
 * Luego que el asesor brinda toda la información sobre el proyecto al cliente, se genera una proforma.
 
-| ### Cuando:                                                              | ### Espero:                                               | 
+| Cuando:                                                                 | Espero:                                                     
 | ------------------------------------------------------------------------|:----------------------------------------------------------:| 
 | Para la proforma se debe visualizar todos los datos del cliente, y el   | * Confirmación del registro.                               | 
 | sistema debe calcular el costo del departamento en base a:              | * Mensaje de error si no se ingresan los datos requeridos. |
@@ -90,7 +90,7 @@ Debido al crecimiento de la constructora J&amp;J, se tiene la necesidad de desar
 ##  HU08.  Separar un departamento:
 * El cliente puede realizar la separación de un departamento con 1500 soles, esta separación bloquea el departamento de las subidas de precio y ya no puede ser elegido por otro cliente. La separación es un proceso que se realiza mientras el banco evalúa si el cliente accede al crédito hipotecario, y si la compra es al contado, la separación sirve mientras que se hace el depósito y/o transferencia del monto a la cuenta de la constructora.
 
-| ### Cuando:                                                              | ### Espero:                                               | 
+| Cuando:                                                                 | Espero:                                                    | 
 | ------------------------------------------------------------------------|:----------------------------------------------------------:| 
 | Para la separación se debe buscar el departamento e ingresar la         | * Confirmación del registro.                               | 
 | información del voucher y el monto depositado.                          | * Mensaje de error si no se ingresan los datos requeridos. |
@@ -98,7 +98,7 @@ Debido al crecimiento de la constructora J&amp;J, se tiene la necesidad de desar
 ##  HU09. Registrar ventas: 
 * Para la venta, el asesor registrar si la compra se realizará al contado, o financiado mediante el banco.
 
-| ### Cuando:                                                              | ### Espero:                                               | 
+| Cuando:                                                                 | Espero:                                                    | 
 | ------------------------------------------------------------------------|:----------------------------------------------------------:| 
 | Para el caso de la compra al contado, se debe registrar los datos de la | * Confirmación del registro.                               | 
 | operación bancaria y el monto, se debe descontar la cantidad que se     | * Mensaje de error si no se ingresan los datos requeridos. |
@@ -109,7 +109,7 @@ Debido al crecimiento de la constructora J&amp;J, se tiene la necesidad de desar
 ##  HU10. Reporte:
 * Para el gerente es importante contar con un reporte.
 
-| ### Cuando:                                                              | ### Espero:                                               | 
+| Cuando:                                                                 | Espero:                                                    | 
 | ------------------------------------------------------------------------|:----------------------------------------------------------:| 
 | Indique la opción de reporte.                                           | * Listado de los departamentos por proyecto.               | 
 | Se debe listar todos los departamentos y su estado.                     |                                                            |
@@ -119,7 +119,7 @@ Debido al crecimiento de la constructora J&amp;J, se tiene la necesidad de desar
 ##  HU11. Administrar precio base: 
 * Conforme pasa el tiempo y la construcción avanza el costo del precio base puede cambiar. 
 
-| ### Cuando:                                                              | ### Espero:                                               | 
+| Cuando:                                                                 | Espero:                                                    | 
 | ------------------------------------------------------------------------|:----------------------------------------------------------:| 
 | Selecciona un proyecto indica el precio base por metro cuadrado, el cual| * Confirmación del registro.                               | 
 | puede ser modificado                                                    | * Mensaje de error si no se ingresan los datos requeridos. |
