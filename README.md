@@ -114,6 +114,4 @@ Debido al crecimiento de la constructora J&amp;J, se tiene la necesidad de desar
 
 | Cuando:                                                                 | Espero:                                                    | 
 | ------------------------------------------------------------------------|:----------------------------------------------------------:| 
-| Selecciona un proyecto indica el precio base por metro cuadrado, el cual puede ser modificado 
-                                                                          | * Confirmación del registro.                               | 
-                                                                          | * Mensaje de error si no se ingresan los datos requeridos. |
+| Selecciona un proyecto indica el precio base por metro cuadrado, el cual puede ser modificado| * Confirmación del registro.|| * Mensaje de error si no se ingresan los datos requeridos. |
