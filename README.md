@@ -56,8 +56,7 @@ Debido al crecimiento de la constructora J&amp;J, se tiene la necesidad de desar
 
 | Cuando:                                                                 | Espero:                                                    | 
 | ------------------------------------------------------------------------|:----------------------------------------------------------:| 
-| Cuando el asesor ingresa al sistema debe listar todas las solicitudes de cotización que fueron asignadas a su persona. El asesor será el encargado de contactar por teléfono al cliente y verificar si los datos son reales y si el cliente está interesado en registrar una cita, de ser el caso el asesor debe registrar la fecha y hora de la cita, si los datos no son reales o el cliente no está interesado el asesor debe colocar como atendido.                                        | * Listado de clientes que solicitaron cotización.          |                                                                           | * Confirmación de Registro de citas.                       |
-                                                                          | * Confirmación de atendido.                                |
+| Cuando el asesor ingresa al sistema debe listar todas las solicitudes de cotización que fueron asignadas a su persona. El asesor será el encargado de contactar por teléfono al cliente y verificar si los datos son reales y si el cliente está interesado en registrar una cita, de ser el caso el asesor debe registrar la fecha y hora de la cita, si los datos no son reales o el cliente no está interesado el asesor debe colocar como atendido.                                        | * Listado de clientes que solicitaron cotización.          | |                                                                         | * Confirmación de Registro de citas.                       | |                                                                         | * Confirmación de atendido.                                |
 
 ##  HU06. Mantenimiento de citas: 
 * Las citas pueden ser modificadas, por que muchas de las veces los clientes tienen improvistos y cambian la fecha y hora de la cita.
@@ -73,7 +72,7 @@ Debido al crecimiento de la constructora J&amp;J, se tiene la necesidad de desar
 | Cuando:                                                                 | Espero:                                                     
 | ------------------------------------------------------------------------|:----------------------------------------------------------:| 
 | Para la proforma se debe visualizar todos los datos del cliente, y el sistema debe calcular el costo del departamento en base a:  
-                                                                          | * Confirmación del registro.                               |                                                                           |* Mensaje de error si no se ingresan los datos requeridos.  |
+|                                                                         | * Confirmación del registro.                               | |                                                                         |* Mensaje de error si no se ingresan los datos requeridos.  |
 | Costo = Precio base por metro cuadrado * Área del departamento          |                                                            |
 |                                                                         |                                                            |
 | Adicional se genera un descuento dependiendo el piso:                   |                                                            |
@@ -88,8 +87,8 @@ Debido al crecimiento de la constructora J&amp;J, se tiene la necesidad de desar
 | Cuando:                                                                 | Espero:                                                    | 
 | ------------------------------------------------------------------------|:----------------------------------------------------------:| 
 | Para la separación se debe buscar el departamento e ingresar la información del voucher y el monto depositado.         
-                                                                          | * Confirmación del registro.                               | 
-                                                                          | * Mensaje de error si no se ingresan los datos requeridos. |
+|                                                                         | * Confirmación del registro.                               | 
+|                                                                         | * Mensaje de error si no se ingresan los datos requeridos. |
 
 ##  HU09. Registrar ventas: 
 * Para la venta, el asesor registrar si la compra se realizará al contado, o financiado mediante el banco.
