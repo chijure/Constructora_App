@@ -56,13 +56,8 @@ Debido al crecimiento de la constructora J&amp;J, se tiene la necesidad de desar
 
 | Cuando:                                                                 | Espero:                                                    | 
 | ------------------------------------------------------------------------|:----------------------------------------------------------:| 
-| Cuando el asesor ingresa al sistema debe listar todas las solicitudes   | * Listado de clientes que solicitaron cotización.          | 
-| de cotización que fueron asignadas a su persona. El asesor será el      | * Confirmación de Registro de citas.                       |
-| encargado de contactar por teléfono al cliente y verificar si los datos | * Confirmación de atendido.                                |
-| son reales y si el cliente está interesado en registrar una cita, de ser|                                                            |
-| el caso el asesor debe registrar la fecha y hora de la cita, si los     |                                                            |
-| datos no son reales o el cliente no está interesado el asesor debe      |                                                            |
-| colocar como atendido.                                                  |                                                            |
+| Cuando el asesor ingresa al sistema debe listar todas las solicitudes de cotización que fueron asignadas a su persona. El asesor será el encargado de contactar por teléfono al cliente y verificar si los datos son reales y si el cliente está interesado en registrar una cita, de ser el caso el asesor debe registrar la fecha y hora de la cita, si los datos no son reales o el cliente no está interesado el asesor debe colocar como atendido.                                        | * Listado de clientes que solicitaron cotización.          |                                                                           | * Confirmación de Registro de citas.                       |
+                                                                          | * Confirmación de atendido.                                |
 
 ##  HU06. Mantenimiento de citas: 
 * Las citas pueden ser modificadas, por que muchas de las veces los clientes tienen improvistos y cambian la fecha y hora de la cita.
@@ -77,8 +72,8 @@ Debido al crecimiento de la constructora J&amp;J, se tiene la necesidad de desar
 
 | Cuando:                                                                 | Espero:                                                     
 | ------------------------------------------------------------------------|:----------------------------------------------------------:| 
-| Para la proforma se debe visualizar todos los datos del cliente, y el   | * Confirmación del registro.                               | 
-| sistema debe calcular el costo del departamento en base a:              | * Mensaje de error si no se ingresan los datos requeridos. |
+| Para la proforma se debe visualizar todos los datos del cliente, y el sistema debe calcular el costo del departamento en base a:  
+                                                                          | * Confirmación del registro.                               |                                                                           |* Mensaje de error si no se ingresan los datos requeridos.  |
 | Costo = Precio base por metro cuadrado * Área del departamento          |                                                            |
 |                                                                         |                                                            |
 | Adicional se genera un descuento dependiendo el piso:                   |                                                            |
@@ -92,19 +87,17 @@ Debido al crecimiento de la constructora J&amp;J, se tiene la necesidad de desar
 
 | Cuando:                                                                 | Espero:                                                    | 
 | ------------------------------------------------------------------------|:----------------------------------------------------------:| 
-| Para la separación se debe buscar el departamento e ingresar la         | * Confirmación del registro.                               | 
-| información del voucher y el monto depositado.                          | * Mensaje de error si no se ingresan los datos requeridos. |
+| Para la separación se debe buscar el departamento e ingresar la información del voucher y el monto depositado.         
+                                                                          | * Confirmación del registro.                               | 
+                                                                          | * Mensaje de error si no se ingresan los datos requeridos. |
 
 ##  HU09. Registrar ventas: 
 * Para la venta, el asesor registrar si la compra se realizará al contado, o financiado mediante el banco.
 
 | Cuando:                                                                 | Espero:                                                    | 
 | ------------------------------------------------------------------------|:----------------------------------------------------------:| 
-| Para el caso de la compra al contado, se debe registrar los datos de la operación bancaria y el monto, se debe descontar la cantidad que se utilizó en la separación. Si la compra es financiada, se debe registrar el pago del 10% que debe realizar el cliente y el monto que será financiado por el banco.| * Confirmación del registro.                               | 
-|      | * Mensaje de error si no se ingresan los datos requeridos. |
-|                                               |                                                            |
-|   |                                                            |
-|         |                                                            |
+| Para el caso de la compra al contado, se debe registrar los datos de la operación bancaria y el monto, se debe descontar la cantidad que se utilizó en la separación. Si la compra es financiada, se debe registrar el pago del 10% que debe realizar el cliente y el monto que será financiado por el banco.                                         | * Confirmación del registro.                               |                                                                           |* Mensaje de error si no se ingresan los datos requeridos.  |
+
 
 ##  HU10. Reporte:
 * Para el gerente es importante contar con un reporte.
@@ -120,6 +113,7 @@ Debido al crecimiento de la constructora J&amp;J, se tiene la necesidad de desar
 * Conforme pasa el tiempo y la construcción avanza el costo del precio base puede cambiar. 
 
 | Cuando:                                                                 | Espero:                                                    | 
-| ----------------------------------------------------------------------------------------------|:------------------------------------:| 
-| Selecciona un proyecto indica el precio base por metro cuadrado, el cual puede ser modificado | * Confirmación del registro.         | 
-|                                                                                               | * Mensaje de error si no se ingresan los datos requeridos. |
+| ------------------------------------------------------------------------|:----------------------------------------------------------:| 
+| Selecciona un proyecto indica el precio base por metro cuadrado, el cual puede ser modificado 
+                                                                          | * Confirmación del registro.                               | 
+                                                                          | * Mensaje de error si no se ingresan los datos requeridos. |
