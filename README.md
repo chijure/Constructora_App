@@ -11,8 +11,8 @@ Debido al crecimiento de la constructora J&amp;J, se tiene la necesidad de desar
 
 | Cuando:                                                                 | Espero:                                                    | 
 | ------------------------------------------------------------------------|:----------------------------------------------------------:| 
-| Hace clic en el botón cotizar, se abre un formulario que solicita.      | * Confirmación del registro.                               | 
-| *	DNI                                                                   | * Mensaje de error si no se ingresan los datos requeridos. |
+| Hace clic en el botón cotizar, se abre un formulario que solicita.      | Confirmación del registro.                                 | 
+| *	DNI                                                                   | Mensaje de error si no se ingresan los datos requeridos.   |
 | *	Nombres                                                               |                                                            |
 | *	Apellidos                                                             |                                                            |
 | *	Correo                                                                |                                                            |
@@ -24,9 +24,9 @@ Debido al crecimiento de la constructora J&amp;J, se tiene la necesidad de desar
 
 | Cuando:                                                                 | Espero:                                                    | 
 | ------------------------------------------------------------------------|:----------------------------------------------------------:| 
-| Para el registro de un nuevo usuario se solicita.                       | * Confirmación de creación.                                | 
-| *	DNI                                                                   | * Mensaje de error si no se ingresan los datos requeridos. |
-| *	Nombres                                                               | * Mostrar error si el DNI ya esta registrado               |
+| Para el registro de un nuevo usuario se solicita.                       | Confirmación de creación.                                  | 
+| *	DNI                                                                   | Mensaje de error si no se ingresan los datos requeridos.   |
+| *	Nombres                                                               | Mostrar error si el DNI ya esta registrado                 |
 | *	Apellidos                                                             |                                                            |
 | *	Perfil                                                                |                                                            |
                                                 
@@ -36,8 +36,8 @@ Debido al crecimiento de la constructora J&amp;J, se tiene la necesidad de desar
 
 | Cuando:                                                                 | Espero:                                                    | 
 | ------------------------------------------------------------------------|:----------------------------------------------------------:| 
-| Para registrar un nuevo proyecto se solicita:                           | * Confirmación del registro.                               | 
-| *	Nombre del proyecto                                                   | * Mensaje de error si no se ingresan los datos requeridos. |
+| Para registrar un nuevo proyecto se solicita:                           | Confirmación del registro.                                 | 
+| *	Nombre del proyecto                                                   | Mensaje de error si no se ingresan los datos requeridos.   |
 | *	Ubicación                                                             |                                                            |
 | *	Precio base por metro cuadrado                                        |                                                            |
 
@@ -46,8 +46,8 @@ Debido al crecimiento de la constructora J&amp;J, se tiene la necesidad de desar
 
 | Cuando:                                                                 |Espero:                                                     | 
 | ------------------------------------------------------------------------|:----------------------------------------------------------:| 
-| Para registrar los tipos de departamento se requiere:                   | * Confirmación del creación.                               | 
-| *	Nombre del tipo                                                       | * Mensaje de error si no se ingresan los datos requeridos. |
+| Para registrar los tipos de departamento se requiere:                   | Confirmación del creación.                                 | 
+| *	Nombre del tipo                                                       | Mensaje de error si no se ingresan los datos requeridos.   |
 | *	Área en metros cuadrados.                                             |                                                            |
 | *	Piso                                                                  |                                                            |
 
@@ -56,15 +56,15 @@ Debido al crecimiento de la constructora J&amp;J, se tiene la necesidad de desar
 
 | Cuando:                                                                 | Espero:                                                    | 
 | ------------------------------------------------------------------------|:----------------------------------------------------------:| 
-| Cuando el asesor ingresa al sistema debe listar todas las solicitudes de cotización que fueron asignadas a su persona. El asesor será el encargado de contactar por teléfono al cliente y verificar si los datos son reales y si el cliente está interesado en registrar una cita, de ser el caso el asesor debe registrar la fecha y hora de la cita, si los datos no son reales o el cliente no está interesado el asesor debe colocar como atendido.                                        | * Listado de clientes que solicitaron cotización.          | |                                                                         | * Confirmación de Registro de citas.                       | |                                                                         | * Confirmación de atendido.                                |
+| Cuando el asesor ingresa al sistema debe listar todas las solicitudes de cotización que fueron asignadas a su persona. El asesor será el encargado de contactar por teléfono al cliente y verificar si los datos son reales y si el cliente está interesado en registrar una cita, de ser el caso el asesor debe registrar la fecha y hora de la cita, si los datos no son reales o el cliente no está interesado el asesor debe colocar como atendido.                                        | Listado de clientes que solicitaron cotización.            | |                                                                         | Confirmación de Registro de citas.                         | |                                                                         | Confirmación de atendido.                                  |
 
 ##  HU06. Mantenimiento de citas: 
 * Las citas pueden ser modificadas, por que muchas de las veces los clientes tienen improvistos y cambian la fecha y hora de la cita.
 
 | Cuando:                                                                   | Espero:                                                  | 
 | --------------------------------------------------------------------------|:--------------------------------------------------------:| 
-| El asesor debe realizar la búsqueda de la cita y realizar la modificación.| * Confirmación del registro.                             | 
-|                                                                           | * Mensaje de error si no se ingresan los datos requeridos| 
+| El asesor debe realizar la búsqueda de la cita y realizar la modificación.| Confirmación del registro.                               | 
+|                                                                           | Mensaje de error si no se ingresan los datos requeridos  | 
 
 ##  HU07. Generación de proformas: 
 * Luego que el asesor brinda toda la información sobre el proyecto al cliente, se genera una proforma.
@@ -72,7 +72,7 @@ Debido al crecimiento de la constructora J&amp;J, se tiene la necesidad de desar
 | Cuando:                                                                 | Espero:                                                     
 | ------------------------------------------------------------------------|:----------------------------------------------------------:| 
 | Para la proforma se debe visualizar todos los datos del cliente, y el sistema debe calcular el costo del departamento en base a:     |
-|                                                                         | Confirmación del registro.                                 |  | Costo = Precio base por metro cuadrado * Área del departamento          | Mensaje de error si no se ingresan los datos requeridos.   | |                                                                         |                                                            |
+| Costo = Precio base por metro cuadrado * Área del departamento          | Confirmación del registro.                                 |  |                                                                         | Mensaje de error si no se ingresan los datos requeridos.   | 
 | Adicional se genera un descuento dependiendo el piso:                   |                                                            |
 | 1er piso: no hay descuento                                              |                                                            |
 | 2do piso: 1%                                                            |                                                            |
@@ -85,15 +85,15 @@ Debido al crecimiento de la constructora J&amp;J, se tiene la necesidad de desar
 | Cuando:                                                                 | Espero:                                                    | 
 | ------------------------------------------------------------------------|:----------------------------------------------------------:| 
 | Para la separación se debe buscar el departamento e ingresar la información del voucher y el monto depositado.         
-|                                                                         | * Confirmación del registro.                               | 
-|                                                                         | * Mensaje de error si no se ingresan los datos requeridos. |
+|                                                                         | Confirmación del registro.                                 | 
+|                                                                         | Mensaje de error si no se ingresan los datos requeridos.   |
 
 ##  HU09. Registrar ventas: 
 * Para la venta, el asesor registrar si la compra se realizará al contado, o financiado mediante el banco.
 
 | Cuando:                                                                 | Espero:                                                    | 
 | ------------------------------------------------------------------------|:----------------------------------------------------------:| 
-| Para el caso de la compra al contado, se debe registrar los datos de la operación bancaria y el monto, se debe descontar la cantidad que se utilizó en la separación. Si la compra es financiada, se debe registrar el pago del 10% que debe realizar el cliente y el monto que será financiado por el banco.                                         | * Confirmación del registro.                               |                                                                           |* Mensaje de error si no se ingresan los datos requeridos.  |
+| Para el caso de la compra al contado, se debe registrar los datos de la operación bancaria y el monto, se debe descontar la cantidad que se utilizó en la separación. Si la compra es financiada, se debe registrar el pago del 10% que debe realizar el cliente y el monto que será financiado por el banco.                                         | Confirmación del registro.                                 |                                                                           | Mensaje de error si no se ingresan los datos requeridos.   |
 
 
 ##  HU10. Reporte:
@@ -101,7 +101,7 @@ Debido al crecimiento de la constructora J&amp;J, se tiene la necesidad de desar
 
 | Cuando:                                                                 | Espero:                                                    | 
 | ------------------------------------------------------------------------|:----------------------------------------------------------:| 
-| Indique la opción de reporte.                                           | * Listado de los departamentos por proyecto.               | 
+| Indique la opción de reporte.                                           | Listado de los departamentos por proyecto.                 | 
 | Se debe listar todos los departamentos y su estado.                     |                                                            |
 | Poder filtrar por disponibles, separados y vendidos.                    |                                                            |
 | Para los vendidos listar el monto recaudado                             |                                                            |
