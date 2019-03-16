@@ -54,7 +54,7 @@ Debido al crecimiento de la constructora J&amp;J, se tiene la necesidad de desar
 ##  HU05. Administración de citas: 
 * Luego que un cliente envía la solicitud de cotización mediante la web, el sistema de forma automática asigna a un asesor para su atención, el sistema verifica el asesor que tiene menor cantidad de clientes por atender y es a quien asigna el nuevo cliente.
 
-| ### Cuando:                                                              | ### Espero:                                               | 
+| Cuando:                                                                 | Espero:                                                    | 
 | ------------------------------------------------------------------------|:----------------------------------------------------------:| 
 | Cuando el asesor ingresa al sistema debe listar todas las solicitudes   | * Listado de clientes que solicitaron cotización.          | 
 | de cotización que fueron asignadas a su persona. El asesor será el      | * Confirmación de Registro de citas.                       |
