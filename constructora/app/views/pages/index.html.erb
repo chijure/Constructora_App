@@ -1,9 +1,20 @@
 <div class="jumbotron p-4">
-    <div class="text-center">
-        <h1 class="display-5">Constructora J&J</h1>
-        <p class="lead">El mejor camino a tu próximo hogar.</p>
-        <p class="lead">Encuentra propiedades en venta, alquileres y proyectos.</p>
-    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <!--Logotipo-->
+                <%= link_to image_tag("Logo.png", :size=>"170x160"), {:action=>"index"} %>
+            </div>
+            <div class="col-sm-6 offset3">
+                <div class="text-center">
+                    <h1 class="display-5 text-secondary">Constructora J&J</h1>
+                    <p class="lead">El mejor camino a tu próximo hogar.</p>
+                    <p class="lead">Encuentra propiedades en venta, alquileres y proyectos.</p>
+                </div>     
+            </div>
+        </div>
+    </div> 
+    
     <div class="container">
         <div class="row">
             <div class="col-sm-2"></div>
