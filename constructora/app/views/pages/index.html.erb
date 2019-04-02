@@ -1,8 +1,9 @@
-<br>
-<div class="jumbotron">
-    <h1 class="display-5">Constructora J&J</h1>
-    <p class="lead">El mejor camino a tu próximo hogar.</p>
-    <p class="lead">Encuentra propiedades en venta, alquileres y proyectos.</p>
+<div class="jumbotron p-4">
+    <div class="text-center">
+        <h1 class="display-5">Constructora J&J</h1>
+        <p class="lead">El mejor camino a tu próximo hogar.</p>
+        <p class="lead">Encuentra propiedades en venta, alquileres y proyectos.</p>
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-sm-2"></div>
@@ -17,64 +18,104 @@
             <div class="col-sm-4">
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i> Buscar</button>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i>
+                        Buscar</button>
                 </form>
             </div>
             <div class="col-sm-2"></div>
         </div>
     </div>
     <hr class="my-4">
-    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+    <div class="text-center m-3">
+            <h3>Proyectos destacados</h3>
+    </div>        
+    <div class="container">
 
-    <div class="card">
-        <div class="card-header">
-            <h3><strong>Proyectos destacados</strong></h3> 
-        </div>
-        <div class="card-body">
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="card" style="width: 18rem;">
-                        <!--<img src="..." class="card-img-top" alt="...">-->
-                        <img src="<%= asset_path 'Edificio1.jpg', :class => "card-img-top" %>">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <div class="text-center">
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                    <img class="card-img-top img-fluid" <%= link_to image_tag('Edificio1_opt.jpg') %> 
+                    <div class="card-body">
+                        <h5 class="card-title">Proyecto Los Antares</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                            card's content.</p>
+                        <div class="text-center">
+                            <a href="#" class="btn btn-primary">Ver mas...</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4">
-                    <div class="card" style="width: 18rem;">
-                        <!--<img src="..." class="card-img-top" alt="...">-->
-                
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <div class="text-center">
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                    <img class="card-img-top img-fluid" <%= link_to image_tag('Edificio2_opt.jpg') %> 
+                    <div class="card-body">
+                        <h5 class="card-title">Proyecto Las Lomas</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                            card's content.</p>
+                        <div class="text-center">
+                            <a href="#" class="btn btn-primary">Ver mas...</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4">
-                    <div class="card" style="width: 18rem;">
-                        <!--<img src="..." class="card-img-top" alt="...">-->
-                    
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <div class="text-center">
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                    <img class="card-img-top img-fluid" <%= link_to image_tag('Edificio3_opt.jpg') %> 
+                    <div class="card-body">
+                        <h5 class="card-title">Proyecto El Olivar</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                            content.</p>
+                        <div class="text-center">
+                            <a href="#" class="btn btn-primary">Ver mas...</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                    <img class="card-img-top img-fluid" <%= link_to image_tag('Edificio4_opt.jpg') %> 
+                    <div class="card-body">
+                        <h5 class="card-title">Proyecto Las Torres</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                            content.</p>
+                        <div class="text-center">
+                            <a href="#" class="btn btn-primary">Ver mas...</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                    <img class="card-img-top img-fluid" <%= link_to image_tag('Edificio5_opt.jpg') %> 
+                    <div class="card-body">
+                        <h5 class="card-title">Proyecto La Aurora</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                            content.</p>
+                        <div class="text-center">
+                            <a href="#" class="btn btn-primary">Ver mas...</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                    <img class="card-img-top img-fluid" <%= link_to image_tag('Edificio6_opt.jpg') %> 
+                    <div class="card-body">
+                        <h5 class="card-title">Proyecto El Alamo</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                            content.</p>
+                        <div class="text-center">
+                            <a href="#" class="btn btn-primary">Ver mas...</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 </div>

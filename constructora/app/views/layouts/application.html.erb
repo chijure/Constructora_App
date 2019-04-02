@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"> 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
@@ -26,6 +26,7 @@
 </head>
 
 <body>
+<div class="container">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">
             Constructora J&J
@@ -54,21 +55,21 @@
             </ul>
         </div>
     </nav>
-    <div class="container">
+    <!--<div class="container">-->
         <%= yield %>
-    </div>
+    <!--</div>-->
 
     <footer>
         <div class="footer-container">
             <div class="footer-main">
                 <div class="footer-columna">
-                    <h3>Suscríbete</h3>
+                    <h4>Suscríbete</h4>
                     <input type="email" placeholder="Escriba su Correo">
                     <input type="submit" value=" Suscribirse">
                 </div>
 
                 <div class="footer-columna">
-                    <h3>Dirección</h3>
+                    <h4>Dirección</h4>
                     <span class="fa fa-map-marker">
                         <p>244 Av. Los Incas - Peru</p>
                     </span>
@@ -81,7 +82,7 @@
                 </div>
 
                 <div class="footer-columna">
-                    <h3>Sobre Nosotros</h3>
+                    <h4>Sobre Nosotros</h4>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur repellat autem, error iste
                         odio atque eum assumenda rem aliquam, consequatur excepturi reiciendis corrupti velit aperiam?
                     </p>
@@ -103,6 +104,7 @@
             </div>
         </div>
     </footer>
+</div>
 </body>
 
 </html>
