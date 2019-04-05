@@ -19,6 +19,10 @@ class AdministrationController < ApplicationController
     render "pages/administration/separate_departament"
   end
 
+  def admin_quotes
+    render "pages/administration/admin_quotes"
+  end
+
   def intranet
     render "pages/administration/intranet"
   end
