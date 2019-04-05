@@ -1,8 +1,16 @@
 Rails.application.routes.draw do 
+
+
+  get 'administration/base_price'
+  get 'administration/report'
+  get 'administration/proforma'
+  get 'administration/register_sales'
+  get 'administration/separate_departament'
+  
   get 'login/signup'
   get 'login/signin'
   get 'login/password_recovery'
-  
+
   get 'requestquotation/manager'
   get 'requestquotation/new'
   get 'requestquotation/edit'
