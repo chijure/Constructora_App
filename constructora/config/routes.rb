@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   get 'administration/proforma'
   get 'administration/register_sales'
   get 'administration/separate_departament'
-  
+  get 'administration/intranet'
+
   get 'login/signup'
   get 'login/signin'
   get 'login/password_recovery'
