@@ -13,10 +13,29 @@
 
 					<div class="ml-3 mt-2 row">
 						<div class="col-sm-3 pb-0">
-							<%= f.label :lblubicacion, "Ubicación" %>
+							<%= f.label :lbldireccion, "Dirección" %>
 						</div>
 						<div class="col-sm-9">
-							<%= f.text_field :tfubicacion, :class => "form-control" %>
+							<%= f.text_field :tfdireccion, :class => "form-control" %>
+						</div>
+					</div>
+
+					<div class="ml-3 mt-2 row">
+						<div class="col-sm-3 pb-0">
+							<%= f.label :lblubigeo, "Distrito" %>
+						</div>
+						<div class="col-sm-9">
+							<%= f.select :lista, 
+							[
+								["Comas", 0], 
+								["La Molina", 1],
+								["La Olivos", 2],
+								["Miraflores", 3],
+								["San Miguel", 4],
+								["Surco", 5],
+								["Surquillo", 6]
+							], 
+							{ :include_blank => "Seleccione el Distrito" }, :class => "form-control" %>
 						</div>
 					</div>
 
@@ -34,10 +53,54 @@
 
 					<div class="ml-3 mt-2 row">
 						<div class="col-sm-3">
+							<%= f.label :lblfechainicio, "Fecha Inicio" %>
+						</div>
+						<div class="col-sm-5">
+							<%= f.date_field :dffechainicio, :class => "form-control" %>
+						</div>
+						<div class="col-sm-4">
+						</div>
+					</div>
+
+					<div class="ml-3 mt-2 row">
+						<div class="col-sm-3">
+							<%= f.label :lblfechafin, "Fecha Fin" %>
+						</div>
+						<div class="col-sm-5">
+							<%= f.date_field :dffechafin, :class => "form-control" %>
+						</div>
+						<div class="col-sm-4">
+						</div>
+					</div>
+
+					<div class="ml-3 mt-2 row">
+						<div class="col-sm-3">
 							<%= f.label :lblnpisos, "N° de Pisos" %>
 						</div>
 						<div class="col-sm-5">
 							<%= f.number_field :nfnpisos, :class => "form-control" %>
+						</div>
+						<div class="col-sm-4">
+						</div>
+					</div>
+
+					<div class="ml-3 mt-2 row">
+						<div class="col-sm-3">
+							<%= f.label :lblndepartamentos, "Departamentos" %>
+						</div>
+						<div class="col-sm-5">
+							<%= f.number_field :nfndepartamentos, :class => "form-control" %>
+						</div>
+						<div class="col-sm-4">
+						</div>
+					</div>
+
+					<div class="ml-3 mt-2 row">
+						<div class="col-sm-3">
+							<%= f.label :lblnestacionamientos, "Estacionamientos" %>
+						</div>
+						<div class="col-sm-5">
+							<%= f.number_field :nfndestacionamientos, :class => "form-control" %>
 						</div>
 						<div class="col-sm-4">
 						</div>

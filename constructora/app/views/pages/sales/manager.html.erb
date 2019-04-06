@@ -1,93 +1,81 @@
 <div class="jumbotron p-4">
-	<h2><b>Gestor de Proyectos</b></h2>
+	<h2><b>Gestor de Ventas</b></h2>
 	<div class="d-flex justify-content-center mt-4">
-		<table class="table table-hover table-bordered table-sm w-100">
+		<table class="table table-hover table-bordered table-responsive table-sm w-100">
 			<thead class="thead-dark">
 				<tr>
 				  <th class="text-center" colspan="2"><%= link_to 'Nuevo', 'new' %></th>
-				  <th>Nombre</th>
-				  <th>Distrito</th>
-				  <th>Inicio</th>
-				  <th>Fin</th>
-				  <th>Precio (m²)</th>
-				  <th>Pisos</th>
-				  <th>Depart.</th>
-				  <th>Estaci.</th>
+				  <th>N° Operación</th>
+				  <th>N° Reserva</th>
+				  <th>Cliente</th>
+				  <th>Entidad Bancaria</th>
+				  <th>Fecha</th>
+				  <th>Modo Pago</th>
+				  <th>Contado</th>
+				  <th>Financiado</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
 			        <td class="text-center"><%= link_to 'Editar', 'edit' %></td>
 			        <td class="text-center"><%= link_to 'Eliminar', method: :delete, data: { confirm: 'Are you sure?' } %></td>
-			        <td>Proyecto Antares</td>
-			        <td>Miraflores</td>
-			        <td>2019/01/01</td>
-			        <td>2021/01/01</td>
-			        <td>$ 125</td>
-			        <td>20</td>
-			        <td>60</td>
-			        <td>20</td>
+			        <td>13912309</td>
+			        <td>BK2312390</td>
+			        <td>Juan Velasques Torres</td>
+			        <td>BCP</td>
+			        <td>2019-01-20</td>
+			        <td>Contado</td>
+			        <td>$ 1,000</td>
+			        <td>$ 0</td>
 				</tr>
 				<tr>
 			        <td class="text-center"><%= link_to 'Editar' %></td>
 			        <td class="text-center"><%= link_to 'Eliminar', method: :delete, data: { confirm: 'Are you sure?' } %></td>
-			        <td>Proyecto Las Lomas</td>
-			        <td>Magdalena</td>
-			        <td>2019/01/01</td>
-			        <td>2021/01/01</td>			        
-			        <td>$ 150</td>
-			        <td>15</td>
-			        <td>70</td>
-			        <td>30</td>
-				</tr>
-				<tr>
-			        <td class="text-center"><%= link_to 'Editar' %></td>
-			        <td class="text-center"><%= link_to 'Eliminar', method: :delete, data: { confirm: 'Are you sure?' } %></td>
-			        <td>Proyecto Las Torres</td>
-			        <td>La Molina</td>
-			        <td>2019/01/01</td>
-			        <td>2021/01/01</td>			        
-			        <td>$ 210</td>
-			        <td>10</td>
-			        <td>80</td>
-			        <td>50</td>
+			        <td>1391253</td>
+			        <td>BK231242</td>
+			        <td>Antonio Caceres Cruz</td>
+			        <td>BBVA</td>
+			        <td>2019-01-29</td>
+			        <td>Contado</td>
+			        <td>$ 5,000</td>
+			        <td>$ 0</td>
 
 				</tr>
 				<tr>
 			        <td class="text-center"><%= link_to 'Editar' %></td>
 			        <td class="text-center"><%= link_to 'Eliminar', method: :delete, data: { confirm: 'Are you sure?' } %></td>
-			        <td>Proyecto El Olivar</td>
-			        <td>San Isidro</td>
-			        <td>2019/01/01</td>
-			        <td>2021/01/01</td>
-			        <td>$ 180</td>
-			        <td>25</td>
-			        <td>30</td>
-			        <td>10</td>
+			        <td>13912309</td>
+			        <td>BK2312390</td>
+			        <td>Luis Perez Saenz</td>
+			        <td>Banco Pichincha</td>
+			        <td>2019-02-12</td>
+			        <td>Financiado</td>
+			        <td>$ 0</td>
+			        <td>$ 5,000</td>
 				</tr>
 				<tr>
 			        <td class="text-center"><%= link_to 'Editar' %></td>
 			        <td class="text-center"><%= link_to 'Eliminar', method: :delete, data: { confirm: 'Are you sure?' } %></td>
-			        <td>Proyecto La Aurora</td>
-			        <td>Surco</td>
-			        <td>2019/01/01</td>
-			        <td>2021/01/01</td>
-			        <td>$ 192</td>
-			        <td>16</td>
-			        <td>68</td>
-			        <td>45</td>			        
+			        <td>13912333</td>
+			        <td>BK2312412</td>
+			        <td>María Chavez Reque</td>
+			        <td>BCP</td>
+			        <td>2019-03-19</td>
+			        <td>Financiado</td>
+			        <td>$ 0</td>
+			        <td>$ 3,200</td>
 				</tr>
 				<tr>
 			        <td class="text-center"><%= link_to 'Editar' %></td>
 			        <td class="text-center"><%= link_to 'Eliminar', method: :delete, data: { confirm: 'Are you sure?' } %></td>
-			        <td>Proyecto El Alamo</td>
-			        <td>Chorrillos</td>
-			        <td>2019/01/01</td>
-			        <td>2021/01/01</td>
-			        <td>$ 162</td>
-			        <td>23</td>
-			        <td>90</td>
-			        <td>50</td>
+			        <td>13912397</td>
+			        <td>BK2312041</td>
+			        <td>Angel Miguel Flores Ramos</td>
+			        <td>Interbank</td>
+			        <td>2019-02-12</td>
+			        <td>Contado</td>
+			        <td>$ 6,000</td>
+			        <td>$ 0</td>
 				</tr>
 			</tbody>
 		</table>
@@ -113,5 +101,4 @@
     	<div class="col-sm-2">
     	</div>
     </div>
-
 </div>

@@ -1,0 +1,77 @@
+<%= form_for :newrfq, :html => { :method => :get, :class => "form-horizontal" } do |f| %>
+	<div class="jumbotron p-4">
+		<table class="jumbotron w-100">
+			<tr class="row">
+				<td class="col-sm-6">
+					<div class="ml-3 mt-4 row">
+						<div class="col-sm-2">
+							<%= f.label :lblclientname, "Nombres" %>
+						</div>
+						<div class="col-sm-10">
+							<%= f.text_field :tfclientname, :class => "form-control" %>
+						</div>
+					</div>
+
+					<div class="ml-3 mt-2 row">
+						<div class="col-sm-2">
+							<%= f.label :lblclientlastname, "Apellidos" %>
+						</div>
+						<div class="col-sm-10">
+							<%= f.text_field :tfclientlastname, :class => "form-control" %>
+						</div>
+					</div>
+
+					<div class="ml-3 mt-2 row">
+						<div class="col-sm-2">
+							<%= f.label :lblclientemail, "Correo" %>
+						</div>
+						<div class="col-sm-10">
+							<%= f.email_field :tfclientemail, :class => "form-control" %>
+						</div>
+					</div>
+
+					<div class="ml-3 mt-2 row">
+						<div class="col-sm-2">
+							<%= f.label :lblclientdocumentidentity, "DNI" %>
+						</div>
+						<div class="col-sm-10">
+							<%= f.text_field :tfclientdocumentidentity, :class => "form-control w-50" %>
+						</div>
+					</div>
+
+					<div class="ml-3 mt-2 row">
+						<div class="col-sm-2">
+							<%= f.label :lblclientphone, "Teléfono" %>
+						</div>
+						<div class="col-sm-10">
+							<%= f.telephone_field :tfclientphone, :class => "form-control w-50" %>
+						</div>
+					</div>
+
+					<div class="ml-3 mt-2 row">
+						<div class="col-sm-2">
+							<%= f.label :lblclientmessage, "Mensaje" %>
+						</div>
+						<div class="col-sm-10">
+							<%= f.text_area :taclientmessage, { :class => "form-control", :rows => 3 } %>
+						</div>
+					</div>
+
+					<div class="ml-2 mt-2 row">
+						<div class="col-sm-9">
+							<a href="/requestquotation/manager" class="btn btn-primary">Regresar</a>
+						</div>
+						<div class="text-right col-sm-3">
+							<%= f.submit "Enviar", :class => "btn btn-success" %>
+						</div>
+					</div>
+				</td>
+				<td class="col-sm-6">
+					<div>
+						<img> <%= image_tag('Edificio2_opt2.jpg', :class => "img-thumbnail") %> 
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+<% end -%>

@@ -1,0 +1,96 @@
+<div class="jumbotron p-4">
+	<h2><b>Gestor de Usuarios</b></h2>
+	<div class="d-flex justify-content-center mt-4">
+		<table class="table table-hover table-sm w-100">
+			<thead class="thead-dark">
+				<tr>
+				  <th class="text-center" colspan="2"><%= link_to 'Nuevo', 'signup' %></th>
+				  <th>Nombres</th>
+				  <th>Apellidos</th>
+				  <th>DNI</th>
+				  <th>Telefono</th>
+				  <th>Correo</th>
+				  <th>Dirección</th>
+				  <th>Distrito</th>
+				  <th>Perfil</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+			        <td class="text-center"><%= link_to 'Editar', 'signup' %></td>
+			        <td class="text-center"><%= link_to 'Eliminar', method: :delete, data: { confirm: 'Are you sure?' } %>
+			        </td>
+			        <td>Antonio</td>
+			        <td>Ferrand Caceres</td>
+			        <td>31399012</td>
+			        <td>991283991</td>
+			        <td>aferrand@hotmail.com</td>
+			        <td>Av. Las Palmeras 123</td>
+			        <td>La Molina</td>
+			        <td>Administrador</td>
+				</tr>
+				<tr>
+			        <td class="text-center"><%= link_to 'Editar' %></td>
+			        <td class="text-center"><%= link_to 'Eliminar', method: :delete, data: { confirm: 'Are you sure?' } %>
+			        </td>
+			        <td>Luis Felipe</td>
+			        <td>Vargas Machuca</td>
+			        <td>12312949</td>
+			        <td>9923489434</td>
+			        <td>lmachuca@outlook.com</td>
+			        <td>Av. Los Alisos</td>
+			        <td>La Olivos</td>
+			        <td>Asesor</td>
+				</tr>
+				<tr>
+			        <td class="text-center"><%= link_to 'Editar' %></td>
+			        <td class="text-center"><%= link_to 'Eliminar', method: :delete, data: { confirm: 'Are you sure?' } %>
+			        </td>
+			        <td>Alberto</td>
+			        <td>Navarro LLanos</td>
+			        <td>07890329</td>
+			        <td>993902302</td>
+			        <td>anavarroll@yahoo.com</td>
+			        <td>Jr. Lima 321</td>
+			        <td>Surco</td>
+			        <td>Gerente</td>
+				</tr>
+				<tr>
+			        <td class="text-center"><%= link_to 'Editar' %></td>
+			        <td class="text-center"><%= link_to 'Eliminar', method: :delete, data: { confirm: 'Are you sure?' } %>
+			        </td>
+			        <td>Fernando</td>
+			        <td>Rios Rios</td>
+			        <td>06901929</td>
+			        <td>983209399</td>
+			        <td>friosrios@hotmail.com</td>
+			        <td>Av. Tupac Amaru</td>
+			        <td>Comas</td>
+			        <td>Asesor</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+    <div class="row">
+    	<div class="col-sm-2">
+    		<a href="/administration/intranet" class="btn btn-primary btn-block">Regresar</a>
+    	</div>
+    	<div class="col-sm-3">
+    	</div>
+        <div class="btn-toolbar text-center col-sm-5" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-group mr-2" role="group" aria-label="First group">
+                <button type="button" class="btn btn-secondary"><i
+                        class="fas fa-angle-double-left"></i></button>
+                <button type="button" class="btn btn-secondary"><i
+                        class="fas fa-chevron-left"></i></button>
+                <button type="button" class="btn btn-secondary"><i
+                        class="fas fa-chevron-right"></i></button>
+                <button type="button" class="btn btn-secondary"><i
+                        class="fas fa-angle-double-right"></i></button>
+            </div>
+        </div>
+    	<div class="col-sm-2">
+    	</div>
+    </div>
+
+</div>

@@ -1,0 +1,123 @@
+<%= form_for :newqt, :html => { :method => :get, :class => "form-horizontal" } do |f| %>
+
+    <div class="container p-1">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4><strong>Formulario de datos</strong></h4>
+                    </div>
+                    <div class="card-body">
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="text" class="form-control col-sm-12" id="validationTooltipUsername"
+                                    placeholder="Ingrese cliente" aria-describedby="validationTooltipUsernamePrepend"
+                                    required>
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="validationTooltipUsernamePrepend"><i
+                                            class="fas fa-search"></i></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="formGroupExampleInput">DNI</label>
+                                <input type="text" class="form-control col-sm-8" id="formGroupExampleInput"
+                                    placeholder="Ingrese su DNI">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputState">Proyecto</label>
+                                <select id="inputState" class="form-control col-sm-8">
+                                    <option selected>Eliga un proyecto...</option>
+                                    <option>...</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="formGroupExampleInput">Nombres</label>
+                                <input type="text" class="form-control col-sm-8" id="formGroupExampleInput"
+                                    placeholder="Ingrese nombre">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputState">Ubicación</label>
+                                <select id="inputState" class="form-control col-sm-8">
+                                    <option selected>Eliga ubicación...</option>
+                                    <option>...</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="formGroupExampleInput">Apellido</label>
+                                <input type="text" class="form-control col-sm-8" id="formGroupExampleInput"
+                                    placeholder="Ingrese apellido">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="formGroupExampleInput">Estado</label>
+                                <input type="text" class="form-control col-sm-8" id="formGroupExampleInput"
+                                    placeholder="Ingrese estado">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="formGroupExampleInput">Email</label>
+                                <input type="email" class="form-control col-sm-8" id="formGroupExampleInput"
+                                    placeholder="Ingrese email">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="formGroupExampleInput">Nro Departamento</label>
+                                <input type="text" class="form-control col-sm-8" id="formGroupExampleInput"
+                                    placeholder="Ingrese nro departamento">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="formGroupExampleInput">Telefono</label>
+                                <input type="text" class="form-control col-sm-8" id="formGroupExampleInput"
+                                    placeholder="Ingrese telefono">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="formGroupExampleInput">F. Entrega</label>
+                                <input type="date" class="form-control col-sm-8" id="formGroupExampleInput">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="formGroupExampleInput">Celular</label>
+                                <input type="text" class="form-control col-sm-8" id="formGroupExampleInput"
+                                    placeholder="Ingrese celular">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="formGroupExampleInput">Vigencia</label>
+                                <input type="date" class="form-control col-sm-8" id="formGroupExampleInput">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="formGroupExampleInput">Piso</label>
+                                <select class="form-control col-sm-8" id="exampleFormControlSelect1">
+                                    <option>Seleccione el piso...</option>
+                                    <option>Piso 1</option>
+                                    <option>Piso 2</option>
+                                    <option>Piso 3</option>
+                                    <option>Piso 4</option>
+                                    <option>Piso 5</option>
+                                    <option>Piso 6</option>
+                                    <option>Piso 7</option>
+                                    <option>Piso 8</option>
+                                    <option>Piso 9</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="formGroupExampleInput">Costo</label>
+                                <input type="text" class="form-control col-sm-8 -gray" id="formGroupExampleInput"
+                                    placeholder="$ 270,600.00">
+                            </div>
+                        </div>
+                        <div class="ml-2 mt-2 row">
+                            <div class="col-sm-3">
+                                <a href="/quotation/manager" class="btn btn-primary btn-block">Cancelar</a>
+                            </div>
+                            <div class="col-sm-6">
+                            </div>
+                            <div class="text-right col-sm-3">
+                                <%= f.submit "Guardar", :class => "btn btn-success btn-block" %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<% end -%>

@@ -1,93 +1,106 @@
 <div class="jumbotron p-4">
-	<h2><b>Gestor de Proyectos</b></h2>
+	<h2><b>Gestor de Proformas</b></h2>
 	<div class="d-flex justify-content-center mt-4">
-		<table class="table table-hover table-bordered table-sm w-100">
+		<table class="table table-hover table-bordered table-responsive table-sm w-100">
 			<thead class="thead-dark">
 				<tr>
 				  <th class="text-center" colspan="2"><%= link_to 'Nuevo', 'new' %></th>
 				  <th>Nombre</th>
-				  <th>Distrito</th>
-				  <th>Inicio</th>
-				  <th>Fin</th>
-				  <th>Precio (m²)</th>
-				  <th>Pisos</th>
-				  <th>Depart.</th>
-				  <th>Estaci.</th>
+				  <th>Apellidos</th>
+				  <th>DNI</th>
+				  <!--<th>Correo</th>-->
+				  <th>Celular</th>
+				  <th>Proyecto</th>
+				  <th>Vigencia</th>
+				  <th>N° Depart.</th>
+				  <th>N° Piso</th>
+				  <th>Costo</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
 			        <td class="text-center"><%= link_to 'Editar', 'edit' %></td>
 			        <td class="text-center"><%= link_to 'Eliminar', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			        <td>Juan</td>
+			        <td>Velasques Torres</td>
+			        <td>41231231</td>
+			        <!--<td>jvelasques@outlook.com</td>-->
+			        <td>998138831</td>
 			        <td>Proyecto Antares</td>
-			        <td>Miraflores</td>
-			        <td>2019/01/01</td>
-			        <td>2021/01/01</td>
-			        <td>$ 125</td>
-			        <td>20</td>
-			        <td>60</td>
-			        <td>20</td>
+			        <td>2019/04/30</td>
+			        <td>410</td>
+			        <td>Piso 4</td>
+			        <td>$ 270,600.00</td>
 				</tr>
 				<tr>
 			        <td class="text-center"><%= link_to 'Editar' %></td>
 			        <td class="text-center"><%= link_to 'Eliminar', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			        <td>Antonio</td>
+			        <td>Caceres Cruz</td>
+			        <td>21234141</td>
+			        <!--<td>antonio919_12@gmail.com</td>-->
+			        <td>992378121</td>
 			        <td>Proyecto Las Lomas</td>
-			        <td>Magdalena</td>
-			        <td>2019/01/01</td>
-			        <td>2021/01/01</td>			        
-			        <td>$ 150</td>
-			        <td>15</td>
-			        <td>70</td>
-			        <td>30</td>
+			        <td>2019/04/15</td>
+			        <td>100</td>
+			        <td>Piso 1</td>
+			        <td>$ 310,100.00</td>
 				</tr>
 				<tr>
 			        <td class="text-center"><%= link_to 'Editar' %></td>
 			        <td class="text-center"><%= link_to 'Eliminar', method: :delete, data: { confirm: 'Are you sure?' } %></td>
-			        <td>Proyecto Las Torres</td>
-			        <td>La Molina</td>
-			        <td>2019/01/01</td>
-			        <td>2021/01/01</td>			        
-			        <td>$ 210</td>
-			        <td>10</td>
-			        <td>80</td>
-			        <td>50</td>
-
-				</tr>
-				<tr>
-			        <td class="text-center"><%= link_to 'Editar' %></td>
-			        <td class="text-center"><%= link_to 'Eliminar', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			        <td>Luis</td>
+			        <td>Perez Saenz</td>
+			        <td>08992399</td>
+			        <!--<td>lpsa190@yahoo.com</td>-->
+			        <td>998293818</td>
 			        <td>Proyecto El Olivar</td>
-			        <td>San Isidro</td>
-			        <td>2019/01/01</td>
-			        <td>2021/01/01</td>
-			        <td>$ 180</td>
-			        <td>25</td>
-			        <td>30</td>
-			        <td>10</td>
+			        <td>2019/06/02</td>
+			        <td>705</td>
+			        <td>Piso 7</td>
+			        <td>$ 240,500.00</td>
 				</tr>
 				<tr>
 			        <td class="text-center"><%= link_to 'Editar' %></td>
 			        <td class="text-center"><%= link_to 'Eliminar', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			        <td>Maria</td>
+			        <td>Chavez Reque</td>
+			        <td>09021280</td>
+			        <!--<td>mchavezr@outlook.com</td>-->
+			        <td>993103391</td>
+			        <td>Proyecto El Olivar</td>
+			        <td>2019/04/20</td>
+			        <td>102</td>
+			        <td>Piso 1</td>
+			        <td>$ 330,000.00</td>
+				</tr>
+				<tr>
+			        <td class="text-center"><%= link_to 'Editar' %></td>
+			        <td class="text-center"><%= link_to 'Eliminar', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			        <td>Angel Miguel</td>
+			        <td>Flores Ramos</td>
+			        <td>41989918</td>
+			        <!--<td>amiguelramos@gmail.com</td>-->
+			        <td>998893183</td>
 			        <td>Proyecto La Aurora</td>
-			        <td>Surco</td>
-			        <td>2019/01/01</td>
-			        <td>2021/01/01</td>
-			        <td>$ 192</td>
-			        <td>16</td>
-			        <td>68</td>
-			        <td>45</td>			        
+			        <td>2019/05/10</td>
+			        <td>520</td>
+			        <td>Piso 5</td>
+			        <td>$ 290,300.00</td>
 				</tr>
 				<tr>
 			        <td class="text-center"><%= link_to 'Editar' %></td>
 			        <td class="text-center"><%= link_to 'Eliminar', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			        <td>Miguel</td>
+			        <td>Perez Loza</td>
+			        <td>20909910</td>
+			        <!--<td>mperez2091_12@hotmail.com</td>-->
+			        <td>990239913</td>
 			        <td>Proyecto El Alamo</td>
-			        <td>Chorrillos</td>
-			        <td>2019/01/01</td>
-			        <td>2021/01/01</td>
-			        <td>$ 162</td>
-			        <td>23</td>
-			        <td>90</td>
-			        <td>50</td>
+			        <td>2019/05/10</td>
+			        <td>200</td>
+			        <td>Piso 2</td>
+			        <td>$ 305,300.00</td>
 				</tr>
 			</tbody>
 		</table>
@@ -113,5 +126,4 @@
     	<div class="col-sm-2">
     	</div>
     </div>
-
 </div>

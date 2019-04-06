@@ -5,6 +5,9 @@ class LoginController < ApplicationController
   def signin
   end
 
+  def manager
+  end  
+
   def password_recovery
   end
 end

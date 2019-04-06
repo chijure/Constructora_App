@@ -11,7 +11,16 @@ Rails.application.routes.draw do
 
   get 'login/signup'
   get 'login/signin'
+  get 'login/manager'
   get 'login/password_recovery'
+
+  get 'sales/manager'
+  get 'sales/new'
+  get 'sales/edit'
+
+  get 'quotation/manager'
+  get 'quotation/new'
+  get 'quotation/edit'
 
   get 'requestquotation/manager'
   get 'requestquotation/new'

@@ -1,0 +1,85 @@
+<%= form_for :newsale, :html => { :method => :get, :class => "form-horizontal" } do |f| %>
+
+    <div class="container p-1">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mb-4 box-shadow p-4">
+                    <div class="text-center">
+                        <i class="fas fa-money-check-alt fa-7x"></i>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="text-center p-3">
+                                <div class="form-group">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="inlineRadio1" value="option1">
+                                        <label class="form-check-label" for="inlineRadio1">Contado</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="inlineRadio3" value="option3">
+                                        <label class="form-check-label" for="inlineRadio3">Financiado</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row offset-md-4">
+                                <label for="formGroupExampleInput" class="col-sm-2 col-form-label">Nro Reserva</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control col-sm-4" id="formGroupExampleInput"
+                                        placeholder="436788843">
+                                </div>
+                            </div>
+                            <div class="form-group row offset-md-4">
+                                <label for="formGroupExampleInput" class="col-sm-2 col-form-label">Banco</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control col-sm-6" id="exampleFormControlSelect1">
+                                        <option>Seleccione el banco...</option>
+                                        <option>BCP</option>
+                                        <option>BBVA</option>
+                                        <option>Banco Pichincha</option>
+                                        <option>Interbank</option>
+                                        <option>Banco de la Nación</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row offset-md-4">
+                                <label for="formGroupExampleInput" class="col-sm-2 col-form-label">Nro Operación</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control col-sm-4" id="formGroupExampleInput"
+                                        placeholder="436788843">
+                                </div>
+                            </div>
+                            <div class="form-group row offset-md-4">
+                                <label for="formGroupExampleInput2" class="col-sm-2 col-form-label">Monto Contado</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control col-sm-4" id="formGroupExampleInput2" placeholder="$">
+                                </div>
+                            </div>
+                            <div class="form-group row offset-md-4">
+                                <label for="formGroupExampleInput2" class="col-sm-2 col-form-label">Monto Financiado.</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control col-sm-4" id="formGroupExampleInput2" placeholder="$">
+                                </div>
+                            </div>
+                            <div class="ml-2 mt-2 row">
+                                <div class="col-sm-4">
+                                </div>
+                                <div class="col-sm-2">
+                                    <a href="/sales/manager" class="btn btn-primary btn-block">Regresar</a>
+                                </div>
+                                <div class="text-right col-sm-2">
+                                    <%= f.submit "Guardar", :class => "btn btn-success btn-block" %>
+                                </div>
+                                <div class="col-sm-4">
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<% end -%>
