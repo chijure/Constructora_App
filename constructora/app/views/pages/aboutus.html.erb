@@ -1,0 +1,33 @@
+<%= form_for :aboutus, :html => { :method => :get, :class => "form-horizontal" } do |f| %>
+	<div class="jumbotron p-4">
+		<h2><b>Nosotros</b></h2>
+		<table class="jumbotron w-100">
+			<tr class="row">
+				<td class="col-sm-6">
+					<div class="ml-3 mt-4 row col-sm-12">
+						<p class="text-justify">
+							En Constructora J&J, la Creatividad es lo principal de cada una de nuestras propuestas con la finalidad de desarrollar productos inmobiliarios que funcional y estéticamente cumplan con las necesidades de desarrollo de nuestros clientes.
+							<br>
+							<br>
+							La Empatía, como el conector esencial y vital para generar experiencias positivas en cada uno de nuestros clientes y colaboradores. Partimos de una sinergia interna, donde la creatividad y la empatía no son un encargo, sino la razón de ser de Senda.
+						</p>
+					</div>
+
+					<div class="ml-2 mt-2 row">
+						<div class="col-sm-9">
+							<a href="/" class="btn btn-primary">Inicio</a>
+						</div>
+						<div class="text-right col-sm-3">
+							
+						</div>
+					</div>
+				</td>
+				<td class="col-sm-6">
+					<div>
+						<img> <%= image_tag('Logo.png', :size=>"370x3160",  :class => "img-thumbnail") %> 
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+<% end -%>
