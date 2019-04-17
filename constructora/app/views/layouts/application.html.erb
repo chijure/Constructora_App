@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Constructora</title>
+    <title>Constructora J&J</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -34,85 +34,15 @@
 </head>
 
 <body>
-<div class="container">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">
-            <%= link_to image_tag("Logo.png", :size=>"80x80"), "/" %>
-            <h1 class="text-primary"><b>Constructora J&J</b></h1>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                </li>
-                
-                <li class="nav-item">
-                    <a class="nav-link" href="/pages/aboutus">Nosotros</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/pages/contactus">Contáctanos</a>
-                </li>
-            
-                <li class="nav-item">
-                    <a class="nav-link" href="/login/signin">Intranet</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <!--<div class="container">-->
+    <div class="container">
+        
+        <%= render 'layouts/navbar' %>
+
         <%= yield %>
-    <!--</div>-->
 
-    <footer>
-        <div class="footer-container">
-            <div class="footer-main">
-                <div class="footer-columna">
-                    <h4>Suscríbete</h4>
-                    <input type="email" placeholder="Escriba su Correo">
-                    <input type="submit" value=" Suscribirse">
-                </div>
-
-                <div class="footer-columna">
-                    <h4>Dirección</h4>
-                    <span class="fa fa-map-marker">
-                        <p>244 Av. Los Incas - Peru</p>
-                    </span>
-                    <span class="fa fa-phone">
-                        <p>(+51) 67 372373</p>
-                    </span>
-                    <span class="fa fa-envelope">
-                        <p>info@constructorajyj.com</p>
-                    </span>
-                </div>
-
-                <div class="footer-columna">
-                    <h4>Sobre Nosotros</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur repellat autem, error iste
-                        odio atque eum assumenda rem
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-copy-redes">
-            <div class="main-copy-redes">
-                <div class="footer-copy">
-                    &copy; 2019, Todos los derechos reservados - J&J Constructora
-                </div>
-                <div class="footer-redes">
-                    <a href="#" class="fab fa-facebook"></a>
-                    <a href="#" class="fab fa-twitter"></a>
-                    <a href="#" class="fab fa-youtube"></a>
-                    <a href="#" class="fab fa-github"></a>
-                </div>
-            </div>
-        </div>
-    </footer>
-</div>
+        <%= render 'layouts/footer' %>
+        
+    </div>
 </body>
 
 </html>
