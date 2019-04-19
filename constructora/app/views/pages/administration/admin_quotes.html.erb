@@ -223,12 +223,13 @@
                         <div class="row m-4">
 
                             <div class="col-sm-8">
-                                <button type="button" class="btn btn-info btn-lg">Guardar Cita</button>
-                                <button type="button" class="btn btn-info btn-lg">Cancelar</button>
+                                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#saveModalCenter">Guardar Cita</button>
+                                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#cancelModalCenter">Cancelar</button>
                             </div>
 
                             <div class="col-sm-4">
-                                <button type="button" class="btn btn-info btn-lg">Proforma</button>
+                                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modalWindow">Proforma</button>
+                                <%= render 'pages/administration/modal' %>
                             </div>
 
                         </div>
