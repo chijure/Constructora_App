@@ -1,24 +1,22 @@
 <div class="jumbotron p-4">
 	<h2><b>Gestor de Ventas</b></h2>
-	<div class="d-flex justify-content-center mt-4">
-		<table class="table table-hover table-bordered table-responsive table-sm w-100">
+	<div class="table-responsive-sm">
+		<table class="table table-striped table-hover">
 			<thead class="thead-dark">
 				<tr>
-				  <th class="text-center" colspan="2"><%= link_to 'Nuevo', 'new' %></th>
-				  <th>N° Operación</th>
+				  <th class="text-center">N° Operación</th>
 				  <th>N° Reserva</th>
 				  <th>Cliente</th>
 				  <th>Entidad Bancaria</th>
 				  <th>Fecha</th>
-				  <th>Modo Pago</th>
+				  <th class="text-center">Modo Pago</th>
 				  <th>Contado</th>
 				  <th>Financiado</th>
+				  <th class="text-center" colspan="2"><%= link_to 'Nuevo', 'new' %></th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-			        <td class="text-center"><%= link_to 'Editar', 'edit' %></td>
-			        <td class="text-center"><%= link_to 'Eliminar', method: :delete, data: { confirm: 'Are you sure?' } %></td>
 			        <td>13912309</td>
 			        <td>BK2312390</td>
 			        <td>Juan Velasques Torres</td>
@@ -27,10 +25,10 @@
 			        <td>Contado</td>
 			        <td>$ 1,000</td>
 			        <td>$ 0</td>
+				    <td class="text-center"><%= link_to 'Editar', 'edit' %></td>
+			        <td class="text-center"><%= link_to 'Eliminar', method: :delete, data: { confirm: 'Are you sure?' } %></td>
 				</tr>
 				<tr>
-			        <td class="text-center"><%= link_to 'Editar' %></td>
-			        <td class="text-center"><%= link_to 'Eliminar', method: :delete, data: { confirm: 'Are you sure?' } %></td>
 			        <td>1391253</td>
 			        <td>BK231242</td>
 			        <td>Antonio Caceres Cruz</td>
@@ -39,11 +37,10 @@
 			        <td>Contado</td>
 			        <td>$ 5,000</td>
 			        <td>$ 0</td>
-
+                    <td class="text-center"><%= link_to 'Editar' %></td>
+			        <td class="text-center"><%= link_to 'Eliminar', method: :delete, data: { confirm: 'Are you sure?' } %></td>
 				</tr>
 				<tr>
-			        <td class="text-center"><%= link_to 'Editar' %></td>
-			        <td class="text-center"><%= link_to 'Eliminar', method: :delete, data: { confirm: 'Are you sure?' } %></td>
 			        <td>13912309</td>
 			        <td>BK2312390</td>
 			        <td>Luis Perez Saenz</td>
@@ -52,10 +49,10 @@
 			        <td>Financiado</td>
 			        <td>$ 0</td>
 			        <td>$ 5,000</td>
+                    <td class="text-center"><%= link_to 'Editar' %></td>
+			        <td class="text-center"><%= link_to 'Eliminar', method: :delete, data: { confirm: 'Are you sure?' } %></td>
 				</tr>
 				<tr>
-			        <td class="text-center"><%= link_to 'Editar' %></td>
-			        <td class="text-center"><%= link_to 'Eliminar', method: :delete, data: { confirm: 'Are you sure?' } %></td>
 			        <td>13912333</td>
 			        <td>BK2312412</td>
 			        <td>María Chavez Reque</td>
@@ -64,10 +61,10 @@
 			        <td>Financiado</td>
 			        <td>$ 0</td>
 			        <td>$ 3,200</td>
+                    <td class="text-center"><%= link_to 'Editar' %></td>
+			        <td class="text-center"><%= link_to 'Eliminar', method: :delete, data: { confirm: 'Are you sure?' } %></td>
 				</tr>
 				<tr>
-			        <td class="text-center"><%= link_to 'Editar' %></td>
-			        <td class="text-center"><%= link_to 'Eliminar', method: :delete, data: { confirm: 'Are you sure?' } %></td>
 			        <td>13912397</td>
 			        <td>BK2312041</td>
 			        <td>Angel Miguel Flores Ramos</td>
@@ -76,16 +73,18 @@
 			        <td>Contado</td>
 			        <td>$ 6,000</td>
 			        <td>$ 0</td>
+                    <td class="text-center"><%= link_to 'Editar' %></td>
+			        <td class="text-center"><%= link_to 'Eliminar', method: :delete, data: { confirm: 'Are you sure?' } %></td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
-    <div class="row">
+    <div class="row p-4">
     	<div class="col-sm-2">
     		<a href="/administration/intranet" class="btn btn-primary btn-block">Regresar</a>
     	</div>
-    	<div class="col-sm-3">
-    	</div>
+        <br><br>
+        <div class="col-sm-3"></div>
         <div class="btn-toolbar text-center col-sm-5" role="toolbar" aria-label="Toolbar with button groups">
             <div class="btn-group mr-2" role="group" aria-label="First group">
                 <button type="button" class="btn btn-secondary"><i
@@ -98,7 +97,6 @@
                         class="fas fa-angle-double-right"></i></button>
             </div>
         </div>
-    	<div class="col-sm-2">
-    	</div>
+    	<div class="col-sm-2"></div>
     </div>
 </div>
