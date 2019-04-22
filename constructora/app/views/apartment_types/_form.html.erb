@@ -1,0 +1,62 @@
+<%= form_with(model: apartment_type, local: true) do |form| %>
+  <% if apartment_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(apartment_type.errors.count, "error") %> prohibited this apartment_type from being saved:</h2>
+
+      <ul>
+      <% apartment_type.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :IdApartmentType %>
+    <%= form.text_field :IdApartmentType %>
+  </div>
+
+  <div class="field">
+    <%= form.label :IdProject %>
+    <%= form.text_field :IdProject %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Name %>
+    <%= form.text_field :Name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Quantity %>
+    <%= form.number_field :Quantity %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Available %>
+    <%= form.number_field :Available %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Sold %>
+    <%= form.number_field :Sold %>
+  </div>
+
+  <div class="field">
+    <%= form.label :BasePrice %>
+    <%= form.text_field :BasePrice %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Area %>
+    <%= form.text_field :Area %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Status %>
+    <%= form.number_field :Status %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

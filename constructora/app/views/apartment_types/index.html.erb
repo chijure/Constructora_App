@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Apartment Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Idapartmenttype</th>
+      <th>Idproject</th>
+      <th>Name</th>
+      <th>Quantity</th>
+      <th>Available</th>
+      <th>Sold</th>
+      <th>Baseprice</th>
+      <th>Area</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @apartment_types.each do |apartment_type| %>
+      <tr>
+        <td><%= apartment_type.IdApartmentType %></td>
+        <td><%= apartment_type.IdProject %></td>
+        <td><%= apartment_type.Name %></td>
+        <td><%= apartment_type.Quantity %></td>
+        <td><%= apartment_type.Available %></td>
+        <td><%= apartment_type.Sold %></td>
+        <td><%= apartment_type.BasePrice %></td>
+        <td><%= apartment_type.Area %></td>
+        <td><%= apartment_type.Status %></td>
+        <td><%= link_to 'Show', apartment_type %></td>
+        <td><%= link_to 'Edit', edit_apartment_type_path(apartment_type) %></td>
+        <td><%= link_to 'Destroy', apartment_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Apartment Type', new_apartment_type_path %>

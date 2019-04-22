@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Apartment Bookings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Idapartmentbooking</th>
+      <th>Idquotation</th>
+      <th>Idclient</th>
+      <th>Idbank</th>
+      <th>Bookingdate</th>
+      <th>Bookprice</th>
+      <th>Vouchernumber</th>
+      <th>Isactive</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @apartment_bookings.each do |apartment_booking| %>
+      <tr>
+        <td><%= apartment_booking.IdApartmentBooking %></td>
+        <td><%= apartment_booking.IdQuotation %></td>
+        <td><%= apartment_booking.IdClient %></td>
+        <td><%= apartment_booking.IdBank %></td>
+        <td><%= apartment_booking.BookingDate %></td>
+        <td><%= apartment_booking.BookPrice %></td>
+        <td><%= apartment_booking.VoucherNumber %></td>
+        <td><%= apartment_booking.IsActive %></td>
+        <td><%= link_to 'Show', apartment_booking %></td>
+        <td><%= link_to 'Edit', edit_apartment_booking_path(apartment_booking) %></td>
+        <td><%= link_to 'Destroy', apartment_booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Apartment Booking', new_apartment_booking_path %>

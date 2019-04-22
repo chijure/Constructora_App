@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Idappointment:</strong>
+  <%= @appointment.IdAppointment %>
+</p>
+
+<p>
+  <strong>Idrequestquotation:</strong>
+  <%= @appointment.IdRequestQuotation %>
+</p>
+
+<p>
+  <strong>Appointmentdate:</strong>
+  <%= @appointment.AppointmentDate %>
+</p>
+
+<p>
+  <strong>Isattended:</strong>
+  <%= @appointment.IsAttended %>
+</p>
+
+<%= link_to 'Edit', edit_appointment_path(@appointment) %> |
+<%= link_to 'Back', appointments_path %>

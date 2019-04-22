@@ -1,0 +1,2 @@
+class RequestQuotation < ApplicationRecord
+end

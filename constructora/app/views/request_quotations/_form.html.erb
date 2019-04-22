@@ -1,0 +1,67 @@
+<%= form_with(model: request_quotation, local: true) do |form| %>
+  <% if request_quotation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(request_quotation.errors.count, "error") %> prohibited this request_quotation from being saved:</h2>
+
+      <ul>
+      <% request_quotation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :IdRequestQuotation %>
+    <%= form.text_field :IdRequestQuotation %>
+  </div>
+
+  <div class="field">
+    <%= form.label :IdProject %>
+    <%= form.text_field :IdProject %>
+  </div>
+
+  <div class="field">
+    <%= form.label :IdUser %>
+    <%= form.text_field :IdUser %>
+  </div>
+
+  <div class="field">
+    <%= form.label :IdentityNumber %>
+    <%= form.text_field :IdentityNumber %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Name %>
+    <%= form.text_field :Name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :LastName %>
+    <%= form.text_field :LastName %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Mail %>
+    <%= form.text_field :Mail %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Phone %>
+    <%= form.text_field :Phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :RequestDate %>
+    <%= form.date_select :RequestDate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Status %>
+    <%= form.number_field :Status %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

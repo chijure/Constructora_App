@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Idsale:</strong>
+  <%= @sale.IdSale %>
+</p>
+
+<p>
+  <strong>Idapartmenttype:</strong>
+  <%= @sale.IdApartmentType %>
+</p>
+
+<p>
+  <strong>Idapartmentbooking:</strong>
+  <%= @sale.IdApartmentBooking %>
+</p>
+
+<p>
+  <strong>Idbank:</strong>
+  <%= @sale.IdBank %>
+</p>
+
+<p>
+  <strong>Saledate:</strong>
+  <%= @sale.SaleDate %>
+</p>
+
+<p>
+  <strong>Paymenttype:</strong>
+  <%= @sale.PaymentType %>
+</p>
+
+<p>
+  <strong>Cashamount:</strong>
+  <%= @sale.CashAmount %>
+</p>
+
+<p>
+  <strong>Financedamount:</strong>
+  <%= @sale.FinancedAmount %>
+</p>
+
+<p>
+  <strong>Isactive:</strong>
+  <%= @sale.IsActive %>
+</p>
+
+<%= link_to 'Edit', edit_sale_path(@sale) %> |
+<%= link_to 'Back', sales_path %>

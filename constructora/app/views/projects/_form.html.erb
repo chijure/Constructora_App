@@ -1,0 +1,82 @@
+<%= form_with(model: project, local: true) do |form| %>
+  <% if project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% project.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :IdProject %>
+    <%= form.text_field :IdProject %>
+  </div>
+
+  <div class="field">
+    <%= form.label :IdCity %>
+    <%= form.text_field :IdCity %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Name %>
+    <%= form.text_field :Name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Price %>
+    <%= form.text_field :Price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :StartDate %>
+    <%= form.date_select :StartDate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :EndDate %>
+    <%= form.date_select :EndDate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Address %>
+    <%= form.text_field :Address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Description %>
+    <%= form.text_field :Description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Floors %>
+    <%= form.number_field :Floors %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ApartmentsQuantity %>
+    <%= form.number_field :ApartmentsQuantity %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ParkingsQuantity %>
+    <%= form.number_field :ParkingsQuantity %>
+  </div>
+
+  <div class="field">
+    <%= form.label :AvailableParkings %>
+    <%= form.number_field :AvailableParkings %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Status %>
+    <%= form.number_field :Status %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

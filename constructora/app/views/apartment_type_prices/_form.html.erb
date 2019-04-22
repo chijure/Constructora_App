@@ -1,0 +1,57 @@
+<%= form_with(model: apartment_type_price, local: true) do |form| %>
+  <% if apartment_type_price.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(apartment_type_price.errors.count, "error") %> prohibited this apartment_type_price from being saved:</h2>
+
+      <ul>
+      <% apartment_type_price.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :IdApartmentTypePrice %>
+    <%= form.text_field :IdApartmentTypePrice %>
+  </div>
+
+  <div class="field">
+    <%= form.label :IdApartmentType %>
+    <%= form.text_field :IdApartmentType %>
+  </div>
+
+  <div class="field">
+    <%= form.label :RegisterDate %>
+    <%= form.datetime_select :RegisterDate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ValidFor %>
+    <%= form.number_field :ValidFor %>
+  </div>
+
+  <div class="field">
+    <%= form.label :PercentajeDiscount %>
+    <%= form.text_field :PercentajeDiscount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Floor %>
+    <%= form.number_field :Floor %>
+  </div>
+
+  <div class="field">
+    <%= form.label :FinalPrice %>
+    <%= form.text_field :FinalPrice %>
+  </div>
+
+  <div class="field">
+    <%= form.label :IsActive %>
+    <%= form.check_box :IsActive %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

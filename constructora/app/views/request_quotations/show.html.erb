@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Idrequestquotation:</strong>
+  <%= @request_quotation.IdRequestQuotation %>
+</p>
+
+<p>
+  <strong>Idproject:</strong>
+  <%= @request_quotation.IdProject %>
+</p>
+
+<p>
+  <strong>Iduser:</strong>
+  <%= @request_quotation.IdUser %>
+</p>
+
+<p>
+  <strong>Identitynumber:</strong>
+  <%= @request_quotation.IdentityNumber %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @request_quotation.Name %>
+</p>
+
+<p>
+  <strong>Lastname:</strong>
+  <%= @request_quotation.LastName %>
+</p>
+
+<p>
+  <strong>Mail:</strong>
+  <%= @request_quotation.Mail %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @request_quotation.Phone %>
+</p>
+
+<p>
+  <strong>Requestdate:</strong>
+  <%= @request_quotation.RequestDate %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @request_quotation.Status %>
+</p>
+
+<%= link_to 'Edit', edit_request_quotation_path(@request_quotation) %> |
+<%= link_to 'Back', request_quotations_path %>

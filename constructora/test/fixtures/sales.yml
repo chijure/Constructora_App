@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  IdSale: MyString
+  IdApartmentType: MyString
+  IdApartmentBooking: MyString
+  IdBank: MyString
+  SaleDate: 2019-04-22
+  PaymentType: 1
+  CashAmount: 1.5
+  FinancedAmount: 1.5
+  IsActive: false
+
+two:
+  IdSale: MyString
+  IdApartmentType: MyString
+  IdApartmentBooking: MyString
+  IdBank: MyString
+  SaleDate: 2019-04-22
+  PaymentType: 1
+  CashAmount: 1.5
+  FinancedAmount: 1.5
+  IsActive: false

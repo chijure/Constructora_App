@@ -1,0 +1,9 @@
+<div class="jumbotron p-4">
+  <h2><b>Editar | Usuario</b></h2>
+	<div class="table-responsive-sm w-50">
+		<%= render 'form', user: @user %>
+
+		<%= link_to image_tag('ShowIconBig.png'), @user, title: 'Ver' %> |
+		<%= link_to image_tag('BackIconBig.png'), users_path, title: 'Atras'  %>
+	</div>
+</div>

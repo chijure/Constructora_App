@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  IdAppointment: MyString
+  IdRequestQuotation: MyString
+  AppointmentDate: 2019-04-21 23:26:16
+  IsAttended: false
+
+two:
+  IdAppointment: MyString
+  IdRequestQuotation: MyString
+  AppointmentDate: 2019-04-21 23:26:16
+  IsAttended: false

@@ -1,0 +1,102 @@
+<%= form_with(model: user, local: true) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h5 class="text-danger">Se encontraron los siguiente errores:</h5>
+
+      <ul class="ml-3 text-danger">
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-2">
+      <%= form.label :IdProfile, 'Perfil' %>
+    </div>
+    <div class="col-sm-10">
+      <%= form.text_field :IdProfile, :class => "form-control" %>
+    </div>
+  </div>    
+  <div class="ml-3 mt-2 row">
+    <div class="col-sm-2">
+      <%= form.label :IdCity, 'Distrito' %>
+    </div>
+    <div class="col-sm-10">
+      <%= form.text_field :IdCity, :class => "form-control" %>
+    </div>
+  </div>
+
+
+  <div class="ml-3 mt-2 row">
+    <div class="col-sm-2">
+      <%= form.label :IdentityNumber, 'Num Id.' %>
+    </div>
+    <div class="col-sm-10">
+      <%= form.text_field :IdentityNumber, :class => "form-control" %>
+    </div>
+  </div>
+
+  <div class="ml-3 mt-2 row">
+    <div class="col-sm-2">
+      <%= form.label :Name, 'Nombre' %>
+    </div>
+    <div class="col-sm-10">
+      <%= form.text_field :Name, :class => "form-control" %>
+    </div>
+  </div>
+
+  <div class="ml-3 mt-2 row">
+    <div class="col-sm-2">
+      <%= form.label :LastName, 'Apellidos' %>
+    </div>
+    <div class="col-sm-10">
+      <%= form.text_field :LastName, :class => "form-control" %>
+    </div>
+  </div>
+
+  <div class="ml-3 mt-2 row">
+    <div class="col-sm-2">
+      <%= form.label :Address, 'Dirección' %>
+    </div>
+    <div class="col-sm-10">
+      <%= form.text_field :Address, :class => "form-control" %>
+    </div>
+  </div>
+
+  <div class="ml-3 mt-2 row">
+    <div class="col-sm-2">
+      <%= form.label :Mail, 'Correo' %>
+    </div>
+    <div class="col-sm-10">
+      <%= form.text_field :Mail, :class => "form-control" %>
+    </div>
+  </div>
+
+  <div class="ml-3 mt-2 row">
+    <div class="col-sm-2">
+      <%= form.label :Phone, 'Telefono' %>
+    </div>
+    <div class="col-sm-10">
+      <%= form.text_field :Phone, :class => "form-control" %>
+    </div>
+  </div>
+
+  <div class="ml-3 mt-2 row">
+    <div class="col-sm-2">
+      <%= form.label :IsActive, 'Activo' %>
+    </div>
+    <div class="col-sm-10">
+      <%= form.check_box :IsActive, :class => "form-control" %>
+    </div>
+  </div>
+
+  <br>
+  <div class="actions">
+    <%= form.submit "Guardar", :type => :image, :src => "/assets/SaveIconBig.png", :title => 'Guardar' %>
+  </div>
+<% end %>

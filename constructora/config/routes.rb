@@ -1,6 +1,20 @@
 Rails.application.routes.draw do 
 
 
+  resources :sales
+  resources :apartment_type_prices
+  resources :banks
+  resources :apartment_bookings
+  resources :apartment_types
+  resources :quotations
+  resources :projects
+  resources :request_quotations
+  resources :appointments
+  resources :users
+  resources :clients
+  resources :profiles
+  resources :cities
+  resources :states
   get 'administration/base_price'
   get 'administration/report'
   get 'administration/proforma'

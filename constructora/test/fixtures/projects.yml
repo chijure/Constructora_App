@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  IdProject: MyString
+  IdCity: MyString
+  Name: MyString
+  Price: 1.5
+  StartDate: 2019-04-22
+  EndDate: 2019-04-22
+  Address: MyString
+  Description: MyString
+  Floors: 1
+  ApartmentsQuantity: 1
+  ParkingsQuantity: 1
+  AvailableParkings: 1
+  Status: 1
+
+two:
+  IdProject: MyString
+  IdCity: MyString
+  Name: MyString
+  Price: 1.5
+  StartDate: 2019-04-22
+  EndDate: 2019-04-22
+  Address: MyString
+  Description: MyString
+  Floors: 1
+  ApartmentsQuantity: 1
+  ParkingsQuantity: 1
+  AvailableParkings: 1
+  Status: 1

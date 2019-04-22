@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Projects</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Idproject</th>
+      <th>Idcity</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Startdate</th>
+      <th>Enddate</th>
+      <th>Address</th>
+      <th>Description</th>
+      <th>Floors</th>
+      <th>Apartmentsquantity</th>
+      <th>Parkingsquantity</th>
+      <th>Availableparkings</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @projects.each do |project| %>
+      <tr>
+        <td><%= project.IdProject %></td>
+        <td><%= project.IdCity %></td>
+        <td><%= project.Name %></td>
+        <td><%= project.Price %></td>
+        <td><%= project.StartDate %></td>
+        <td><%= project.EndDate %></td>
+        <td><%= project.Address %></td>
+        <td><%= project.Description %></td>
+        <td><%= project.Floors %></td>
+        <td><%= project.ApartmentsQuantity %></td>
+        <td><%= project.ParkingsQuantity %></td>
+        <td><%= project.AvailableParkings %></td>
+        <td><%= project.Status %></td>
+        <td><%= link_to 'Show', project %></td>
+        <td><%= link_to 'Edit', edit_project_path(project) %></td>
+        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Project', new_project_path %>

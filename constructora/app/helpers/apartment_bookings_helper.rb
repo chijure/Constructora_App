@@ -1,0 +1,2 @@
+module ApartmentBookingsHelper
+end

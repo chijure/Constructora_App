@@ -1,0 +1,2 @@
+class ApartmentType < ApplicationRecord
+end

@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Request Quotations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Idrequestquotation</th>
+      <th>Idproject</th>
+      <th>Iduser</th>
+      <th>Identitynumber</th>
+      <th>Name</th>
+      <th>Lastname</th>
+      <th>Mail</th>
+      <th>Phone</th>
+      <th>Requestdate</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @request_quotations.each do |request_quotation| %>
+      <tr>
+        <td><%= request_quotation.IdRequestQuotation %></td>
+        <td><%= request_quotation.IdProject %></td>
+        <td><%= request_quotation.IdUser %></td>
+        <td><%= request_quotation.IdentityNumber %></td>
+        <td><%= request_quotation.Name %></td>
+        <td><%= request_quotation.LastName %></td>
+        <td><%= request_quotation.Mail %></td>
+        <td><%= request_quotation.Phone %></td>
+        <td><%= request_quotation.RequestDate %></td>
+        <td><%= request_quotation.Status %></td>
+        <td><%= link_to 'Show', request_quotation %></td>
+        <td><%= link_to 'Edit', edit_request_quotation_path(request_quotation) %></td>
+        <td><%= link_to 'Destroy', request_quotation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Request Quotation', new_request_quotation_path %>

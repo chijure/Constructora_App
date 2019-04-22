@@ -1,0 +1,22 @@
+<%= form_with(model: state, local: true) do |form| %>
+  <% if state.errors.any? %>
+    <div id="error_explanation">
+      <h5 class="text-danger">Se encontraron los siguiente errores:</h5>
+
+      <ul class="ml-3 text-danger">
+      <% state.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :Name, 'Nombre' %>
+    <%= form.text_field :Name, :class => "form-control" %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= form.submit "Guardar", :type => :image, :src => "/assets/SaveIconBig.png", :title => 'Guardar' %>
+  </div>
+<% end %>

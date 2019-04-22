@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Apartment Type Prices</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Idapartmenttypeprice</th>
+      <th>Idapartmenttype</th>
+      <th>Registerdate</th>
+      <th>Validfor</th>
+      <th>Percentajediscount</th>
+      <th>Floor</th>
+      <th>Finalprice</th>
+      <th>Isactive</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @apartment_type_prices.each do |apartment_type_price| %>
+      <tr>
+        <td><%= apartment_type_price.IdApartmentTypePrice %></td>
+        <td><%= apartment_type_price.IdApartmentType %></td>
+        <td><%= apartment_type_price.RegisterDate %></td>
+        <td><%= apartment_type_price.ValidFor %></td>
+        <td><%= apartment_type_price.PercentajeDiscount %></td>
+        <td><%= apartment_type_price.Floor %></td>
+        <td><%= apartment_type_price.FinalPrice %></td>
+        <td><%= apartment_type_price.IsActive %></td>
+        <td><%= link_to 'Show', apartment_type_price %></td>
+        <td><%= link_to 'Edit', edit_apartment_type_price_path(apartment_type_price) %></td>
+        <td><%= link_to 'Destroy', apartment_type_price, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Apartment Type Price', new_apartment_type_price_path %>

@@ -1,0 +1,47 @@
+<%= form_with(model: quotation, local: true) do |form| %>
+  <% if quotation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(quotation.errors.count, "error") %> prohibited this quotation from being saved:</h2>
+
+      <ul>
+      <% quotation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :IdQuotation %>
+    <%= form.text_field :IdQuotation %>
+  </div>
+
+  <div class="field">
+    <%= form.label :IdRequestQuotation %>
+    <%= form.text_field :IdRequestQuotation %>
+  </div>
+
+  <div class="field">
+    <%= form.label :QuotationDate %>
+    <%= form.date_select :QuotationDate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Price %>
+    <%= form.text_field :Price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ValidFor %>
+    <%= form.number_field :ValidFor %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Status %>
+    <%= form.number_field :Status %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

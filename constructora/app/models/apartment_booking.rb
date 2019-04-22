@@ -1,0 +1,2 @@
+class ApartmentBooking < ApplicationRecord
+end

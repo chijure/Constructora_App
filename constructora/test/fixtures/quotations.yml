@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  IdQuotation: MyString
+  IdRequestQuotation: MyString
+  QuotationDate: 2019-04-22
+  Price: 1.5
+  ValidFor: 1
+  Status: 1
+
+two:
+  IdQuotation: MyString
+  IdRequestQuotation: MyString
+  QuotationDate: 2019-04-22
+  Price: 1.5
+  ValidFor: 1
+  Status: 1

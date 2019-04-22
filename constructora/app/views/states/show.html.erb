@@ -1,0 +1,16 @@
+<div class="jumbotron p-4">
+  <h2><b>Ver | Ubigeo - Departamento</b></h2>
+	<div class="table-responsive-sm w-50">
+		<h5>
+			<p id="notice" class="badge badge-pill badge-success pt-2 pb-2"><%= notice %></p>
+		</h5>		
+
+		<p>
+		  <strong>Name:</strong>
+		  <%= @state.Name %>
+		</p>
+
+		<%= link_to image_tag('EditIconBig.png'), edit_state_path(@state), title: 'Editar' %> |
+		<%= link_to image_tag('BackIconBig.png'), states_path, title: 'Atras'  %>
+	</div>
+</div>

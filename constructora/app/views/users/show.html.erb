@@ -1,0 +1,56 @@
+<div class="jumbotron p-4">
+  <h2><b>Ver | Usuario</b></h2>
+  <div class="table-responsive-sm w-50">
+    <h5>
+      <p id="notice" class="badge badge-pill badge-success pt-2 pb-2"><%= notice %></p>
+    </h5>   
+
+    <p>
+      <strong>Perfil:</strong>
+      <%= @user.IdProfile %>
+    </p>
+
+    <p>
+      <strong>Distrito:</strong>
+      <%= @user.IdCity %>
+    </p>
+
+    <p>
+      <strong>Número Identidad:</strong>
+      <%= @user.IdentityNumber %>
+    </p>
+
+    <p>
+      <strong>Nombre:</strong>
+      <%= @user.Name %>
+    </p>
+
+    <p>
+      <strong>Apellidos:</strong>
+      <%= @user.LastName %>
+    </p>
+
+    <p>
+      <strong>Dirección:</strong>
+      <%= @user.Address %>
+    </p>
+
+    <p>
+      <strong>Correo:</strong>
+      <%= @user.Mail %>
+    </p>
+
+    <p>
+      <strong>Teléfono:</strong>
+      <%= @user.Phone %>
+    </p>
+
+    <p>
+      <strong>Activo:</strong>
+      <%= @user.IsActive %>
+    </p>
+
+    <%= link_to image_tag('EditIconBig.png'), edit_user_path(@user), title: 'Editar' %> |
+    <%= link_to image_tag('BackIconBig.png'), users_path, title: 'Atras'  %>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Idapartmentbooking:</strong>
+  <%= @apartment_booking.IdApartmentBooking %>
+</p>
+
+<p>
+  <strong>Idquotation:</strong>
+  <%= @apartment_booking.IdQuotation %>
+</p>
+
+<p>
+  <strong>Idclient:</strong>
+  <%= @apartment_booking.IdClient %>
+</p>
+
+<p>
+  <strong>Idbank:</strong>
+  <%= @apartment_booking.IdBank %>
+</p>
+
+<p>
+  <strong>Bookingdate:</strong>
+  <%= @apartment_booking.BookingDate %>
+</p>
+
+<p>
+  <strong>Bookprice:</strong>
+  <%= @apartment_booking.BookPrice %>
+</p>
+
+<p>
+  <strong>Vouchernumber:</strong>
+  <%= @apartment_booking.VoucherNumber %>
+</p>
+
+<p>
+  <strong>Isactive:</strong>
+  <%= @apartment_booking.IsActive %>
+</p>
+
+<%= link_to 'Edit', edit_apartment_booking_path(@apartment_booking) %> |
+<%= link_to 'Back', apartment_bookings_path %>

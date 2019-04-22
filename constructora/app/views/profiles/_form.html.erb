@@ -1,0 +1,27 @@
+<%= form_with(model: profile, local: true) do |form| %>
+  <% if profile.errors.any? %>
+    <div id="error_explanation">
+      <h5 class="text-danger">Se encontraron los siguiente errores:</h5>
+
+      <ul class="ml-3 text-danger">
+      <% profile.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :Name, 'Nombre' %>
+    <%= form.text_field :Name, :class => "form-control" %>
+  </div>
+
+  <div class="field mt-4 xs">
+    <%= form.label :IsActive, 'Activo' %>
+    <%= form.check_box :IsActive, :class => "form-control mr-15" %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= form.submit "Guardar", :type => :image, :src => "/assets/SaveIconBig.png", :title => 'Guardar' %>
+  </div>
+<% end %>

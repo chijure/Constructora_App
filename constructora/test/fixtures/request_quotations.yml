@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  IdRequestQuotation: MyString
+  IdProject: MyString
+  IdUser: MyString
+  IdentityNumber: MyString
+  Name: MyString
+  LastName: MyString
+  Mail: MyString
+  Phone: MyString
+  RequestDate: 2019-04-22
+  Status: 1
+
+two:
+  IdRequestQuotation: MyString
+  IdProject: MyString
+  IdUser: MyString
+  IdentityNumber: MyString
+  Name: MyString
+  LastName: MyString
+  Mail: MyString
+  Phone: MyString
+  RequestDate: 2019-04-22
+  Status: 1
