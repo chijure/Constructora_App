@@ -1,24 +1,27 @@
-<p id="notice"><%= notice %></p>
+<div class="jumbotron p-4">
+  <h2><b>Ver | Citas</b></h2>
+	<div class="table-responsive-sm w-50">
+		<h5>
+			<p id="notice" class="badge badge-pill badge-success pt-2 pb-2"><%= notice %></p>
+		</h5>
 
-<p>
-  <strong>Idappointment:</strong>
-  <%= @appointment.IdAppointment %>
-</p>
+		<p>
+		  <strong>N° Solicitud:</strong>
+		  <td><%= RequestQuotation.select(:id).where("id = " + @appointment.request_quotation_id.to_s).collect(&:id)[0] %></td>
+		</p>
 
-<p>
-  <strong>Idrequestquotation:</strong>
-  <%= @appointment.IdRequestQuotation %>
-</p>
+		<p>
+		  <strong>Fecha Cita:</strong>
+		  <%= @appointment.AppointmentDate %>
+		</p>
 
-<p>
-  <strong>Appointmentdate:</strong>
-  <%= @appointment.AppointmentDate %>
-</p>
+		<p>
+		  <strong>Atendido:</strong>
+		  <%= @appointment.IsAttended %>
+		</p>
 
-<p>
-  <strong>Isattended:</strong>
-  <%= @appointment.IsAttended %>
-</p>
+		<%= link_to image_tag('EditIconBig.png'), edit_appointment_path(@appointment), title: 'Editar' %> |
+		<%= link_to image_tag('BackIconBig.png'), appointments_path, title: 'Atras'  %>
 
-<%= link_to 'Edit', edit_appointment_path(@appointment) %> |
-<%= link_to 'Back', appointments_path %>
+	</div>
+</div>

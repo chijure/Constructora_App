@@ -1,6 +1,9 @@
-<h1>Editing Client</h1>
+<div class="jumbotron p-4">
+  <h2><b>Editar | Cliente</b></h2>
+	<div class="table-responsive-sm w-50">
+		<%= render 'form', client: @client %>
 
-<%= render 'form', client: @client %>
-
-<%= link_to 'Show', @client %> |
-<%= link_to 'Back', clients_path %>
+		<%= link_to image_tag('ShowIconBig.png'), @client, title: 'Ver' %> |
+		<%= link_to image_tag('BackIconBig.png'), clients_path, title: 'Atras'  %>
+	</div>
+</div>

@@ -25,6 +25,7 @@ class QuotationsController < ApplicationController
   # POST /quotations.json
   def create
     @quotation = Quotation.new(quotation_params)
+    #@quotation.IdQuotation = SecureRandom.uuid
 
     respond_to do |format|
       if @quotation.save
@@ -69,6 +70,6 @@ class QuotationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def quotation_params
-      params.require(:quotation).permit(:IdQuotation, :IdRequestQuotation, :QuotationDate, :Price, :ValidFor, :Status)
+      params.require(:quotation).permit(:request_quotation_id, :QuotationDate, :Price, :ValidFor, :Status)
     end
 end

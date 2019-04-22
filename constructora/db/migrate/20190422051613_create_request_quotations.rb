@@ -1,9 +1,8 @@
 class CreateRequestQuotations < ActiveRecord::Migration[5.2]
   def change
     create_table :request_quotations do |t|
-      t.string :IdRequestQuotation
-      t.string :IdProject
-      t.string :IdUser
+      t.references :project, foreign_key: true
+      t.references :user, foreign_key: true
       t.string :IdentityNumber
       t.string :Name
       t.string :LastName

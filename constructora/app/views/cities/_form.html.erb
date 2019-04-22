@@ -12,13 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :IdState %>
-    <%= form.text_field :IdState, :class => "form-control" %>
+    <%= form.label :Name %>
+    <%= form.text_field :Name, :class => "form-control" %>
   </div>
   <br>
   <div class="field">
-    <%= form.label :Name %>
-    <%= form.text_field :Name, :class => "form-control" %>
+    <%= form.label :IdState, 'Departamento' %>  
+    <%= form.select :state_id, State.all.collect {|e| [e.Name, e.id]}, {:include_blank => "Seleccione el Departamento"}, {:class => "form-control"} %>    
   </div>
   <br>
   <div class="actions">

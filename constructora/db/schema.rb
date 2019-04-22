@@ -13,21 +13,22 @@
 ActiveRecord::Schema.define(version: 2019_04_22_051705) do
 
   create_table "apartment_bookings", force: :cascade do |t|
-    t.string "IdApartmentBooking"
-    t.string "IdQuotation"
-    t.string "IdClient"
-    t.string "IdBank"
+    t.integer "quotation_id"
+    t.integer "client_id"
+    t.integer "bank_id"
     t.date "BookingDate"
     t.float "BookPrice"
     t.string "VoucherNumber"
     t.boolean "IsActive"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["bank_id"], name: "index_apartment_bookings_on_bank_id"
+    t.index ["client_id"], name: "index_apartment_bookings_on_client_id"
+    t.index ["quotation_id"], name: "index_apartment_bookings_on_quotation_id"
   end
 
   create_table "apartment_type_prices", force: :cascade do |t|
-    t.string "IdApartmentTypePrice"
-    t.string "IdApartmentType"
+    t.integer "apartment_type_id"
     t.datetime "RegisterDate"
     t.integer "ValidFor"
     t.float "PercentajeDiscount"
@@ -36,11 +37,11 @@ ActiveRecord::Schema.define(version: 2019_04_22_051705) do
     t.boolean "IsActive"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["apartment_type_id"], name: "index_apartment_type_prices_on_apartment_type_id"
   end
 
   create_table "apartment_types", force: :cascade do |t|
-    t.string "IdApartmentType"
-    t.string "IdProject"
+    t.integer "project_id"
     t.string "Name"
     t.integer "Quantity"
     t.integer "Available"
@@ -50,19 +51,19 @@ ActiveRecord::Schema.define(version: 2019_04_22_051705) do
     t.integer "Status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_apartment_types_on_project_id"
   end
 
   create_table "appointments", force: :cascade do |t|
-    t.string "IdAppointment"
-    t.string "IdRequestQuotation"
+    t.integer "request_quotation_id"
     t.datetime "AppointmentDate"
     t.boolean "IsAttended"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["request_quotation_id"], name: "index_appointments_on_request_quotation_id"
   end
 
   create_table "banks", force: :cascade do |t|
-    t.string "IdBank"
     t.string "Name"
     t.boolean "IsActive"
     t.datetime "created_at", null: false
@@ -70,16 +71,15 @@ ActiveRecord::Schema.define(version: 2019_04_22_051705) do
   end
 
   create_table "cities", force: :cascade do |t|
-    t.string "IdCity"
-    t.string "IdState"
+    t.integer "state_id"
     t.string "Name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["state_id"], name: "index_cities_on_state_id"
   end
 
   create_table "clients", force: :cascade do |t|
-    t.string "IdClient"
-    t.string "IdCity"
+    t.integer "city_id"
     t.string "IdentityNumber"
     t.string "Name"
     t.string "LastName"
@@ -89,10 +89,10 @@ ActiveRecord::Schema.define(version: 2019_04_22_051705) do
     t.boolean "IsActive"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["city_id"], name: "index_clients_on_city_id"
   end
 
   create_table "profiles", force: :cascade do |t|
-    t.string "IdProfile"
     t.string "Name"
     t.boolean "IsActive"
     t.datetime "created_at", null: false
@@ -100,8 +100,7 @@ ActiveRecord::Schema.define(version: 2019_04_22_051705) do
   end
 
   create_table "projects", force: :cascade do |t|
-    t.string "IdProject"
-    t.string "IdCity"
+    t.integer "city_id"
     t.string "Name"
     t.float "Price"
     t.date "StartDate"
@@ -115,23 +114,25 @@ ActiveRecord::Schema.define(version: 2019_04_22_051705) do
     t.integer "Status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["city_id"], name: "index_projects_on_city_id"
   end
 
   create_table "quotations", force: :cascade do |t|
-    t.string "IdQuotation"
-    t.string "IdRequestQuotation"
+    t.integer "request_quotation_id"
+    t.integer "client_id"
     t.date "QuotationDate"
     t.float "Price"
     t.integer "ValidFor"
     t.integer "Status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_quotations_on_client_id"
+    t.index ["request_quotation_id"], name: "index_quotations_on_request_quotation_id"
   end
 
   create_table "request_quotations", force: :cascade do |t|
-    t.string "IdRequestQuotation"
-    t.string "IdProject"
-    t.string "IdUser"
+    t.integer "project_id"
+    t.integer "user_id"
     t.string "IdentityNumber"
     t.string "Name"
     t.string "LastName"
@@ -141,13 +142,14 @@ ActiveRecord::Schema.define(version: 2019_04_22_051705) do
     t.integer "Status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_request_quotations_on_project_id"
+    t.index ["user_id"], name: "index_request_quotations_on_user_id"
   end
 
   create_table "sales", force: :cascade do |t|
-    t.string "IdSale"
-    t.string "IdApartmentType"
-    t.string "IdApartmentBooking"
-    t.string "IdBank"
+    t.integer "apartment_type_id"
+    t.integer "apartment_booking_id"
+    t.integer "bank_id"
     t.date "SaleDate"
     t.integer "PaymentType"
     t.float "CashAmount"
@@ -155,19 +157,20 @@ ActiveRecord::Schema.define(version: 2019_04_22_051705) do
     t.boolean "IsActive"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["apartment_booking_id"], name: "index_sales_on_apartment_booking_id"
+    t.index ["apartment_type_id"], name: "index_sales_on_apartment_type_id"
+    t.index ["bank_id"], name: "index_sales_on_bank_id"
   end
 
   create_table "states", force: :cascade do |t|
-    t.string "IdState"
     t.string "Name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "IdUser"
-    t.string "IdProfile"
-    t.string "IdCity"
+    t.integer "profile_id"
+    t.integer "city_id"
     t.string "IdentityNumber"
     t.string "Name"
     t.string "LastName"
@@ -177,6 +180,8 @@ ActiveRecord::Schema.define(version: 2019_04_22_051705) do
     t.boolean "IsActive"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["city_id"], name: "index_users_on_city_id"
+    t.index ["profile_id"], name: "index_users_on_profile_id"
   end
 
 end

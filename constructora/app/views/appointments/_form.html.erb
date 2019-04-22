@@ -1,9 +1,9 @@
 <%= form_with(model: appointment, local: true) do |form| %>
   <% if appointment.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+      <h5 class="text-danger">Se encontraron los siguiente errores:</h5>
 
-      <ul>
+      <ul class="ml-3 text-danger">
       <% appointment.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
@@ -11,27 +11,33 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :IdAppointment %>
-    <%= form.text_field :IdAppointment %>
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-3">
+      <%= form.label :IdRequestQuotation, 'N° Solicitud' %>
+    </div>
+    <div class="col-sm-9">
+    <%= form.select :request_quotation_id, RequestQuotation.all.collect {|e| [e.id, e.id]}, {:include_blank => "Seleccione la Solicitud"}, {:class => "form-control"} %>        
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :IdRequestQuotation %>
-    <%= form.text_field :IdRequestQuotation %>
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-3">
+      <%= form.label :AppointmentDate, 'Fecha Cita' %>
+    </div>
+    <div class="col-sm-9">
+      <%= form.datetime_select :AppointmentDate, :class => "form-control" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :AppointmentDate %>
-    <%= form.datetime_select :AppointmentDate %>
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-3">
+      <%= form.label :IsAttended, 'Atendido' %>
+    </div>
+    <div class="col-sm-9">
+      <%= form.check_box :IsAttended, :class => "form-control" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :IsAttended %>
-    <%= form.check_box :IsAttended %>
-  </div>
+  <br>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Guardar", :type => :image, :src => "/assets/SaveIconBig.png", :title => 'Guardar' %>
   </div>
 <% end %>

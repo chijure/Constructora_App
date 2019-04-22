@@ -1,49 +1,51 @@
-<p id="notice"><%= notice %></p>
+<div class="jumbotron p-4">
+  <h2><b>Ver | Usuario</b></h2>
+  <div class="table-responsive-sm w-50">
+    <h5>
+      <p id="notice" class="badge badge-pill badge-success pt-2 pb-2"><%= notice %></p>
+    </h5>   
 
-<p>
-  <strong>Idclient:</strong>
-  <%= @client.IdClient %>
-</p>
+    <p>
+      <strong>Ciudad:</strong>
+      <td><%= City.select(:Name).where("id = " + @client.city_id.to_s).collect(&:Name)[0] %></td>
+    </p>
 
-<p>
-  <strong>Idcity:</strong>
-  <%= @client.IdCity %>
-</p>
+    <p>
+      <strong>Num. ID:</strong>
+      <%= @client.IdentityNumber %>
+    </p>
 
-<p>
-  <strong>Identitynumber:</strong>
-  <%= @client.IdentityNumber %>
-</p>
+    <p>
+      <strong>Nombre:</strong>
+      <%= @client.Name %>
+    </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @client.Name %>
-</p>
+    <p>
+      <strong>Apellidos:</strong>
+      <%= @client.LastName %>
+    </p>
 
-<p>
-  <strong>Lastname:</strong>
-  <%= @client.LastName %>
-</p>
+    <p>
+      <strong>Dirección:</strong>
+      <%= @client.Address %>
+    </p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @client.Address %>
-</p>
+    <p>
+      <strong>Correo:</strong>
+      <%= @client.Mail %>
+    </p>
 
-<p>
-  <strong>Mail:</strong>
-  <%= @client.Mail %>
-</p>
+    <p>
+      <strong>Teléfono:</strong>
+      <%= @client.Phone %>
+    </p>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @client.Phone %>
-</p>
+    <p>
+      <strong>Activo:</strong>
+      <%= @client.IsActive %>
+    </p>
 
-<p>
-  <strong>Isactive:</strong>
-  <%= @client.IsActive %>
-</p>
-
-<%= link_to 'Edit', edit_client_path(@client) %> |
-<%= link_to 'Back', clients_path %>
+    <%= link_to image_tag('EditIconBig.png'), edit_client_path(@client), title: 'Editar' %> |
+    <%= link_to image_tag('BackIconBig.png'), clients_path, title: 'Atras'  %>
+  </div>
+</div>

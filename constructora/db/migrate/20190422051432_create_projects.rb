@@ -1,8 +1,7 @@
 class CreateProjects < ActiveRecord::Migration[5.2]
   def change
     create_table :projects do |t|
-      t.string :IdProject
-      t.string :IdCity
+      t.references :city, foreign_key: true
       t.string :Name
       t.float :Price
       t.date :StartDate

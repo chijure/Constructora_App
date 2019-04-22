@@ -1,6 +1,9 @@
-<h1>Editing Request Quotation</h1>
+<div class="jumbotron p-4">
+  <h2><b>Editar | Solicitud de Cotización</b></h2>
+	<div class="table-responsive-sm w-50">
+		<%= render 'form', request_quotation: @request_quotation %>
 
-<%= render 'form', request_quotation: @request_quotation %>
-
-<%= link_to 'Show', @request_quotation %> |
-<%= link_to 'Back', request_quotations_path %>
+		<%= link_to image_tag('ShowIconBig.png'), @request_quotation, title: 'Ver' %> |
+		<%= link_to image_tag('BackIconBig.png'), request_quotations_path, title: 'Atras'  %>
+	</div>
+</div>

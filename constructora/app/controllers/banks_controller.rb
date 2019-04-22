@@ -25,6 +25,7 @@ class BanksController < ApplicationController
   # POST /banks.json
   def create
     @bank = Bank.new(bank_params)
+    #@bank.IdBank = SecureRandom.uuid
 
     respond_to do |format|
       if @bank.save
@@ -69,6 +70,6 @@ class BanksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bank_params
-      params.require(:bank).permit(:IdBank, :Name, :IsActive)
+      params.require(:bank).permit(:Name, :IsActive)
     end
 end

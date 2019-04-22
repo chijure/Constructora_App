@@ -25,6 +25,7 @@ class SalesController < ApplicationController
   # POST /sales.json
   def create
     @sale = Sale.new(sale_params)
+    #@sale.IdSale = SecureRandom.uuid
 
     respond_to do |format|
       if @sale.save
@@ -69,6 +70,6 @@ class SalesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sale_params
-      params.require(:sale).permit(:IdSale, :IdApartmentType, :IdApartmentBooking, :IdBank, :SaleDate, :PaymentType, :CashAmount, :FinancedAmount, :IsActive)
+      params.require(:sale).permit(:apartment_type_id, :apartment_booking_id, :bank_id, :SaleDate, :PaymentType, :CashAmount, :FinancedAmount, :IsActive)
     end
 end

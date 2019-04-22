@@ -1,51 +1,46 @@
-<p id="notice"><%= notice %></p>
+<div class="jumbotron p-4">
+  <h2><b>Citas</b></h2>
+  <p id="notice" class="badge badge-pill badge-danger pt-2 pb-2"><%= notice %></p>
+  <div class="table-responsive-sm">
+    <table class="table table-striped table-hover w-100">
+      <thead class="thead-dark">
+        <tr>
+          <th colspan="3" class="text-center">
+            <%= link_to image_tag('NewIcon.png'), new_project_path, title: 'Nuevo' %>
+          </th>
+          <th>Nombre</th>
+          <th>Distrito</th>
+          <th>Precio</th>
+          <th>Fecha Inicio</th>
+          <th>Fecha Fin</th>
+          <th>Pisos</th>
+          <th>Departamentos</th>
+          <th>Estacionamientos</th>
+          <th>Status</th>
+        </tr>
+      </thead>
 
-<h1>Projects</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Idproject</th>
-      <th>Idcity</th>
-      <th>Name</th>
-      <th>Price</th>
-      <th>Startdate</th>
-      <th>Enddate</th>
-      <th>Address</th>
-      <th>Description</th>
-      <th>Floors</th>
-      <th>Apartmentsquantity</th>
-      <th>Parkingsquantity</th>
-      <th>Availableparkings</th>
-      <th>Status</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @projects.each do |project| %>
-      <tr>
-        <td><%= project.IdProject %></td>
-        <td><%= project.IdCity %></td>
-        <td><%= project.Name %></td>
-        <td><%= project.Price %></td>
-        <td><%= project.StartDate %></td>
-        <td><%= project.EndDate %></td>
-        <td><%= project.Address %></td>
-        <td><%= project.Description %></td>
-        <td><%= project.Floors %></td>
-        <td><%= project.ApartmentsQuantity %></td>
-        <td><%= project.ParkingsQuantity %></td>
-        <td><%= project.AvailableParkings %></td>
-        <td><%= project.Status %></td>
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+      <tbody>
+        <% @projects.each do |project| %>
+          <tr>
+            <td style="width:33px" class="pr-2 pl-2"><%= link_to image_tag('ShowIcon.png'), project, title: 'Ver' %></td>
+            <td style="width:33px" class="pr-1 pl-1"><%= link_to image_tag('EditIcon.png'), edit_project_path(project), title: 'Editar' %></td>
+            <td style="width:40px" class="pr-1 pl-2">
+              <%= link_to image_tag('DeleteIcon.png'), project, title: 'Eliminar', method: :delete, data: { confirm: '¿Esta seguro?' } %>              
+            </td>            
+            <td><%= project.Name %></td>
+            <td><%= City.select(:Name).where("id = " + project.city_id.to_s).collect(&:Name)[0] %></td>
+            <td><%= project.Price %></td>
+            <td><%= project.StartDate %></td>
+            <td><%= project.EndDate %></td>
+            <td><%= project.Floors %></td>
+            <td><%= project.ApartmentsQuantity %></td>
+            <td><%= project.ParkingsQuantity %></td>
+            <td><%= project.Status %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
 <br>
-
-<%= link_to 'New Project', new_project_path %>

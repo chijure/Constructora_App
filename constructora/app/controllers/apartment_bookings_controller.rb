@@ -25,7 +25,8 @@ class ApartmentBookingsController < ApplicationController
   # POST /apartment_bookings.json
   def create
     @apartment_booking = ApartmentBooking.new(apartment_booking_params)
-
+    #@apartment_booking.IdApartmentBooking = SecureRandom.uuid
+    
     respond_to do |format|
       if @apartment_booking.save
         format.html { redirect_to @apartment_booking, notice: 'Apartment booking was successfully created.' }
@@ -69,6 +70,6 @@ class ApartmentBookingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def apartment_booking_params
-      params.require(:apartment_booking).permit(:IdApartmentBooking, :IdQuotation, :IdClient, :IdBank, :BookingDate, :BookPrice, :VoucherNumber, :IsActive)
+      params.require(:apartment_booking).permit(:quotation_id, :client_id, :bank_id, :BookingDate, :BookPrice, :VoucherNumber, :IsActive)
     end
 end

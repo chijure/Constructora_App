@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+    @user.IsActive = true
   end
 
   # GET /users/1/edit
@@ -25,6 +26,7 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
+    #@user.IdUser = SecureRandom.uuid
 
     respond_to do |format|
       if @user.save
@@ -69,6 +71,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:IdUser, :IdProfile, :IdCity, :IdentityNumber, :Name, :LastName, :Address, :Mail, :Phone, :IsActive)
+      params.require(:user).permit(:profile_id, :city_id, :IdentityNumber, :Name, :LastName, :Address, :Mail, :Phone, :IsActive)
     end
 end

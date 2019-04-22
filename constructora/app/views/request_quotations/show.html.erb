@@ -1,54 +1,61 @@
-<p id="notice"><%= notice %></p>
+<div class="jumbotron p-4">
+  <h2><b>Ver | Solicitud de Cotización</b></h2>
+  <div class="table-responsive-sm w-50">
+    <h5>
+      <p id="notice" class="badge badge-pill badge-success pt-2 pb-2"><%= notice %></p>
+    </h5>
+    <p>
+      <strong>Número:</strong>
+      <%= @request_quotation.id %>
+    </p>
 
-<p>
-  <strong>Idrequestquotation:</strong>
-  <%= @request_quotation.IdRequestQuotation %>
-</p>
+    <p>
+      <strong>Número ID:</strong>
+      <%= @request_quotation.IdentityNumber %>
+    </p>
 
-<p>
-  <strong>Idproject:</strong>
-  <%= @request_quotation.IdProject %>
-</p>
+    <p>
+      <strong>Nombre:</strong>
+      <%= @request_quotation.Name %>
+    </p>
 
-<p>
-  <strong>Iduser:</strong>
-  <%= @request_quotation.IdUser %>
-</p>
+    <p>
+      <strong>Apellidos:</strong>
+      <%= @request_quotation.LastName %>
+    </p>
 
-<p>
-  <strong>Identitynumber:</strong>
-  <%= @request_quotation.IdentityNumber %>
-</p>
+    <p>
+      <strong>Proyecto:</strong>
+      <td><%= Project.select(:Name).where("id = " + @request_quotation.project_id.to_s).collect(&:Name)[0] %></td>
+    </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @request_quotation.Name %>
-</p>
+    <p>
+      <strong>Usuario:</strong>
+      <td><%= User.select(:Name).where("id = " + @request_quotation.user_id.to_s).collect(&:Name)[0] %></td>
+    </p>
 
-<p>
-  <strong>Lastname:</strong>
-  <%= @request_quotation.LastName %>
-</p>
+    <p>
+      <strong>Correo:</strong>
+      <%= @request_quotation.Mail %>
+    </p>
 
-<p>
-  <strong>Mail:</strong>
-  <%= @request_quotation.Mail %>
-</p>
+    <p>
+      <strong>Teléfono:</strong>
+      <%= @request_quotation.Phone %>
+    </p>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @request_quotation.Phone %>
-</p>
+    <p>
+      <strong>Fecha Solicitud:</strong>
+      <%= @request_quotation.RequestDate %>
+    </p>
 
-<p>
-  <strong>Requestdate:</strong>
-  <%= @request_quotation.RequestDate %>
-</p>
+    <p>
+      <strong>Estado:</strong>
+      <%= @request_quotation.Status %>
+    </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @request_quotation.Status %>
-</p>
+    <%= link_to image_tag('EditIconBig.png'), edit_request_quotation_path(@request_quotation), title: 'Editar' %> |
+    <%= link_to image_tag('BackIconBig.png'), request_quotations_path, title: 'Atras'  %>
 
-<%= link_to 'Edit', edit_request_quotation_path(@request_quotation) %> |
-<%= link_to 'Back', request_quotations_path %>
+  </div>
+</div>

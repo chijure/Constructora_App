@@ -1,9 +1,9 @@
 <%= form_with(model: project, local: true) do |form| %>
   <% if project.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+      <h5 class="text-danger">Se encontraron los siguiente errores:</h5>
 
-      <ul>
+      <ul class="ml-3 text-danger">
       <% project.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
@@ -11,72 +11,111 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :IdProject %>
-    <%= form.text_field :IdProject %>
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-3">
+      <%= form.label :Name, 'Nombre' %>
+    </div>
+    <div class="col-sm-9">
+      <%= form.text_field :Name, :class => "form-control" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :IdCity %>
-    <%= form.text_field :IdCity %>
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-3">
+      <%= form.label :IdCity, 'Distrito' %>
+    </div>
+    <div class="col-sm-9">
+    <%= form.select :city_id, City.all.collect {|e| [e.Name, e.id]}, {:include_blank => "Seleccione el Distrito"}, {:class => "form-control"} %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :Name %>
-    <%= form.text_field :Name %>
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-3">
+      <%= form.label :Price, 'Precio (m2)' %>
+    </div>
+    <div class="col-sm-9">
+      <%= form.number_field :Price, :class => "form-control" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :Price %>
-    <%= form.text_field :Price %>
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-3">
+      <%= form.label :StartDate, 'Fecha Inicio' %>
+    </div>
+    <div class="col-sm-9">
+      <%= form.date_select :StartDate, :class => "form-control" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :StartDate %>
-    <%= form.date_select :StartDate %>
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-3">
+      <%= form.label :EndDate, 'Fecha Fin' %>
+    </div>
+    <div class="col-sm-9">
+      <%= form.date_select :EndDate, :class => "form-control" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :EndDate %>
-    <%= form.date_select :EndDate %>
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-3">
+      <%= form.label :Address, 'Dirección' %>
+    </div>
+    <div class="col-sm-9">
+      <%= form.text_field :Address, :class => "form-control" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :Address %>
-    <%= form.text_field :Address %>
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-3">
+      <%= form.label :Description, 'Descripción' %>
+    </div>
+    <div class="col-sm-9">
+      <%= form.text_area :Description, rows: 8, :class => "form-control" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :Description %>
-    <%= form.text_field :Description %>
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-3">
+      <%= form.label :Floors, 'Pisos' %>
+    </div>
+    <div class="col-sm-9">
+      <%= form.number_field :Floors, :class => "form-control" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :Floors %>
-    <%= form.number_field :Floors %>
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-3">
+      <%= form.label :ApartmentsQuantity, 'Cantidad Dep.' %>
+    </div>
+    <div class="col-sm-9">
+      <%= form.number_field :ApartmentsQuantity, :class => "form-control" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :ApartmentsQuantity %>
-    <%= form.number_field :ApartmentsQuantity %>
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-3">
+      <%= form.label :ParkingsQuantity, 'Cantidad Estac.' %>
+    </div>
+    <div class="col-sm-9">
+      <%= form.number_field :ParkingsQuantity, :class => "form-control" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :ParkingsQuantity %>
-    <%= form.number_field :ParkingsQuantity %>
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-3">
+      <%= form.label :AvailableParkings, 'Esta. Disponibles' %>
+    </div>
+    <div class="col-sm-9">
+      <%= form.number_field :AvailableParkings, :class => "form-control" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :AvailableParkings %>
-    <%= form.number_field :AvailableParkings %>
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-3">
+      <%= form.label :Status, 'Estado' %>
+    </div>
+    <div class="col-sm-9">
+      <%= form.number_field :Status, :class => "form-control" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :Status %>
-    <%= form.number_field :Status %>
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-3">
+    </div>
+    <div class="col-sm-9">
+    </div>
   </div>
+  <br>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Guardar", :type => :image, :src => "/assets/SaveIconBig.png", :title => 'Guardar' %>
   </div>
 <% end %>

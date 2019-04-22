@@ -1,8 +1,7 @@
 class CreateClients < ActiveRecord::Migration[5.2]
   def change
     create_table :clients do |t|
-      t.string :IdClient
-      t.string :IdCity
+      t.references :city, foreign_key: true
       t.string :IdentityNumber
       t.string :Name
       t.string :LastName

@@ -25,6 +25,7 @@ class ApartmentTypesController < ApplicationController
   # POST /apartment_types.json
   def create
     @apartment_type = ApartmentType.new(apartment_type_params)
+    #@apartment_type.IdApartmentType = SecureRandom.uuid
 
     respond_to do |format|
       if @apartment_type.save
@@ -69,6 +70,6 @@ class ApartmentTypesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def apartment_type_params
-      params.require(:apartment_type).permit(:IdApartmentType, :IdProject, :Name, :Quantity, :Available, :Sold, :BasePrice, :Area, :Status)
+      params.require(:apartment_type).permit(:project_id, :Name, :Quantity, :Available, :Sold, :BasePrice, :Area, :Status)
     end
 end

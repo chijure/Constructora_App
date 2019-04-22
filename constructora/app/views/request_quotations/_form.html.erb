@@ -1,9 +1,9 @@
 <%= form_with(model: request_quotation, local: true) do |form| %>
   <% if request_quotation.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(request_quotation.errors.count, "error") %> prohibited this request_quotation from being saved:</h2>
+      <h5 class="text-danger">Se encontraron los siguiente errores:</h5>
 
-      <ul>
+      <ul class="ml-3 text-danger">
       <% request_quotation.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
@@ -11,57 +11,95 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :IdRequestQuotation %>
-    <%= form.text_field :IdRequestQuotation %>
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-3">
+    </div>
+    <div class="col-sm-9">
+    </div>
+  </div>
+  
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-3">
+      <%= form.label :IdProject, 'Proyecto' %>
+    </div>
+    <div class="col-sm-9">
+    <%= form.select :project_id, Project.all.collect {|e| [e.Name, e.id]}, {:include_blank => "Seleccione el Proyecto"}, {:class => "form-control"} %>        
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :IdProject %>
-    <%= form.text_field :IdProject %>
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-3">
+      <%= form.label :IdUser, 'Usuario' %>
+    </div>
+    <div class="col-sm-9">
+    <%= form.select :user_id, User.all.collect {|e| [e.Name, e.id]}, {:include_blank => "Seleccione el Usuario"}, {:class => "form-control"} %>        
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :IdUser %>
-    <%= form.text_field :IdUser %>
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-3">
+      <%= form.label :IdentityNumber, 'Num. ID' %>
+    </div>
+    <div class="col-sm-9">
+      <%= form.text_field :IdentityNumber %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :IdentityNumber %>
-    <%= form.text_field :IdentityNumber %>
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-3">
+      <%= form.label :Name, 'Nombre' %>
+    </div>
+    <div class="col-sm-9">
+      <%= form.text_field :Name %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :Name %>
-    <%= form.text_field :Name %>
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-3">
+      <%= form.label :LastName, 'LastName' %>
+    </div>
+    <div class="col-sm-9">
+      <%= form.text_field :LastName %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :LastName %>
-    <%= form.text_field :LastName %>
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-3">
+      <%= form.label :Mail, 'Correo' %>
+    </div>
+    <div class="col-sm-9">
+      <%= form.text_field :Mail %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :Mail %>
-    <%= form.text_field :Mail %>
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-3">
+      <%= form.label :Phone, 'Teléfono' %>
+    </div>
+    <div class="col-sm-9">
+      <%= form.text_field :Phone %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :Phone %>
-    <%= form.text_field :Phone %>
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-3">
+      <%= form.label :RequestDate, 'Fecha' %>
+    </div>
+    <div class="col-sm-9">
+      <%= form.date_select :RequestDate %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :RequestDate %>
-    <%= form.date_select :RequestDate %>
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-3">
+      <%= form.label :Status, 'Estado' %>
+    </div>
+    <div class="col-sm-9">
+      <%= form.number_field :Status %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :Status %>
-    <%= form.number_field :Status %>
-  </div>
-
+  <br>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Guardar", :type => :image, :src => "/assets/SaveIconBig.png", :title => 'Guardar' %>
   </div>
 <% end %>

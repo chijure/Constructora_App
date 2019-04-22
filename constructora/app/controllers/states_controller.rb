@@ -25,6 +25,7 @@ class StatesController < ApplicationController
   # POST /states.json
   def create
     @state = State.new(state_params)
+    #@state.IdState = SecureRandom.uuid
 
     respond_to do |format|
       if @state.save
@@ -69,6 +70,6 @@ class StatesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def state_params
-      params.require(:state).permit(:IdState, :Name)
+      params.require(:state).permit(:Name)
     end
 end

@@ -25,6 +25,7 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(project_params)
+    #@project.IdProject = SecureRandom.uuid
 
     respond_to do |format|
       if @project.save
@@ -69,6 +70,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:IdProject, :IdCity, :Name, :Price, :StartDate, :EndDate, :Address, :Description, :Floors, :ApartmentsQuantity, :ParkingsQuantity, :AvailableParkings, :Status)
+      params.require(:project).permit(:city_id, :Name, :Price, :StartDate, :EndDate, :Address, :Description, :Floors, :ApartmentsQuantity, :ParkingsQuantity, :AvailableParkings, :Status)
     end
 end

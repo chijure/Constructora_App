@@ -1,69 +1,74 @@
-<p id="notice"><%= notice %></p>
+<div class="jumbotron p-4">
+  <h2><b>Ver | Proyectos</b></h2>
+  <div class="table-responsive-sm w-50">
+    <h5>
+      <p id="notice" class="badge badge-pill badge-success pt-2 pb-2"><%= notice %></p>
+    </h5>
 
-<p>
-  <strong>Idproject:</strong>
-  <%= @project.IdProject %>
-</p>
+    <p>
+      <strong>Distrito:</strong>
+      <td><%= City.select(:Name).where("id = " + @project.city_id.to_s).collect(&:Name)[0] %></td>
+    </p>
 
-<p>
-  <strong>Idcity:</strong>
-  <%= @project.IdCity %>
-</p>
+    <p>
+      <strong>
+        Nombre:
+      <%= @project.Name %>
+      </strong>
+    </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @project.Name %>
-</p>
+    <p>
+      <strong>Precio:</strong>
+      <%= @project.Price %>
+    </p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @project.Price %>
-</p>
+    <p>
+      <strong>Fecha Inicio:</strong>
+      <%= @project.StartDate %>
+    </p>
 
-<p>
-  <strong>Startdate:</strong>
-  <%= @project.StartDate %>
-</p>
+    <p>
+      <strong>Fecha Fin:</strong>
+      <%= @project.EndDate %>
+    </p>
 
-<p>
-  <strong>Enddate:</strong>
-  <%= @project.EndDate %>
-</p>
+    <p>
+      <strong>Dirección:</strong>
+      <%= @project.Address %>
+    </p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @project.Address %>
-</p>
+    <p>
+      <strong>Descripción:</strong>
+      <%= @project.Description %>
+    </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @project.Description %>
-</p>
+    <p>
+      <strong>Pisos:</strong>
+      <%= @project.Floors %>
+    </p>
 
-<p>
-  <strong>Floors:</strong>
-  <%= @project.Floors %>
-</p>
+    <p>
+      <strong>Departamentos:</strong>
+      <%= @project.ApartmentsQuantity %>
+    </p>
 
-<p>
-  <strong>Apartmentsquantity:</strong>
-  <%= @project.ApartmentsQuantity %>
-</p>
+    <p>
+      <strong>Estacionamientos:</strong>
+      <%= @project.ParkingsQuantity %>
+    </p>
 
-<p>
-  <strong>Parkingsquantity:</strong>
-  <%= @project.ParkingsQuantity %>
-</p>
+    <p>
+      <strong>Estacionamientos Disponibles:</strong>
+      <%= @project.AvailableParkings %>
+    </p>
 
-<p>
-  <strong>Availableparkings:</strong>
-  <%= @project.AvailableParkings %>
-</p>
+    <p>
+      <strong>Estado:</strong>
+      <%= @project.Status %>
+    </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @project.Status %>
-</p>
+    <%= link_to image_tag('EditIconBig.png'), edit_project_path(@project), title: 'Editar' %> |
+    <%= link_to image_tag('BackIconBig.png'), projects_path, title: 'Atras'  %>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+  </div>
+</div>

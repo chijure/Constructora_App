@@ -1,8 +1,7 @@
 class CreateApartmentTypes < ActiveRecord::Migration[5.2]
   def change
     create_table :apartment_types do |t|
-      t.string :IdApartmentType
-      t.string :IdProject
+      t.references :project, foreign_key: true
       t.string :Name
       t.integer :Quantity
       t.integer :Available

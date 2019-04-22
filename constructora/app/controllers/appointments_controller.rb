@@ -25,7 +25,8 @@ class AppointmentsController < ApplicationController
   # POST /appointments.json
   def create
     @appointment = Appointment.new(appointment_params)
-
+    #@appointment.IdAppointment = SecureRandom.uuid
+    
     respond_to do |format|
       if @appointment.save
         format.html { redirect_to @appointment, notice: 'Appointment was successfully created.' }
@@ -69,6 +70,6 @@ class AppointmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def appointment_params
-      params.require(:appointment).permit(:IdAppointment, :IdRequestQuotation, :AppointmentDate, :IsAttended)
+      params.require(:appointment).permit(:request_quotation_id, :AppointmentDate, :IsAttended)
     end
 end

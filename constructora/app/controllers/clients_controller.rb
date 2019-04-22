@@ -15,6 +15,7 @@ class ClientsController < ApplicationController
   # GET /clients/new
   def new
     @client = Client.new
+    @client.IsActive = true
   end
 
   # GET /clients/1/edit
@@ -25,6 +26,7 @@ class ClientsController < ApplicationController
   # POST /clients.json
   def create
     @client = Client.new(client_params)
+    #@client.IdClient = SecureRandom.uuid
 
     respond_to do |format|
       if @client.save
@@ -69,6 +71,6 @@ class ClientsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def client_params
-      params.require(:client).permit(:IdClient, :IdCity, :IdentityNumber, :Name, :LastName, :Address, :Mail, :Phone, :IsActive)
+      params.require(:client).permit(:city_id, :IdentityNumber, :Name, :LastName, :Address, :Mail, :Phone, :IsActive)
     end
 end

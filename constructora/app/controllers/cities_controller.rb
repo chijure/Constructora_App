@@ -25,6 +25,7 @@ class CitiesController < ApplicationController
   # POST /cities.json
   def create
     @city = City.new(city_params)
+    #@city.IdCity = SecureRandom.uuid
 
     respond_to do |format|
       if @city.save
@@ -69,6 +70,6 @@ class CitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def city_params
-      params.require(:city).permit(:IdCity, :IdState, :Name)
+      params.require(:city).permit(:state_id, :Name)
     end
 end

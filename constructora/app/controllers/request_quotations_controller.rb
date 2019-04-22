@@ -25,7 +25,8 @@ class RequestQuotationsController < ApplicationController
   # POST /request_quotations.json
   def create
     @request_quotation = RequestQuotation.new(request_quotation_params)
-
+    #@request_quotation.IdRequestQuotation = SecureRandom.uuid
+    
     respond_to do |format|
       if @request_quotation.save
         format.html { redirect_to @request_quotation, notice: 'Request quotation was successfully created.' }
@@ -69,6 +70,6 @@ class RequestQuotationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def request_quotation_params
-      params.require(:request_quotation).permit(:IdRequestQuotation, :IdProject, :IdUser, :IdentityNumber, :Name, :LastName, :Mail, :Phone, :RequestDate, :Status)
+      params.require(:request_quotation).permit(:project_id, :user_id, :IdentityNumber, :Name, :LastName, :Mail, :Phone, :RequestDate, :Status)
     end
 end

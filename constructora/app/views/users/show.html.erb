@@ -7,12 +7,12 @@
 
     <p>
       <strong>Perfil:</strong>
-      <%= @user.IdProfile %>
+      <td><%= Profile.select(:Name).where("id = " + @user.profile_id.to_s).collect(&:Name)[0] %></td>
     </p>
 
     <p>
       <strong>Distrito:</strong>
-      <%= @user.IdCity %>
+      <td><%= City.select(:Name).where("id = " + @user.city_id.to_s).collect(&:Name)[0] %></td>
     </p>
 
     <p>

@@ -5,8 +5,8 @@
 			<p id="notice" class="badge badge-pill badge-success pt-2 pb-2"><%= notice %></p>
 		</h5>
 		<p>
-		  <strong>Idstate:</strong>
-		  <%= @city.IdState %>
+		  <strong>Departamento:</strong>
+		  <td><%= State.select(:Name).where("id = " + @city.state_id.to_s).collect(&:Name)[0] %></td>
 		</p>
 
 		<p>
