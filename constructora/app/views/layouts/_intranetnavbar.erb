@@ -33,8 +33,10 @@
           Proyectos
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <%= link_to "Gestor", { :controller => "projects", :action => "index" }, :class => "dropdown-item" %>          
-          <%= link_to "Nuevo Proyecto", { :controller => "projects", :action => "new" }, :class => "dropdown-item" %>          
+          <%= link_to "Proyectos", { :controller => "projects", :action => "index" }, :class => "dropdown-item" %>          
+          <%= link_to "Departamentos", { :controller => "project_apartments", :action => "index" }, :class => "dropdown-item" %>
+          <%= link_to "Tipos de Departamento", { :controller => "project_apartment_types", :action => "index" }, :class => "dropdown-item" %>
+          <%= link_to "Precios", { :controller => "project_ap_type_prices", :action => "index" }, :class => "dropdown-item" %>
         </div>
       </li>
       <li class="nav-item dropdown">
