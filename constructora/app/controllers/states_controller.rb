@@ -1,4 +1,5 @@
 class StatesController < ApplicationController
+  layout "applicationintranet"
   before_action :set_state, only: [:show, :edit, :update, :destroy]
 
   # GET /states

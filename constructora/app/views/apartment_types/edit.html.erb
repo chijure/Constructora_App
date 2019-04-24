@@ -1,6 +1,9 @@
-<h1>Editing Apartment Type</h1>
+<div class="jumbotron p-4">
+  <h2><b>Editar | Tipos de Departamento</b></h2>
+	<div class="table-responsive-sm w-50">
+		<%= render 'form', apartment_type: @apartment_type %>
 
-<%= render 'form', apartment_type: @apartment_type %>
-
-<%= link_to 'Show', @apartment_type %> |
-<%= link_to 'Back', apartment_types_path %>
+		<%= link_to image_tag('ShowIconBig.png'), @apartment_type, title: 'Ver' %> |
+		<%= link_to image_tag('BackIconBig.png'), apartment_types_path, title: 'Atras'  %>
+	</div>
+</div>

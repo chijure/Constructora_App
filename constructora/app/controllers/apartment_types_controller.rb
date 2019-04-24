@@ -1,4 +1,5 @@
 class ApartmentTypesController < ApplicationController
+  layout "applicationintranet"
   before_action :set_apartment_type, only: [:show, :edit, :update, :destroy]
 
   # GET /apartment_types
@@ -15,6 +16,7 @@ class ApartmentTypesController < ApplicationController
   # GET /apartment_types/new
   def new
     @apartment_type = ApartmentType.new
+    @apartment_type.IsActive = true
   end
 
   # GET /apartment_types/1/edit
@@ -25,7 +27,6 @@ class ApartmentTypesController < ApplicationController
   # POST /apartment_types.json
   def create
     @apartment_type = ApartmentType.new(apartment_type_params)
-    #@apartment_type.IdApartmentType = SecureRandom.uuid
 
     respond_to do |format|
       if @apartment_type.save
@@ -70,6 +71,6 @@ class ApartmentTypesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def apartment_type_params
-      params.require(:apartment_type).permit(:project_id, :Name, :Quantity, :Available, :Sold, :BasePrice, :Area, :Status)
+      params.require(:apartment_type).permit(:Name, :IsActive)
     end
 end

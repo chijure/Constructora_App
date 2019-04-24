@@ -17,7 +17,7 @@ class ApartmentTypesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create apartment_type" do
     assert_difference('ApartmentType.count') do
-      post apartment_types_url, params: { apartment_type: { Area: @apartment_type.Area, Available: @apartment_type.Available, BasePrice: @apartment_type.BasePrice, IdApartmentType: @apartment_type.IdApartmentType, IdProject: @apartment_type.IdProject, Name: @apartment_type.Name, Quantity: @apartment_type.Quantity, Sold: @apartment_type.Sold, Status: @apartment_type.Status } }
+      post apartment_types_url, params: { apartment_type: { IsActive: @apartment_type.IsActive, Name: @apartment_type.Name } }
     end
 
     assert_redirected_to apartment_type_url(ApartmentType.last)
@@ -34,7 +34,7 @@ class ApartmentTypesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update apartment_type" do
-    patch apartment_type_url(@apartment_type), params: { apartment_type: { Area: @apartment_type.Area, Available: @apartment_type.Available, BasePrice: @apartment_type.BasePrice, IdApartmentType: @apartment_type.IdApartmentType, IdProject: @apartment_type.IdProject, Name: @apartment_type.Name, Quantity: @apartment_type.Quantity, Sold: @apartment_type.Sold, Status: @apartment_type.Status } }
+    patch apartment_type_url(@apartment_type), params: { apartment_type: { IsActive: @apartment_type.IsActive, Name: @apartment_type.Name } }
     assert_redirected_to apartment_type_url(@apartment_type)
   end
 

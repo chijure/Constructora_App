@@ -1,5 +1,5 @@
 <div class="jumbotron p-4">
-  <h2><b>Citas</b></h2>
+  <h2><b>Proyectos</b></h2>
   <p id="notice" class="badge badge-pill badge-danger pt-2 pb-2"><%= notice %></p>
   <div class="table-responsive-sm">
     <table class="table table-striped table-hover w-100">
@@ -14,8 +14,8 @@
           <th>Fecha Inicio</th>
           <th>Fecha Fin</th>
           <th>Pisos</th>
-          <th>Departamentos</th>
-          <th>Estacionamientos</th>
+          <th>Depart.</th>
+          <th>Estacion.</th>
           <th>Status</th>
         </tr>
       </thead>
@@ -36,7 +36,19 @@
             <td><%= project.Floors %></td>
             <td><%= project.ApartmentsQuantity %></td>
             <td><%= project.ParkingsQuantity %></td>
-            <td><%= project.Status %></td>
+            <td>
+              <%=
+              case project.Status
+              when 0
+                "Creado"
+              when 1
+                "En Construcción"
+              when 2
+                "Construido"
+              else
+                "No Definido"
+              end %>  
+            </td>
           </tr>
         <% end %>
       </tbody>

@@ -1,10 +1,10 @@
 <div class="jumbotron p-4">
   <h2><b>Ver | Proyectos</b></h2>
-  <div class="table-responsive-sm w-50">
+  <div class="table-responsive-sm w-100">
     <h5>
       <p id="notice" class="badge badge-pill badge-success pt-2 pb-2"><%= notice %></p>
     </h5>
-
+    <hr>
     <p>
       <strong>Distrito:</strong>
       <td><%= City.select(:Name).where("id = " + @project.city_id.to_s).collect(&:Name)[0] %></td>
@@ -38,8 +38,7 @@
     </p>
 
     <p>
-      <strong>Descripción:</strong>
-      <%= @project.Description %>
+      <p class="text-justify"><strong>Descripción: </strong><%= @project.Description%></p>
     </p>
 
     <p>
@@ -50,6 +49,11 @@
     <p>
       <strong>Departamentos:</strong>
       <%= @project.ApartmentsQuantity %>
+    </p>
+    
+    <p>
+      <strong>Departamentos Disponibles:</strong>
+      <%= @project.AvailableApartments %>
     </p>
 
     <p>
@@ -63,10 +67,25 @@
     </p>
 
     <p>
-      <strong>Estado:</strong>
-      <%= @project.Status %>
+      <strong>Foto Portada:</strong>
+        <%= image_tag(@project.Picture.to_s, :width => 300) %>
     </p>
 
+    <p>
+      <strong>Estado:</strong>
+      <%=
+      case @project.Status
+      when 0
+        "Creado"
+      when 1
+        "En Construcción"
+      when 2
+        "Construido"
+      else
+        "No Definido"
+      end %>  
+    </p>
+    <hr>
     <%= link_to image_tag('EditIconBig.png'), edit_project_path(@project), title: 'Editar' %> |
     <%= link_to image_tag('BackIconBig.png'), projects_path, title: 'Atras'  %>
 

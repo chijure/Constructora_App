@@ -1,6 +1,10 @@
 Rails.application.routes.draw do 
 
 
+  resources :project_ap_type_prices
+  resources :project_apartments
+  resources :project_apartment_type_prices
+  resources :project_apartment_types
   resources :sales
   resources :apartment_type_prices
   resources :banks

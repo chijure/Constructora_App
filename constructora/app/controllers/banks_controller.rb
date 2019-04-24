@@ -1,4 +1,5 @@
 class BanksController < ApplicationController
+  layout "applicationintranet"
   before_action :set_bank, only: [:show, :edit, :update, :destroy]
 
   # GET /banks
@@ -15,6 +16,7 @@ class BanksController < ApplicationController
   # GET /banks/new
   def new
     @bank = Bank.new
+    @bank.IsActive = true
   end
 
   # GET /banks/1/edit

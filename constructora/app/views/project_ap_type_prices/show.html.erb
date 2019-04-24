@@ -1,0 +1,52 @@
+<div class="jumbotron p-4">
+  <h2><b>Ver | Precios por Tipo de Departamento</b></h2>
+  <div class="table-responsive-sm w-50">
+    <h5>
+      <p id="notice" class="badge badge-pill badge-success pt-2 pb-2"><%= notice %></p>
+    </h5>
+
+    <p>
+      <strong>Proyecto:</strong>
+      <%= ProjectApartmentType.joins(:project).select("project_apartment_types.id as pat_id, projects.Name").where("pat_id = " + @project_ap_type_price.project_apartment_type_id.to_s).collect(&:Name)[0] %>
+    </p>
+
+    <p>
+      <strong>Tipo Departamento:</strong>
+      <%= ProjectApartmentType.joins(:apartment_type).select("project_apartment_types.id as pat_id, apartment_types.Name").where("pat_id = " + @project_ap_type_price.project_apartment_type_id.to_s).collect(&:Name)[0] %>
+    </p>
+
+    <p>
+      <strong>Fecha Registro:</strong>
+      <%= @project_ap_type_price.RegisterDate %>
+    </p>
+
+    <p>
+      <strong>Válido por:</strong>
+      <%= @project_ap_type_price.ValidFor %>
+    </p>
+
+    <p>
+      <strong>Porcentaje Descuento:</strong>
+      <%= @project_ap_type_price.PercentageDiscount %>%
+    </p>
+
+    <p>
+      <strong>Piso:</strong>
+      <%= @project_ap_type_price.Floor %>
+    </p>
+
+    <p>
+      <strong>Precio:</strong>
+      <%= @project_ap_type_price.Price %>
+    </p>
+
+    <p>
+      <strong>Activo:</strong>
+      <%= check_box_tag "IsActive", 0, @project_ap_type_price.IsActive, disabled: true, class: "checkBoxSyleIndex" %>
+    </p>
+
+    <%= link_to image_tag('EditIconBig.png'), edit_project_ap_type_price_path(@project_ap_type_price), title: 'Editar' %> |
+    <%= link_to image_tag('BackIconBig.png'), project_ap_type_prices_path, title: 'Atras'  %>
+
+  </div>
+</div>

@@ -1,0 +1,52 @@
+<div class="jumbotron p-4">
+  <h2><b>Ver | Departamentos por Proyecto</b></h2>
+  <div class="table-responsive-sm w-50">
+    <h5>
+      <p id="notice" class="badge badge-pill badge-success pt-2 pb-2"><%= notice %></p>
+    </h5>
+
+    <hr>
+    <p>
+      <strong>Proyecto:</strong>
+      <td><%= Project.select(:Name).where("id = " + @project_apartment.project_id.to_s).collect(&:Name)[0] %></td>    </p>
+
+    <p>
+      <strong>Tipo Departamento:</strong>
+      <%= ProjectApartmentType.joins(:apartment_type).select("project_apartment_types.id as pat_id, apartment_types.Name").where("pat_id = " + @project_apartment.project_apartment_type_id.to_s).collect(&:Name)[0] %>
+    </p>
+
+    <p>
+      <strong>Número:</strong>
+      <%= @project_apartment.Number %>
+    </p>
+
+    <p>
+      <strong>Descripción:</strong>
+      <%= @project_apartment.Description %>
+    </p>
+
+    <p>
+      <strong>Portada:</strong>
+      <%= @project_apartment.Picture %>
+    </p>
+
+    <p>
+      <strong>Estado:</strong>
+      <%=
+      case @project_apartment.Status
+      when 0
+        "Disponible"
+      when 1
+        "Separado"
+      when 2
+        "Vendido"
+      else
+        "No Definido"
+      end %>
+    </p>
+    <hr>
+    <%= link_to image_tag('EditIconBig.png'), edit_project_apartment_path(@project_apartment), title: 'Editar' %> |
+    <%= link_to image_tag('BackIconBig.png'), project_apartments_path, title: 'Atras'  %>
+
+  </div>
+</div>

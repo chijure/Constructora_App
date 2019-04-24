@@ -1,57 +1,82 @@
 <%= form_with(model: apartment_booking, local: true) do |form| %>
   <% if apartment_booking.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(apartment_booking.errors.count, "error") %> prohibited this apartment_booking from being saved:</h2>
+      <h5 class="text-danger">Se encontraron los siguiente errores:</h5>
 
-      <ul>
+      <ul class="ml-3 text-danger">
       <% apartment_booking.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
+  <hr>
 
-  <div class="field">
-    <%= form.label :IdApartmentBooking %>
-    <%= form.text_field :IdApartmentBooking %>
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-4">
+      <%= form.label :quotation_id, 'Cotización' %>
+    </div>
+    <div class="col-sm-8">
+      <%= form.select :quotation_id, Quotation.all.collect {|e| [e.id, e.id]}, {:include_blank => "Seleccione la Cotizacion"}, {:class => "form-control"} %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :IdQuotation %>
-    <%= form.text_field :IdQuotation %>
+
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-4">
+      <%= form.label :client_id, 'Cliente' %>
+    </div>
+    <div class="col-sm-8">
+      <%= form.select :client_id, Client.all.collect {|e| [e.Name + ' ' + e.LastName, e.id]}, {:include_blank => "Seleccione el Cliente"}, {:class => "form-control"} %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :IdClient %>
-    <%= form.text_field :IdClient %>
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-4">
+      <%= form.label :bank_id, 'Banco' %>
+    </div>
+    <div class="col-sm-8">
+      <%= form.select :bank_id, Bank.all.collect {|e| [e.Name, e.id]}, {:include_blank => "Seleccione el Banco"}, {:class => "form-control"} %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :IdBank %>
-    <%= form.text_field :IdBank %>
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-4">
+      <%= form.label :BookingDate, 'Fecha' %>
+    </div>
+    <div class="col-sm-8">
+      <%= form.date_select :BookingDate, {:class => "form-control"} %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :BookingDate %>
-    <%= form.date_select :BookingDate %>
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-4">
+      <%= form.label :BookPrice, 'Monto Reserva' %>
+    </div>
+    <div class="col-sm-8">
+      <%= form.number_field :BookPrice, {:class => "form-control"} %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :BookPrice %>
-    <%= form.text_field :BookPrice %>
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-4">
+      <%= form.label :VoucherNumber, 'N° de Comprobante' %>
+    </div>
+    <div class="col-sm-8">
+      <%= form.text_field :VoucherNumber, {:class => "form-control"} %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :VoucherNumber %>
-    <%= form.text_field :VoucherNumber %>
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-4">
+      <%= form.label :IsActive, 'Activo' %>
+    </div>
+    <div class="col-sm-8">
+      <%= form.check_box :IsActive, :class => "checkBoxSyleForm" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :IsActive %>
-    <%= form.check_box :IsActive %>
-  </div>
-
+  <hr>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Guardar", :type => :image, :src => "/assets/SaveIconBig.png", :title => 'Guardar' %>
   </div>
 <% end %>

@@ -1,6 +1,10 @@
-<h1>Editing Sale</h1>
 
-<%= render 'form', sale: @sale %>
+<div class="jumbotron p-4">
+  <h2><b>Editar | Ventas</b></h2>
+	<div class="table-responsive-sm w-50">
+		<%= render 'form', sale: @sale %>
 
-<%= link_to 'Show', @sale %> |
-<%= link_to 'Back', sales_path %>
+		<%= link_to image_tag('ShowIconBig.png'), @sale, title: 'Ver' %> |
+		<%= link_to image_tag('BackIconBig.png'), sales_path, title: 'Atras'  %>
+	</div>
+</div>

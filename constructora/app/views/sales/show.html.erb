@@ -1,49 +1,51 @@
-<p id="notice"><%= notice %></p>
+<div class="jumbotron p-4">
+  <h2><b>Ver | Proyectos</b></h2>
+  <div class="table-responsive-sm w-50">
+    <h5>
+      <p id="notice" class="badge badge-pill badge-success pt-2 pb-2"><%= notice %></p>
+    </h5>
+    <hr>
+    <p>
+      <strong>Departamento:</strong>
+      <%= ProjectApartment.select(:Number).where("id = " + @sale.project_apartment_id.to_s).collect(&:Number)[0] %>
+    </p>
 
-<p>
-  <strong>Idsale:</strong>
-  <%= @sale.IdSale %>
-</p>
+    <p>
+      <strong>N° de Reserva:</strong>
+      <%= ApartmentBooking.select(:id).where("id = " + @sale.apartment_booking_id.to_s).collect(&:id)[0] %>
+    </p>
 
-<p>
-  <strong>Idapartmenttype:</strong>
-  <%= @sale.IdApartmentType %>
-</p>
+    <p>
+      <strong>Banco:</strong>
+      <%= Bank.select(:Name).where("id = " + @sale.bank_id.to_s).collect(&:Name)[0] %>
+    </p>
 
-<p>
-  <strong>Idapartmentbooking:</strong>
-  <%= @sale.IdApartmentBooking %>
-</p>
+    <p>
+      <strong>Fecha Venta:</strong>
+      <%= @sale.SaleDate %>
+    </p>
 
-<p>
-  <strong>Idbank:</strong>
-  <%= @sale.IdBank %>
-</p>
+    <p>
+      <strong>Tipo de Pago:</strong>
+        <% if @sale.PaymentType == 0 %>
+          <%= "Efectivo" %>
+        <% else %>
+          <%= "Financiado" %>
+        <% end %>
+    </p>
 
-<p>
-  <strong>Saledate:</strong>
-  <%= @sale.SaleDate %>
-</p>
+    <p>
+      <strong>Monto Efectivo:</strong>
+      <%= @sale.CashAmount %>
+    </p>
 
-<p>
-  <strong>Paymenttype:</strong>
-  <%= @sale.PaymentType %>
-</p>
+    <p>
+      <strong>Monto Financiado:</strong>
+      <%= @sale.FinancedAmount %>
+    </p>
+    <hr>
+    <%= link_to image_tag('EditIconBig.png'), edit_sale_path(@sale), title: 'Editar' %> |
+    <%= link_to image_tag('BackIconBig.png'), sales_path, title: 'Atras'  %>
 
-<p>
-  <strong>Cashamount:</strong>
-  <%= @sale.CashAmount %>
-</p>
-
-<p>
-  <strong>Financedamount:</strong>
-  <%= @sale.FinancedAmount %>
-</p>
-
-<p>
-  <strong>Isactive:</strong>
-  <%= @sale.IsActive %>
-</p>
-
-<%= link_to 'Edit', edit_sale_path(@sale) %> |
-<%= link_to 'Back', sales_path %>
+  </div>
+</div>

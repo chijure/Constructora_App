@@ -15,7 +15,7 @@
           <th>Ciudad</th>
           <th>Correo</th>
           <th>Teléfono</th>
-          <th>Activo</th>
+          <th class="text-center">Activo</th>
         </tr>
       </thead>
 
@@ -34,7 +34,9 @@
             <td><%= City.select(:Name).where("id = " + client.city_id.to_s).collect(&:Name)[0] %></td>
             <td><%= client.Mail %></td>
             <td><%= client.Phone %></td>
-            <td><%= client.IsActive %></td>
+            <td class="text-center">
+              <%= check_box_tag "IsActive", 0, client.IsActive, disabled: true, class: "checkBoxSyleIndex" %>
+            </td>
           </tr>
         <% end %>
       </tbody>

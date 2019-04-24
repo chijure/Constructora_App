@@ -1,62 +1,27 @@
 <%= form_with(model: apartment_type, local: true) do |form| %>
   <% if apartment_type.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(apartment_type.errors.count, "error") %> prohibited this apartment_type from being saved:</h2>
+      <h5 class="text-danger">Se encontraron los siguiente errores:</h5>
 
-      <ul>
+      <ul class="ml-3 text-danger">
       <% apartment_type.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
-
+  <hr>
   <div class="field">
-    <%= form.label :IdApartmentType %>
-    <%= form.text_field :IdApartmentType %>
+    <%= form.label :Name, 'Nombre' %>
+    <%= form.text_field :Name, :class => "form-control" %>
   </div>
-
-  <div class="field">
-    <%= form.label :IdProject %>
-    <%= form.text_field :IdProject %>
+  <br>
+  <div class="field mt-4 xs">
+    <%= form.label :IsActive, 'Activo' %>
+    <%= form.check_box :IsActive, :class => "checkBoxSyleForm" %>
   </div>
-
-  <div class="field">
-    <%= form.label :Name %>
-    <%= form.text_field :Name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :Quantity %>
-    <%= form.number_field :Quantity %>
-  </div>
-
-  <div class="field">
-    <%= form.label :Available %>
-    <%= form.number_field :Available %>
-  </div>
-
-  <div class="field">
-    <%= form.label :Sold %>
-    <%= form.number_field :Sold %>
-  </div>
-
-  <div class="field">
-    <%= form.label :BasePrice %>
-    <%= form.text_field :BasePrice %>
-  </div>
-
-  <div class="field">
-    <%= form.label :Area %>
-    <%= form.text_field :Area %>
-  </div>
-
-  <div class="field">
-    <%= form.label :Status %>
-    <%= form.number_field :Status %>
-  </div>
-
+  <hr>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Guardar", :type => :image, :src => "/assets/SaveIconBig.png", :title => 'Guardar' %>
   </div>
 <% end %>

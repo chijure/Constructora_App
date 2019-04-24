@@ -4,12 +4,12 @@
 		<h5>
 			<p id="notice" class="badge badge-pill badge-success pt-2 pb-2"><%= notice %></p>
 		</h5>		
-
+		<hr>
 		<p>
 		  <strong>Name:</strong>
 		  <%= @state.Name %>
 		</p>
-
+		<hr>
 		<%= link_to image_tag('EditIconBig.png'), edit_state_path(@state), title: 'Editar' %> |
 		<%= link_to image_tag('BackIconBig.png'), states_path, title: 'Atras'  %>
 	</div>

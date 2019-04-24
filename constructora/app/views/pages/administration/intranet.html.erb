@@ -3,17 +3,35 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="text-center">
-                <h1 class="display-5 text-danger"><strong>CONSTRUCTORA J&J</strong></h1>
+                <h1 class="display-5 text-danger"><strong>BIENVENIDO</strong></h1>
             </div>
         </div>
     </div>
     <hr class="my-4">
     <div class="text-center m-3">
-        <h1><strong>INTRANET</strong></h1>
+        <h2><strong>INTRANET</strong></h2>
     </div>
     <div class="container">
 
         <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow p-4">
+                    <div class="text-center">
+                        <i class="fas fa-file-alt fa-7x"></i>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title text-danger text-center font-weight-bold">Gestor de Proformas</h5>
+                        <div class="row text-center">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-8">
+                                <a class="btn btn-primary btn-lg" <%= link_to "Proformas", :controller => "request_quotations", :action => :index %>
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="col-md-4">
                 <div class="card mb-4 box-shadow p-4">
                     <div class="text-center">
@@ -25,7 +43,7 @@
                         <div class="row text-center">
                             <div class="col-md-2"></div>
                             <div class="col-md-8">
-                                <a class="btn btn-primary btn-lg" <%= link_to "Cotizacion", :controller => "requestquotation", :action => :manager %>
+                                <a class="btn btn-primary btn-lg" <%= link_to "Cotizaciones", :controller => "quotations", :action => :index %>
                             </div>
                             <div class="col-md-2"></div>
                         </div>
@@ -43,13 +61,14 @@
                         <div class="row text-center">
                             <div class="col-md-2"></div>
                             <div class="col-md-8">
-                                <a class="btn btn-primary btn-lg" <%= link_to "Proyectos", :controller => "project", :action => :manager %>
+                                <a class="btn btn-primary btn-lg" <%= link_to "Proyectos", :controller => "projects", :action => :index %>
                             </div>
                             <div class="col-md-2"></div>
                         </div>
                     </div>
                 </div>
             </div>
+<!--
 
             <div class="col-md-4">
                 <div class="card mb-4 box-shadow p-4">
@@ -62,24 +81,6 @@
                             <div class="col-md-2"></div>
                             <div class="col-md-8">
                                 <a class="btn btn-primary btn-lg" <%= link_to "Usuarios", :controller => "login", :action => :manager %>
-                            </div>
-                            <div class="col-md-2"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card mb-4 box-shadow p-4">
-                    <div class="text-center">
-                        <i class="fas fa-file-alt fa-7x"></i>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title text-danger text-center font-weight-bold">Gestor de Proformas</h5>
-                        <div class="row text-center">
-                            <div class="col-md-2"></div>
-                            <div class="col-md-8">
-                                <a href="../quotation/manager" class="btn btn-primary btn-lg">Proformas</a>
                             </div>
                             <div class="col-md-2"></div>
                         </div>
@@ -104,7 +105,7 @@
                     </div>
                 </div>
             </div>
-
+ 
             <div class="col-md-4">
                 <div class="card mb-4 box-shadow p-4">
                     <div class="text-center">
@@ -158,6 +159,6 @@
                     </div>
                 </div>
             </div>
-        </div>
+ -->        </div>
     </div>
 </div>

@@ -4,16 +4,16 @@
 		<h5>
 			<p id="notice" class="badge badge-pill badge-success pt-2 pb-2"><%= notice %></p>
 		</h5>		
-
+		<hr>
 		<p>
 		  <strong>Nombre:</strong>
 		  <%= @profile.Name %>
 		</p>
 		<p>
 		  <strong>Activo:</strong>		  
-		  <%= @profile.IsActive %>
+          <%= check_box_tag "IsActive", 0, @profile.IsActive, disabled: true, class: "checkBoxSyleIndex" %>
 		</p>
-
+		<hr>
 		<%= link_to image_tag('EditIconBig.png'), edit_profile_path(@profile), title: 'Editar' %> |
 		<%= link_to image_tag('BackIconBig.png'), profiles_path, title: 'Atras'  %>
 	</div>

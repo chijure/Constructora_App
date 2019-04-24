@@ -1,47 +1,71 @@
 <%= form_with(model: quotation, local: true) do |form| %>
   <% if quotation.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(quotation.errors.count, "error") %> prohibited this quotation from being saved:</h2>
+      <h5 class="text-danger">Se encontraron los siguiente errores:</h5>
 
-      <ul>
+      <ul class="ml-3 text-danger">
       <% quotation.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :IdQuotation %>
-    <%= form.text_field :IdQuotation %>
+  <hr>
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-4">
+      <%= form.label :request_quotation_id, 'N° Solicitud' %>
+    </div>
+    <div class="col-sm-8">
+      <%= form.select :request_quotation_id, RequestQuotation.all.collect {|e| [e.id, e.id]}, {:include_blank => "Seleccione la Solicitud"}, {:class => "form-control"} %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :IdRequestQuotation %>
-    <%= form.text_field :IdRequestQuotation %>
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-4">
+      <%= form.label :client_id, 'Cliente' %>
+    </div>
+    <div class="col-sm-8">
+      <%= form.select :client_id, Client.all.collect {|e| [e.Name + ' ' + e.LastName, e.id]}, {:include_blank => "Seleccione el Cliente"}, {:class => "form-control"} %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :QuotationDate %>
-    <%= form.date_select :QuotationDate %>
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-4">
+      <%= form.label :QuotationDate, 'Fecha Cotización' %>
+    </div>
+    <div class="col-sm-8">
+      <%= form.date_select :QuotationDate, {:class => "form-control"} %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :Price %>
-    <%= form.text_field :Price %>
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-4">
+      <%= form.label :Price, 'Precio' %>
+    </div>
+    <div class="col-sm-8">
+      <%= form.number_field :Price, {:class => "form-control"} %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :ValidFor %>
-    <%= form.number_field :ValidFor %>
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-4">
+      <%= form.label :ValidFor, 'Válido por' %>
+    </div>
+    <div class="col-sm-8">
+      <%= form.number_field :ValidFor, {:class => "form-control"} %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :Status %>
-    <%= form.number_field :Status %>
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-4">
+      <%= form.label :Status, 'Estado' %>
+    </div>
+    <div class="col-sm-8">
+    <%= form.select :Status, ([["Generado", "0"], ["Aprobado", "1"], ["Rechazado", "2"], ["Cancelado", "3"]]), {:class => "form-control"} %>      
+    </div>
   </div>
-
+  <hr>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Guardar", :type => :image, :src => "/assets/SaveIconBig.png", :title => 'Guardar' %>
   </div>
 <% end %>

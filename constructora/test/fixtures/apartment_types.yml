@@ -1,23 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  IdApartmentType: MyString
-  IdProject: MyString
   Name: MyString
-  Quantity: 1
-  Available: 1
-  Sold: 1
-  BasePrice: 1.5
-  Area: 1.5
-  Status: 1
+  IsActive: false
 
 two:
-  IdApartmentType: MyString
-  IdProject: MyString
   Name: MyString
-  Quantity: 1
-  Available: 1
-  Sold: 1
-  BasePrice: 1.5
-  Area: 1.5
-  Status: 1
+  IsActive: false

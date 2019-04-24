@@ -1,4 +1,5 @@
 class SalesController < ApplicationController
+  layout "applicationintranet"
   before_action :set_sale, only: [:show, :edit, :update, :destroy]
 
   # GET /sales
@@ -25,7 +26,7 @@ class SalesController < ApplicationController
   # POST /sales.json
   def create
     @sale = Sale.new(sale_params)
-    #@sale.IdSale = SecureRandom.uuid
+    @sale.IsActive = true
 
     respond_to do |format|
       if @sale.save
@@ -70,6 +71,6 @@ class SalesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sale_params
-      params.require(:sale).permit(:apartment_type_id, :apartment_booking_id, :bank_id, :SaleDate, :PaymentType, :CashAmount, :FinancedAmount, :IsActive)
+      params.require(:sale).permit(:project_apartment_id, :apartment_booking_id, :bank_id, :SaleDate, :PaymentType, :CashAmount, :FinancedAmount, :IsActive)
     end
 end

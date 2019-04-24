@@ -17,7 +17,7 @@ class SalesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create sale" do
     assert_difference('Sale.count') do
-      post sales_url, params: { sale: { CashAmount: @sale.CashAmount, FinancedAmount: @sale.FinancedAmount, IdApartmentBooking: @sale.IdApartmentBooking, IdApartmentType: @sale.IdApartmentType, IdBank: @sale.IdBank, IdSale: @sale.IdSale, IsActive: @sale.IsActive, PaymentType: @sale.PaymentType, SaleDate: @sale.SaleDate } }
+      post sales_url, params: { sale: { CashAmount: @sale.CashAmount, FinancedAmount: @sale.FinancedAmount, IsActive: @sale.IsActive, PaymentType: @sale.PaymentType, SaleDate: @sale.SaleDate, apartment_booking_id: @sale.apartment_booking_id, bank_id: @sale.bank_id, project_apartment_id: @sale.project_apartment_id } }
     end
 
     assert_redirected_to sale_url(Sale.last)
@@ -34,7 +34,7 @@ class SalesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update sale" do
-    patch sale_url(@sale), params: { sale: { CashAmount: @sale.CashAmount, FinancedAmount: @sale.FinancedAmount, IdApartmentBooking: @sale.IdApartmentBooking, IdApartmentType: @sale.IdApartmentType, IdBank: @sale.IdBank, IdSale: @sale.IdSale, IsActive: @sale.IsActive, PaymentType: @sale.PaymentType, SaleDate: @sale.SaleDate } }
+    patch sale_url(@sale), params: { sale: { CashAmount: @sale.CashAmount, FinancedAmount: @sale.FinancedAmount, IsActive: @sale.IsActive, PaymentType: @sale.PaymentType, SaleDate: @sale.SaleDate, apartment_booking_id: @sale.apartment_booking_id, bank_id: @sale.bank_id, project_apartment_id: @sale.project_apartment_id } }
     assert_redirected_to sale_url(@sale)
   end
 

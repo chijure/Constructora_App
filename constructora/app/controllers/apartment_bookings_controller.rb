@@ -1,4 +1,5 @@
 class ApartmentBookingsController < ApplicationController
+  layout "applicationintranet"
   before_action :set_apartment_booking, only: [:show, :edit, :update, :destroy]
 
   # GET /apartment_bookings
@@ -15,6 +16,7 @@ class ApartmentBookingsController < ApplicationController
   # GET /apartment_bookings/new
   def new
     @apartment_booking = ApartmentBooking.new
+    @apartment_booking.IsActive = true
   end
 
   # GET /apartment_bookings/1/edit

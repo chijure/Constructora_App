@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_22_051705) do
+ActiveRecord::Schema.define(version: 2019_04_24_011242) do
 
   create_table "apartment_bookings", force: :cascade do |t|
     t.integer "quotation_id"
@@ -27,31 +27,11 @@ ActiveRecord::Schema.define(version: 2019_04_22_051705) do
     t.index ["quotation_id"], name: "index_apartment_bookings_on_quotation_id"
   end
 
-  create_table "apartment_type_prices", force: :cascade do |t|
-    t.integer "apartment_type_id"
-    t.datetime "RegisterDate"
-    t.integer "ValidFor"
-    t.float "PercentajeDiscount"
-    t.integer "Floor"
-    t.float "FinalPrice"
+  create_table "apartment_types", force: :cascade do |t|
+    t.string "Name"
     t.boolean "IsActive"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["apartment_type_id"], name: "index_apartment_type_prices_on_apartment_type_id"
-  end
-
-  create_table "apartment_types", force: :cascade do |t|
-    t.integer "project_id"
-    t.string "Name"
-    t.integer "Quantity"
-    t.integer "Available"
-    t.integer "Sold"
-    t.float "BasePrice"
-    t.float "Area"
-    t.integer "Status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["project_id"], name: "index_apartment_types_on_project_id"
   end
 
   create_table "appointments", force: :cascade do |t|
@@ -99,6 +79,45 @@ ActiveRecord::Schema.define(version: 2019_04_22_051705) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "project_ap_type_prices", force: :cascade do |t|
+    t.integer "project_apartment_type_id"
+    t.date "RegisterDate"
+    t.integer "ValidFor"
+    t.float "PercentageDiscount"
+    t.integer "Floor"
+    t.float "Price"
+    t.boolean "IsActive"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_apartment_type_id"], name: "index_project_ap_type_prices_on_project_apartment_type_id"
+  end
+
+  create_table "project_apartment_types", force: :cascade do |t|
+    t.integer "project_id"
+    t.integer "apartment_type_id"
+    t.float "Area"
+    t.integer "Floor"
+    t.integer "Quantity"
+    t.boolean "IsActive"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["apartment_type_id"], name: "index_project_apartment_types_on_apartment_type_id"
+    t.index ["project_id"], name: "index_project_apartment_types_on_project_id"
+  end
+
+  create_table "project_apartments", force: :cascade do |t|
+    t.integer "project_id"
+    t.integer "project_apartment_type_id"
+    t.string "Number"
+    t.string "Description"
+    t.string "Picture"
+    t.integer "Status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_apartment_type_id"], name: "index_project_apartments_on_project_apartment_type_id"
+    t.index ["project_id"], name: "index_project_apartments_on_project_id"
+  end
+
   create_table "projects", force: :cascade do |t|
     t.integer "city_id"
     t.string "Name"
@@ -109,11 +128,13 @@ ActiveRecord::Schema.define(version: 2019_04_22_051705) do
     t.string "Description"
     t.integer "Floors"
     t.integer "ApartmentsQuantity"
+    t.integer "AvailableApartments"
     t.integer "ParkingsQuantity"
     t.integer "AvailableParkings"
     t.integer "Status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "Picture"
     t.index ["city_id"], name: "index_projects_on_city_id"
   end
 
@@ -147,7 +168,7 @@ ActiveRecord::Schema.define(version: 2019_04_22_051705) do
   end
 
   create_table "sales", force: :cascade do |t|
-    t.integer "apartment_type_id"
+    t.integer "project_apartment_id"
     t.integer "apartment_booking_id"
     t.integer "bank_id"
     t.date "SaleDate"
@@ -158,8 +179,8 @@ ActiveRecord::Schema.define(version: 2019_04_22_051705) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["apartment_booking_id"], name: "index_sales_on_apartment_booking_id"
-    t.index ["apartment_type_id"], name: "index_sales_on_apartment_type_id"
     t.index ["bank_id"], name: "index_sales_on_bank_id"
+    t.index ["project_apartment_id"], name: "index_sales_on_project_apartment_id"
   end
 
   create_table "states", force: :cascade do |t|

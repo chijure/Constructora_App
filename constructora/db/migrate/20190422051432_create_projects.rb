@@ -10,6 +10,7 @@ class CreateProjects < ActiveRecord::Migration[5.2]
       t.string :Description
       t.integer :Floors
       t.integer :ApartmentsQuantity
+      t.integer :AvailableApartments
       t.integer :ParkingsQuantity
       t.integer :AvailableParkings
       t.integer :Status

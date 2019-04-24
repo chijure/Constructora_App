@@ -1,5 +1,6 @@
 class ApartmentType < ApplicationRecord
-	has_many :sales
-	has_many :apartment_type_prices
-	belongs_to :project
+	has_many :project_apartment_types
+	validates :Name, presence: {
+		message: "es requerido."
+	}	
 end

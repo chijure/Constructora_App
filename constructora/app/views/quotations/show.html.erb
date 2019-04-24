@@ -1,34 +1,59 @@
-<p id="notice"><%= notice %></p>
+<div class="jumbotron p-4">
+  <h2><b>Ver | Proyectos</b></h2>
+  <div class="table-responsive-sm w-50">
+    <h5>
+      <p id="notice" class="badge badge-pill badge-success pt-2 pb-2"><%= notice %></p>
+    </h5>
+    <hr>
+    <p>
+      <strong>N° de Cotización:</strong>
+      <td><%= @quotation.id %></td>
+    </p>
 
-<p>
-  <strong>Idquotation:</strong>
-  <%= @quotation.IdQuotation %>
-</p>
+    <p>
+      <strong>N° de Solicitud:</strong>
+      <td><%= RequestQuotation.select(:id).where("id = " + @quotation.request_quotation_id.to_s).collect(&:id)[0] %></td>
+    </p>
 
-<p>
-  <strong>Idrequestquotation:</strong>
-  <%= @quotation.IdRequestQuotation %>
-</p>
+    <p>
+      <strong>Cliente:</strong>
+      <td><%= Client.select(:Name).where("id = " + @quotation.client_id.to_s).collect(&:Name)[0] %></td>
+    </p>
 
-<p>
-  <strong>Quotationdate:</strong>
-  <%= @quotation.QuotationDate %>
-</p>
+    <p>
+      <strong>Fecha:</strong>
+      <%= @quotation.QuotationDate %>
+    </p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @quotation.Price %>
-</p>
+    <p>
+      <strong>Precio:</strong>
+      <%= @quotation.Price %>
+    </p>
 
-<p>
-  <strong>Validfor:</strong>
-  <%= @quotation.ValidFor %>
-</p>
+    <p>
+      <strong>Válido por:</strong>
+      <%= @quotation.ValidFor %>
+    </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @quotation.Status %>
-</p>
+    <p>
+      <strong>Estado:</strong>
+      <%=
+      case @quotation.Status
+      when 0
+        "Generado"
+      when 1
+        "Aprobado"
+      when 2
+        "Rechazado"
+      when 3
+        "Cancelado"        
+      else
+        "No Definido"
+      end %>
+    </p>
+    <hr>
+    <%= link_to image_tag('EditIconBig.png'), edit_quotation_path(@quotation), title: 'Editar' %> |
+    <%= link_to image_tag('BackIconBig.png'), quotations_path, title: 'Atras'  %>
 
-<%= link_to 'Edit', edit_quotation_path(@quotation) %> |
-<%= link_to 'Back', quotations_path %>
+  </div>
+</div>

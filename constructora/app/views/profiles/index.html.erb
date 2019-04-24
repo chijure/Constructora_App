@@ -9,7 +9,7 @@
             <%= link_to image_tag('NewIcon.png'), new_profile_path, title: 'Nuevo' %>
           </th>
           <th>Nombre</th>
-          <th>Activo</th>
+          <th class="text-center">Activo</th>
         </tr>
       </thead>
 
@@ -22,7 +22,9 @@
               <%= link_to image_tag('DeleteIcon.png'), profile, title: 'Eliminar', method: :delete, data: { confirm: '¿Esta seguro?' } %>              
             </td>
             <td><%= profile.Name %></td>
-            <td><%= profile.IsActive %></td>
+            <td class="text-center">
+              <%= check_box_tag "IsActive", 0, profile.IsActive, disabled: true, class: "checkBoxSyleIndex" %>
+            </td>
           </tr>
         <% end %>
       </tbody>

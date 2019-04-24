@@ -4,6 +4,7 @@
     <h5>
       <p id="notice" class="badge badge-pill badge-success pt-2 pb-2"><%= notice %></p>
     </h5>
+    <hr>
     <p>
       <strong>Número:</strong>
       <%= @request_quotation.id %>
@@ -51,9 +52,21 @@
 
     <p>
       <strong>Estado:</strong>
-      <%= @request_quotation.Status %>
+      <%=
+      case @request_quotation.Status
+      when 0
+        "Generado"
+      when 1
+        "Cotizado"
+      when 2
+        "Rechazado"
+      when 3
+        "Cancelado"        
+      else
+        "No Definido"
+      end %>
     </p>
-
+    <hr>
     <%= link_to image_tag('EditIconBig.png'), edit_request_quotation_path(@request_quotation), title: 'Editar' %> |
     <%= link_to image_tag('BackIconBig.png'), request_quotations_path, title: 'Atras'  %>
 

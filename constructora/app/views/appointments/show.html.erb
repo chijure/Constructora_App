@@ -17,7 +17,7 @@
 
 		<p>
 		  <strong>Atendido:</strong>
-		  <%= @appointment.IsAttended %>
+          <%= check_box_tag "IsActive", 0, @appointment.IsAttended, disabled: true, class: "checkBoxSyleIndex" %>
 		</p>
 
 		<%= link_to image_tag('EditIconBig.png'), edit_appointment_path(@appointment), title: 'Editar' %> |

@@ -1,4 +1,5 @@
 class RequestQuotationsController < ApplicationController
+  layout "applicationintranet"
   before_action :set_request_quotation, only: [:show, :edit, :update, :destroy]
 
   # GET /request_quotations

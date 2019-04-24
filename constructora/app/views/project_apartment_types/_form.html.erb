@@ -1,0 +1,71 @@
+<%= form_with(model: project_apartment_type, local: true) do |form| %>
+  <% if project_apartment_type.errors.any? %>
+    <div id="error_explanation">
+      <h5 class="text-danger">Se encontraron los siguiente errores:</h5>
+
+      <ul class="ml-3 text-danger">
+      <% project_apartment_type.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <hr>
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-4">
+      <%= form.label :project_id, 'Proyecto' %>
+    </div>
+    <div class="col-sm-8">
+      <%= form.select :project_id, Project.all.collect {|e| [e.Name, e.id]}, {:include_blank => "Seleccione el Proyecto"}, {:class => "form-control"} %>
+    </div>
+  </div>
+
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-4">
+      <%= form.label :apartment_type_id, 'Tipo Departamento' %>
+    </div>
+    <div class="col-sm-8">
+      <%= form.select :apartment_type_id, ApartmentType.all.collect {|e| [e.Name, e.id]}, {:include_blank => "Seleccione el Tipo de Departamento"}, {:class => "form-control"} %>
+    </div>
+  </div>
+
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-4">
+      <%= form.label :Area, 'Area' %>
+    </div>
+    <div class="col-sm-8">
+      <%= form.number_field :Area, :class => "form-control" %>
+    </div>
+  </div>
+
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-4">
+      <%= form.label :Floor, 'Piso' %>
+    </div>
+    <div class="col-sm-8">
+      <%= form.number_field :Floor, :class => "form-control" %>
+    </div>
+  </div>
+
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-4">
+      <%= form.label :Quantity, 'Cantidad' %>
+    </div>
+    <div class="col-sm-8">
+      <%= form.number_field :Quantity, :class => "form-control" %>
+    </div>
+  </div>
+
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-4">
+      <%= form.label :IsActive, 'Activo' %>
+    </div>
+    <div class="col-sm-8">
+      <%= form.check_box :IsActive, :class => "checkBoxSyleForm" %>
+    </div>
+  </div>
+  <hr>
+  <div class="actions">
+    <%= form.submit "Guardar", :type => :image, :src => "/assets/SaveIconBig.png", :title => 'Guardar' %>
+  </div>
+<% end %>

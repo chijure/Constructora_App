@@ -1,22 +1,20 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  IdSale: MyString
-  IdApartmentType: MyString
-  IdApartmentBooking: MyString
-  IdBank: MyString
-  SaleDate: 2019-04-22
+  project_apartment: one
+  apartment_booking: one
+  bank: one
+  SaleDate: 2019-04-23
   PaymentType: 1
   CashAmount: 1.5
   FinancedAmount: 1.5
   IsActive: false
 
 two:
-  IdSale: MyString
-  IdApartmentType: MyString
-  IdApartmentBooking: MyString
-  IdBank: MyString
-  SaleDate: 2019-04-22
+  project_apartment: two
+  apartment_booking: two
+  bank: two
+  SaleDate: 2019-04-23
   PaymentType: 1
   CashAmount: 1.5
   FinancedAmount: 1.5

@@ -1,19 +1,21 @@
-<p id="notice"><%= notice %></p>
+<div class="jumbotron p-4">
+  <h2><b>Ver | Banco</b></h2>
+	<div class="table-responsive-sm w-50">
+		<h5>
+			<p id="notice" class="badge badge-pill badge-success pt-2 pb-2"><%= notice %></p>
+		</h5>
+		<hr>
+		<p>
+		  <strong>Nombre:</strong>
+		  <%= @bank.Name %>
+		</p>
 
-<p>
-  <strong>Idbank:</strong>
-  <%= @bank.IdBank %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @bank.Name %>
-</p>
-
-<p>
-  <strong>Isactive:</strong>
-  <%= @bank.IsActive %>
-</p>
-
-<%= link_to 'Edit', edit_bank_path(@bank) %> |
-<%= link_to 'Back', banks_path %>
+		<p>
+		  <strong>Activo:</strong>
+          <%= check_box_tag "IsActive", 0, @bank.IsActive, disabled: true, class: "checkBoxSyleIndex" %>
+		</p>
+		<hr>
+		<%= link_to image_tag('EditIconBig.png'), edit_bank_path(@bank), title: 'Editar' %> |
+		<%= link_to image_tag('BackIconBig.png'), banks_path, title: 'Atras'  %>
+	</div>
+</div>

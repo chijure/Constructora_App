@@ -8,12 +8,11 @@
           <th colspan="3" class="text-center">
             <%= link_to image_tag('NewIcon.png'), new_request_quotation_path, title: 'Nuevo' %>
           </th>
-          <th>Solicitud</th>
+          <th class="text-center">Solicitud</th>
           <th>Nombre</th>
           <th>Apellidos</th>
           <th>Proyecto</th>
           <th>Usuario</th>
-          <th>Correo</th>
           <th>Teléfono</th>
           <th>Fecha</th>
           <th>Estado</th>
@@ -28,15 +27,28 @@
             <td style="width:40px" class="pr-1 pl-2">
               <%= link_to image_tag('DeleteIcon.png'), request_quotation, title: 'Eliminar', method: :delete, data: { confirm: '¿Esta seguro?' } %>              
             </td>
-            <td><%= request_quotation.id %></td>
+            <td class="text-center"><%= request_quotation.id %></td>
             <td><%= request_quotation.Name %></td>
             <td><%= request_quotation.LastName %></td>
             <td><%= Project.select(:Name).where("id = " + request_quotation.project_id.to_s).collect(&:Name)[0] %></td>
             <td><%= User.select(:Name).where("id = " + request_quotation.user_id.to_s).collect(&:Name)[0] %></td>
-            <td><%= request_quotation.Mail %></td>
             <td><%= request_quotation.Phone %></td>
             <td><%= request_quotation.RequestDate %></td>
-            <td><%= request_quotation.Status %></td>
+            <td>
+              <%=
+              case request_quotation.Status
+              when 0
+                "Generado"
+              when 1
+                "Cotizado"
+              when 2
+                "Rechazado"
+              when 3
+                "Cancelado"
+              else
+                "No Definido"
+              end %>              
+            </td>
           </tr>
         <% end %>
       </tbody>

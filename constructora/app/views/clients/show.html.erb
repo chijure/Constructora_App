@@ -4,7 +4,7 @@
     <h5>
       <p id="notice" class="badge badge-pill badge-success pt-2 pb-2"><%= notice %></p>
     </h5>   
-
+    <hr>
     <p>
       <strong>Ciudad:</strong>
       <td><%= City.select(:Name).where("id = " + @client.city_id.to_s).collect(&:Name)[0] %></td>
@@ -42,9 +42,9 @@
 
     <p>
       <strong>Activo:</strong>
-      <%= @client.IsActive %>
+      <%= check_box_tag "IsActive", 0, @client.IsActive, disabled: true, class: "checkBoxSyleIndex" %>
     </p>
-
+    <hr>
     <%= link_to image_tag('EditIconBig.png'), edit_client_path(@client), title: 'Editar' %> |
     <%= link_to image_tag('BackIconBig.png'), clients_path, title: 'Atras'  %>
   </div>

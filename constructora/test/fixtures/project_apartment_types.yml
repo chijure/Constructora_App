@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project: one
+  apartment_type: one
+  Area: 1.5
+  Floor: 1
+  Quantity: 1
+  IsActive: false
+
+two:
+  project: two
+  apartment_type: two
+  Area: 1.5
+  Floor: 1
+  Quantity: 1
+  IsActive: false

@@ -1,4 +1,5 @@
 class AdministrationController < ApplicationController
+  layout "applicationintranet"
   def base_price
     render "pages/administration/base_price"
   end

@@ -1,4 +1,5 @@
 class QuotationsController < ApplicationController
+  layout "applicationintranet"
   before_action :set_quotation, only: [:show, :edit, :update, :destroy]
 
   # GET /quotations
@@ -15,6 +16,7 @@ class QuotationsController < ApplicationController
   # GET /quotations/new
   def new
     @quotation = Quotation.new
+    @quotation.Status = 0
   end
 
   # GET /quotations/1/edit
@@ -70,6 +72,6 @@ class QuotationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def quotation_params
-      params.require(:quotation).permit(:request_quotation_id, :QuotationDate, :Price, :ValidFor, :Status)
+      params.require(:quotation).permit(:request_quotation_id, :client_id, :QuotationDate, :Price, :ValidFor, :Status)
     end
 end

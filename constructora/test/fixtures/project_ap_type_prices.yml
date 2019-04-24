@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project_apartment_type: one
+  RegisterDate: 2019-04-23
+  ValidFor: 1
+  PercentageDiscount: 1.5
+  Floor: 1
+  Price: 1.5
+  IsActive: false
+
+two:
+  project_apartment_type: two
+  RegisterDate: 2019-04-23
+  ValidFor: 1
+  PercentageDiscount: 1.5
+  Floor: 1
+  Price: 1.5
+  IsActive: false

@@ -16,13 +16,12 @@ class SalesTest < ApplicationSystemTestCase
 
     fill_in "Cashamount", with: @sale.CashAmount
     fill_in "Financedamount", with: @sale.FinancedAmount
-    fill_in "Idapartmentbooking", with: @sale.IdApartmentBooking
-    fill_in "Idapartmenttype", with: @sale.IdApartmentType
-    fill_in "Idbank", with: @sale.IdBank
-    fill_in "Idsale", with: @sale.IdSale
     fill_in "Isactive", with: @sale.IsActive
     fill_in "Paymenttype", with: @sale.PaymentType
     fill_in "Saledate", with: @sale.SaleDate
+    fill_in "Apartment booking", with: @sale.apartment_booking_id
+    fill_in "Bank", with: @sale.bank_id
+    fill_in "Project apartment", with: @sale.project_apartment_id
     click_on "Create Sale"
 
     assert_text "Sale was successfully created"
@@ -35,13 +34,12 @@ class SalesTest < ApplicationSystemTestCase
 
     fill_in "Cashamount", with: @sale.CashAmount
     fill_in "Financedamount", with: @sale.FinancedAmount
-    fill_in "Idapartmentbooking", with: @sale.IdApartmentBooking
-    fill_in "Idapartmenttype", with: @sale.IdApartmentType
-    fill_in "Idbank", with: @sale.IdBank
-    fill_in "Idsale", with: @sale.IdSale
     fill_in "Isactive", with: @sale.IsActive
     fill_in "Paymenttype", with: @sale.PaymentType
     fill_in "Saledate", with: @sale.SaleDate
+    fill_in "Apartment booking", with: @sale.apartment_booking_id
+    fill_in "Bank", with: @sale.bank_id
+    fill_in "Project apartment", with: @sale.project_apartment_id
     click_on "Update Sale"
 
     assert_text "Sale was successfully updated"

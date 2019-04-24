@@ -10,17 +10,17 @@
       </ul>
     </div>
   <% end %>
-
+  <hr>
   <div class="field">
     <%= form.label :Name, 'Nombre' %>
     <%= form.text_field :Name, :class => "form-control" %>
   </div>
 
-  <div class="field mt-4 xs">
+  <div class="field mt-4">
     <%= form.label :IsActive, 'Activo' %>
-    <%= form.check_box :IsActive, :class => "form-control mr-15" %>
+    <%= form.check_box :IsActive, :class => "checkBoxSyleForm" %>
   </div>
-  <br>
+  <hr>
   <div class="actions">
     <%= form.submit "Guardar", :type => :image, :src => "/assets/SaveIconBig.png", :title => 'Guardar' %>
   </div>

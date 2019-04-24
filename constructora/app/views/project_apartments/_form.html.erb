@@ -1,0 +1,71 @@
+<%= form_with(model: project_apartment, local: true) do |form| %>
+  <% if project_apartment.errors.any? %>
+    <div id="error_explanation">
+      <h5 class="text-danger">Se encontraron los siguiente errores:</h5>
+
+      <ul class="ml-3 text-danger">
+      <% project_apartment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <hr>
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-4">
+      <%= form.label :project_id, 'Proyecto' %>
+    </div>
+    <div class="col-sm-8">
+      <%= form.select :project_id, Project.all.collect {|e| [e.Name, e.id]}, {:include_blank => "Seleccione el Proyecto"}, {:class => "form-control"} %>
+    </div>
+  </div>
+
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-4">
+      <%= form.label :project_apartment_type_id, 'Tipo Departamento' %>
+    </div>
+    <div class="col-sm-8">
+      <%= form.select :project_apartment_type_id, ProjectApartmentType.joins(:apartment_type).select("project_apartment_types.id, apartment_types.Name as at_Name").collect {|e| [e.at_Name, e.id]}, {:include_blank => "Seleccione el Tipo de Departamento"}, {:class => "form-control"} %>
+    </div>
+  </div>
+
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-4">
+      <%= form.label :Number, 'Número' %>
+    </div>
+    <div class="col-sm-8">
+      <%= form.text_field :Number, :class => "form-control" %>
+    </div>
+  </div>
+
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-4">
+      <%= form.label :Description, 'Descripción' %>
+    </div>
+    <div class="col-sm-8">
+      <%= form.text_area :Description, :rows => 4, :class => "form-control" %>
+    </div>
+  </div>
+
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-4">
+      <%= form.label :Picture, 'Portada' %>
+    </div>
+    <div class="col-sm-8">
+      <%= form.text_field :Picture, :class => "form-control" %>
+    </div>
+  </div>
+
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-4">
+      <%= form.label :Status, 'Estado' %>
+    </div>
+    <div class="col-sm-8">
+      <%= form.select :Status, ([["Disponible", "0"], ["Separado", "1"], ["Vendido", "2"]]), {:class => "form-control"} %>      
+    </div>
+  </div>
+  <hr>
+  <div class="actions">
+    <%= form.submit "Guardar", :type => :image, :src => "/assets/SaveIconBig.png", :title => 'Guardar' %>
+  </div>
+<% end %>

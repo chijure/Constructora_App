@@ -1,0 +1,9 @@
+<div class="jumbotron p-4">
+  <h2><b>Editar | Tipo de Departamento por Proyecto</b></h2>
+	<div class="table-responsive-sm w-50">
+		<%= render 'form', project_apartment: @project_apartment %>
+
+		<%= link_to image_tag('ShowIconBig.png'), @project_apartment, title: 'Ver' %> |
+		<%= link_to image_tag('BackIconBig.png'), project_apartments_path, title: 'Atras'  %>
+	</div>
+</div>

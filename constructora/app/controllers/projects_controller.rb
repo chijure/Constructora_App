@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  layout "applicationintranet"
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   # GET /projects
@@ -70,6 +71,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:city_id, :Name, :Price, :StartDate, :EndDate, :Address, :Description, :Floors, :ApartmentsQuantity, :ParkingsQuantity, :AvailableParkings, :Status)
+      params.require(:project).permit(:city_id, :Name, :Price, :StartDate, :EndDate, :Address, :Description, :Floors, :ApartmentsQuantity, :AvailableApartments, :ParkingsQuantity, :AvailableParkings, :Picture, :Status)
     end
 end

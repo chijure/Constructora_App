@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+  <hr>
   <div class="ml-3 mt-4 row">
     <div class="col-sm-2">
       <%= form.label :IdentityNumber, 'Num. ID' %>
@@ -83,11 +83,11 @@
       <%= form.label :IsActive, 'Activo' %>
     </div>
     <div class="col-sm-10">
-      <%= form.check_box :IsActive, :class => "form-control" %>
+      <%= form.check_box :IsActive, :class => "checkBoxSyleForm" %>
     </div>
   </div>
 
-  <br>
+  <hr>
   <div class="actions">
     <%= form.submit "Guardar", :type => :image, :src => "/assets/SaveIconBig.png", :title => 'Guardar' %>
   </div>

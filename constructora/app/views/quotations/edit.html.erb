@@ -1,6 +1,9 @@
-<h1>Editing Quotation</h1>
+<div class="jumbotron p-4">
+  <h2><b>Editar | Cotización</b></h2>
+	<div class="table-responsive-sm w-50">
+		<%= render 'form', quotation: @quotation %>
 
-<%= render 'form', quotation: @quotation %>
-
-<%= link_to 'Show', @quotation %> |
-<%= link_to 'Back', quotations_path %>
+		<%= link_to image_tag('ShowIconBig.png'), @quotation, title: 'Ver' %> |
+		<%= link_to image_tag('BackIconBig.png'), quotations_path, title: 'Atras'  %>
+	</div>
+</div>

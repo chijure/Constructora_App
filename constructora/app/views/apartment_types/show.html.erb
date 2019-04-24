@@ -1,49 +1,21 @@
-<p id="notice"><%= notice %></p>
+<div class="jumbotron p-4">
+  <h2><b>Ver | Tipos de Departamento</b></h2>
+	<div class="table-responsive-sm w-50">
+		<h5>
+			<p id="notice" class="badge badge-pill badge-success pt-2 pb-2"><%= notice %></p>
+		</h5>
+		<hr>
+		<p>
+		  <strong>Nombre:</strong>
+		  <%= @apartment_type.Name %>
+		</p>
 
-<p>
-  <strong>Idapartmenttype:</strong>
-  <%= @apartment_type.IdApartmentType %>
-</p>
-
-<p>
-  <strong>Idproject:</strong>
-  <%= @apartment_type.IdProject %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @apartment_type.Name %>
-</p>
-
-<p>
-  <strong>Quantity:</strong>
-  <%= @apartment_type.Quantity %>
-</p>
-
-<p>
-  <strong>Available:</strong>
-  <%= @apartment_type.Available %>
-</p>
-
-<p>
-  <strong>Sold:</strong>
-  <%= @apartment_type.Sold %>
-</p>
-
-<p>
-  <strong>Baseprice:</strong>
-  <%= @apartment_type.BasePrice %>
-</p>
-
-<p>
-  <strong>Area:</strong>
-  <%= @apartment_type.Area %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @apartment_type.Status %>
-</p>
-
-<%= link_to 'Edit', edit_apartment_type_path(@apartment_type) %> |
-<%= link_to 'Back', apartment_types_path %>
+		<p>
+		  <strong>Activo:</strong>
+		  <%= check_box_tag "IsActive", 0, @apartment_type.IsActive, disabled: true, class: "checkBoxSyleIndex" %>
+		</p>
+		<hr>
+		<%= link_to image_tag('EditIconBig.png'), edit_apartment_type_path(@apartment_type), title: 'Editar' %> |
+		<%= link_to image_tag('BackIconBig.png'), apartment_types_path, title: 'Atras'  %>
+	</div>
+</div>

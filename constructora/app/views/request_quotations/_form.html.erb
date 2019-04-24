@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+  <hr>
   <div class="ml-3 mt-4 row">
     <div class="col-sm-3">
     </div>
@@ -94,11 +94,11 @@
     <div class="col-sm-3">
       <%= form.label :Status, 'Estado' %>
     </div>
-    <div class="col-sm-9">
-      <%= form.number_field :Status %>
+    <div class="col-sm-8">
+    <%= form.select :Status, ([["Generado", "0"], ["Cotizado", "1"], ["Rechazado", "2"], ["Cancelado", "3"]]), {:class => "form-control"} %>      
     </div>
   </div>
-  <br>
+  <hr>
   <div class="actions">
     <%= form.submit "Guardar", :type => :image, :src => "/assets/SaveIconBig.png", :title => 'Guardar' %>
   </div>

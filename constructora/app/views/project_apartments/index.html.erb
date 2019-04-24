@@ -1,0 +1,49 @@
+<div class="jumbotron p-4">
+  <h2><b>Tipo de Departamento por Proyecto</b></h2>
+  <p id="notice" class="badge badge-pill badge-danger pt-2 pb-2"><%= notice %></p>
+  <div class="table-responsive-sm">
+    <table class="table table-striped table-hover w-100">
+      <thead class="thead-dark">
+        <tr>
+          <th colspan="3" class="text-center">
+            <%= link_to image_tag('NewIcon.png'), new_project_apartment_path, title: 'Nuevo' %>
+          </th>
+          <th>Proyecto</th>
+          <th>Tipo de Departamento</th>
+          <th>Número</th>
+          <th>Descripción</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @project_apartments.each do |project_apartment| %>
+          <tr>
+            <td style="width:33px" class="pr-2 pl-2"><%= link_to image_tag('ShowIcon.png'), project_apartment, title: 'Ver' %></td>
+            <td style="width:33px" class="pr-1 pl-1"><%= link_to image_tag('EditIcon.png'), edit_project_apartment_path(project_apartment), title: 'Editar' %></td>
+            <td style="width:40px" class="pr-1 pl-2">
+              <%= link_to image_tag('DeleteIcon.png'), project_apartment, title: 'Eliminar', method: :delete, data: { confirm: '¿Esta seguro?' } %>
+            <td><%= Project.select(:Name).where("id = " + project_apartment.project_id.to_s).collect(&:Name)[0] %></td>
+            <td><%= ProjectApartmentType.joins(:apartment_type).select("project_apartment_types.id as pat_id, apartment_types.Name").where("pat_id = " + project_apartment.project_apartment_type_id.to_s).collect(&:Name)[0] %></td>
+            <td><%= project_apartment.Number %></td>
+            <td><%= project_apartment.Description %></td>
+            <td>
+              <%=
+              case project_apartment.Status
+              when 0
+                "Disponible"
+              when 1
+                "Separado"
+              when 2
+                "Vendido"
+              else
+                "No Definido"
+              end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<br>
