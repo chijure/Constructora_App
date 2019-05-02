@@ -32,7 +32,7 @@
             <td><%= user.LastName %></td>
             <td><%= Profile.select(:Name).where("id = " + user.profile_id.to_s).collect(&:Name)[0] %></td>
             <td><%= City.select(:Name).where("id = " + user.city_id.to_s).collect(&:Name)[0] %></td>
-            <td><%= user.Mail %></td>
+            <td><%= user.email %></td>
             <td><%= user.Phone %></td>
             <td class="text-center">
               <%= check_box_tag "IsActive", 0, user.IsActive, disabled: true, class: "checkBoxSyleIndex" %>

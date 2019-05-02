@@ -198,11 +198,13 @@ ActiveRecord::Schema.define(version: 2019_05_02_024918) do
     t.string "Name"
     t.string "LastName"
     t.string "Address"
-    t.string "Mail"
-    t.string "Phone"
+    t.string "email"
     t.boolean "IsActive"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "Phone"
+    t.string "password_digest"
+    t.string "remember_digest"
     t.index ["city_id"], name: "index_users_on_city_id"
     t.index ["profile_id"], name: "index_users_on_profile_id"
   end

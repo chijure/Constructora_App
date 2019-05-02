@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'apartment_bookings/newfromquotation/:id', to: 'apartment_bookings#newfromquotation'
   get 'sales/newfrombooking/', to: 'sales#new'
   get 'sales/newfrombooking/:id', to: 'sales#newfrombooking'
+  get 'sessions/new'
   resources :project_ap_type_prices
   resources :project_apartments
   resources :project_apartment_type_prices
@@ -24,7 +25,10 @@ Rails.application.routes.draw do
   resources :profiles
   resources :cities
   resources :states
- 
+
+  get    'login'   => 'sessions#new'
+  post   'login'   => 'sessions#create'
+  delete 'logout'  => 'sessions#destroy'
 
   get 'administration/base_price'
   get 'administration/report'

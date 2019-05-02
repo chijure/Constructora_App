@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @user = User.find(params[:id])
   end
 
   # GET /users/new
@@ -27,11 +28,13 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
+    #@user = User.new(params[:user])
     #@user.IdUser = SecureRandom.uuid
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        log_in @user
+        format.html { redirect_to @user, notice: 'El usuario fue creado con éxito.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -45,7 +48,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user, notice: 'El usuario fue actualizado con éxito.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -59,7 +62,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to users_url, notice: 'El usuario fue eliminado con éxito.' }
       format.json { head :no_content }
     end
   end
@@ -72,6 +75,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:profile_id, :city_id, :IdentityNumber, :Name, :LastName, :Address, :Mail, :Phone, :IsActive)
+      params.require(:user).permit(:profile_id, :city_id, :IdentityNumber, :Name, :LastName, :Address, :email, :password,
+      :password_confirmation, :Phone, :IsActive)
     end
 end
