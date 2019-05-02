@@ -1,0 +1,16 @@
+<div class="jumbotron p-4">
+  <h2><b>Editar | Fotos de Departamentos</b></h2>
+	<div class="table-responsive-sm w-50">
+		<%= render 'form', apartment_picture: @apartment_picture %>
+
+		<%= link_to image_tag('ShowIconBig.png'), @apartment_picture, title: 'Ver' %> |
+		
+	    <%= 
+	      if session[:s_project_apartment_id]
+	        link_to image_tag('BackIconBig.png'), project_apartment_path(session[:s_project_apartment_id]), title: 'Atras'
+	      else 
+	        link_to image_tag('BackIconBig.png'), apartment_pictures_path, title: 'Atras'
+	      end
+	    %>		
+	</div>
+</div>

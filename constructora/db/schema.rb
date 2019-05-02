@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_02_024918) do
+ActiveRecord::Schema.define(version: 2019_05_02_214003) do
 
   create_table "apartment_bookings", force: :cascade do |t|
     t.integer "quotation_id"
@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(version: 2019_05_02_024918) do
     t.index ["bank_id"], name: "index_apartment_bookings_on_bank_id"
     t.index ["client_id"], name: "index_apartment_bookings_on_client_id"
     t.index ["quotation_id"], name: "index_apartment_bookings_on_quotation_id"
+  end
+
+  create_table "apartment_pictures", force: :cascade do |t|
+    t.integer "project_apartment_id"
+    t.string "Picture"
+    t.string "Description"
+    t.boolean "IsActive"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_apartment_id"], name: "index_apartment_pictures_on_project_apartment_id"
   end
 
   create_table "apartment_types", force: :cascade do |t|
@@ -154,6 +164,7 @@ ActiveRecord::Schema.define(version: 2019_05_02_024918) do
   create_table "request_quotations", force: :cascade do |t|
     t.integer "project_id"
     t.integer "user_id"
+    t.integer "project_apartment_id"
     t.string "IdentityNumber"
     t.string "Name"
     t.string "LastName"
@@ -163,7 +174,6 @@ ActiveRecord::Schema.define(version: 2019_05_02_024918) do
     t.integer "Status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "project_apartment_id"
     t.index ["project_apartment_id"], name: "index_request_quotations_on_project_apartment_id"
     t.index ["project_id"], name: "index_request_quotations_on_project_id"
     t.index ["user_id"], name: "index_request_quotations_on_user_id"
@@ -199,10 +209,10 @@ ActiveRecord::Schema.define(version: 2019_05_02_024918) do
     t.string "LastName"
     t.string "Address"
     t.string "email"
+    t.string "Phone"
     t.boolean "IsActive"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "Phone"
     t.string "password_digest"
     t.string "remember_digest"
     t.index ["city_id"], name: "index_users_on_city_id"

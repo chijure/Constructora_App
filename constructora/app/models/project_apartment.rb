@@ -1,6 +1,7 @@
 class ProjectApartment < ApplicationRecord
 	mount_uploader :Picture, PictureUploader
 	has_many :request_quotations
+	has_many :apartment_pictures
   	belongs_to :project
   	belongs_to :project_apartment_type
 

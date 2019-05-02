@@ -15,6 +15,11 @@ es:
             bank:
               required: "es requerido"
 
+        apartment_picture:
+          attributes:
+            project_apartment:
+              required: "es requerido"
+
         appointment:
           attributes:
             request_quotation: 
@@ -127,6 +132,12 @@ es:
         BookingDate: "Fecha"
         BookPrice: "Precio"
         VoucherNumber: "N° de Comprobante"
+        IsActive: "Activo"
+
+      apartment_picture:
+        project_apartment: "Departamento"
+        Picture: "Imagen"
+        Description: "Descripción"
         IsActive: "Activo"
 
       apartment_type:

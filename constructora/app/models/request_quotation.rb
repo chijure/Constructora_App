@@ -12,8 +12,8 @@ class RequestQuotation < ApplicationRecord
 	},
 	length: 
 	{
-		maximum: 8,
-		message: 'no debe ser mayor a 8 caracteres'
+		maximum: 20,
+		message: 'no debe ser mayor a 20 caracteres'
 	}
 
 	validates :LastName, presence: {

@@ -1,66 +1,89 @@
 <div class="jumbotron p-4">
   <h2><b>Ver | Departamento</b></h2>
-  <div class="table-responsive-sm w-50">
+
+  <div class="table-responsive-sm w-100">
     <h5>
       <p id="notice" class="badge badge-pill badge-success pt-2 pb-2"><%= notice %></p>
     </h5>
     <hr>
-    <p>
-      <strong>Proyecto:</strong>
-      <td><%= Project.select(:Name).where("id = " + @project_apartment.project_id.to_s).collect(&:Name)[0] %></td>
-    </p>
 
-    <p>
-      <strong>Tipo Departamento:</strong>
-      <%= ProjectApartmentType.joins(:apartment_type).select("project_apartment_types.id as pat_id, apartment_types.Name").where("pat_id = " + @project_apartment.project_apartment_type_id.to_s).collect(&:Name)[0] %>
-    </p>
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Departamentos</a>
+        <a class="nav-item nav-link" id="nav-pictures-tab" data-toggle="tab" href="#nav-pictures" role="tab" aria-controls="nav-pictures" aria-selected="false">Imagenes</a>
+      </div>
+    </nav>
 
-    <p>
-      <strong>Número:</strong>
-      <%= @project_apartment.Number %>
-    </p>
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+        <div class="container">
 
-    <p>
-      <strong>Descripción:</strong>
-      <%= @project_apartment.Description %>
-    </p>
+          <p>
+            <strong>Proyecto:</strong>
+            <td><%= Project.select(:Name).where("id = " + @project_apartment.project_id.to_s).collect(&:Name)[0] %></td>
+          </p>
 
-    <p>
-      <strong>Portada:</strong>
-      <%= image_tag(@project_apartment.Picture.to_s, :width => 300) %>
-    </p>
+          <p>
+            <strong>Tipo Departamento:</strong>
+            <%= ProjectApartmentType.joins(:apartment_type).select("project_apartment_types.id as pat_id, apartment_types.Name").where("pat_id = " + @project_apartment.project_apartment_type_id.to_s).collect(&:Name)[0] %>
+          </p>
 
-    <p>
-      <strong>Estado:</strong>
-      <%=
-      case @project_apartment.Status
-      when 0
-        "Disponible"
-      when 1
-        "Separado"
-      when 2
-        "Vendido"
-      else
-        "No Definido"
-      end %>
-    </p>
-    <hr>
-    <%= link_to image_tag('EditIconBig.png'), edit_project_apartment_path(@project_apartment), title: 'Editar' %> |
-    <%= 
-      if session[:s_project_id]
-        #project_id = session[:project_iddd]
-        #puts session[:project_iddd]
-        #session.delete(:project_id)
-        #session[:project_iddd] = nil
-        #puts 'project_path(project_id)'
-        #puts project_path(project_id)
-        #puts session[:project_iddd]
-        #link_to image_tag('BackIconBig.png'), :controller => :projects, :action => :show, title: 'Atras'
-        link_to image_tag('BackIconBig.png'), project_path(session[:s_project_id]), title: 'Atras'
-      else 
-        link_to image_tag('BackIconBig.png'), project_apartments_path, title: 'Atras'
-      end
-    %>
+          <p>
+            <strong>Número:</strong>
+            <%= @project_apartment.Number %>
+          </p>
 
-  </div>
+          <p>
+            <strong>Descripción:</strong>
+            <%= @project_apartment.Description %>
+          </p>
+
+          <p>
+            <strong>Portada:</strong>
+            <%= image_tag(@project_apartment.Picture.to_s, :width => 300) %>
+          </p>
+
+          <p>
+            <strong>Estado:</strong>
+            <%=
+            case @project_apartment.Status
+            when 0
+              "Disponible"
+            when 1
+              "Separado"
+            when 2
+              "Vendido"
+            else
+              "No Definido"
+            end %>
+          </p>
+          <hr>
+          <%= link_to image_tag('EditIconBig.png'), edit_project_apartment_path(@project_apartment), title: 'Editar' %>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="nav-pictures" role="tabpanel" aria-labelledby="nav-pictures-tab">
+        <%= 
+          session[:s_project_apartment_id] = @project_apartment.id
+          render 'project_apartments/pictures/index', apartment_pictures: ApartmentPicture.where(project_apartment_id: @project_apartment.id)
+        %>        
+      </div>
+      <hr>
+      <div class="container">
+        <%= 
+          if session[:s_project_id]
+            #project_id = session[:project_iddd]
+            #puts session[:project_iddd]
+            #session.delete(:project_id)
+            #session[:project_iddd] = nil
+            #puts 'project_path(project_id)'
+            #puts project_path(project_id)
+            #puts session[:project_iddd]
+            #link_to image_tag('BackIconBig.png'), :controller => :projects, :action => :show, title: 'Atras'
+            link_to image_tag('BackIconBig.png'), project_path(session[:s_project_id]), title: 'Atras'
+          else 
+            link_to image_tag('BackIconBig.png'), project_apartments_path, title: 'Atras'
+          end
+        %>      
+      </div>
+  <br>
 </div>

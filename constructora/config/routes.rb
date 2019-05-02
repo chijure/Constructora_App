@@ -1,5 +1,6 @@
 Rails.application.routes.draw do 
 
+  resources :apartment_pictures
   get 'quotations/newfromrequest/', to: 'quotations#new'
   get 'quotations/newfromrequest/:id', to: 'quotations#newfromrequest'
   get 'apartment_bookings/newfromquotation/', to: 'apartment_bookings#new'

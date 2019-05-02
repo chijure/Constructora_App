@@ -15,18 +15,8 @@ class User < ApplicationRecord
 	length: 
 	{
 		maximum: 20
-
-	before_save { self.email = email.downcase }
-
-	validates :IdentityNumber, presence: {
-		message: "es requerido."
 	}
-	validates :Name, presence: {
-		message: "es requerido."
-	}
-	validates :LastName, presence: {
-		message: "es requerido."
-	}
+	#before_save { self.email = email.downcase }
 
 	validates :LastName, presence: true,
 	length: 

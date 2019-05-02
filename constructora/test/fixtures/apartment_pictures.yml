@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Picture: MyString
+  Description: MyString
+  Active: false
+  project_apartment: one
+
+two:
+  Picture: MyString
+  Description: MyString
+  Active: false
+  project_apartment: two
