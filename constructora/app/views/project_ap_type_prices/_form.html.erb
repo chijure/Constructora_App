@@ -16,7 +16,13 @@
       <%= form.label :project_apartment_type_id, 'Proyecto Tipo Dep.' %>
     </div>
     <div class="col-sm-8">
-      <%= form.select :project_apartment_type_id, ProjectApartmentType.joins(:apartment_type, :project).select("project_apartment_types.id, projects.Name as p_Name, apartment_types.Name as at_Name").collect {|e| [e.p_Name + ' - ' + e.at_Name, e.id]}, {:include_blank => "Seleccione..."}, {:class => "form-control"} %>
+      <%= 
+      if session[:s_project_apartment_type_id]
+        form.select :project_apartment_type_id, ProjectApartmentType.joins(:apartment_type, :project).select("project_apartment_types.id, projects.Name as p_Name, apartment_types.Name as at_Name").collect {|e| [e.p_Name + ' - ' + e.at_Name, e.id]}, { selected: session[:s_project_apartment_type_id] }, { class: "form-control" }
+      else
+        form.select :project_apartment_type_id, ProjectApartmentType.joins(:apartment_type, :project).select("project_apartment_types.id, projects.Name as p_Name, apartment_types.Name as at_Name").collect {|e| [e.p_Name + ' - ' + e.at_Name, e.id]}, {:include_blank => "Seleccione..."}, {:class => "form-control"}
+      end
+      %>
     </div>
   </div>
 

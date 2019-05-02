@@ -25,7 +25,7 @@
       <%= form.label :client_id, 'Cliente' %>
     </div>
     <div class="col-sm-8">
-      <%= form.select :client_id, Client.all.collect {|e| [e.Name + ' ' + e.LastName, e.id]}, {:include_blank => "Seleccione el Cliente"}, {:class => "form-control"} %>
+      <%= form.select :client_id, Client.all.order("Name asc").collect {|e| [e.Name + ' ' + e.LastName, e.id]}, {:include_blank => "Seleccione el Cliente"}, {:class => "form-control"} %>
     </div>
   </div>
 

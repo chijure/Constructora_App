@@ -13,7 +13,7 @@
           <th class="text-center">Atendido</th>
         </tr>
       </thead>
-
+      <%= session[:s_request_quotation_id] = nil %>
       <tbody>
         <% @appointments.each do |appointment| %>
           <tr>

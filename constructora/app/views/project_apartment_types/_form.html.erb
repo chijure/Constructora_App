@@ -16,7 +16,13 @@
       <%= form.label :project_id, 'Proyecto' %>
     </div>
     <div class="col-sm-8">
-      <%= form.select :project_id, Project.all.collect {|e| [e.Name, e.id]}, {:include_blank => "Seleccione el Proyecto"}, {:class => "form-control"} %>
+      <%= 
+      if session[:s_project_id]
+        form.select :project_id, Project.all.collect {|e| [e.Name, e.id]}, { selected: session[:s_project_id] }, { class: "form-control" }
+      else
+        form.select :project_id, Project.all.collect {|e| [e.Name, e.id]}, {:include_blank => "Seleccione el Proyecto"}, {:class => "form-control"} 
+      end
+      %>
     </div>
   </div>
 

@@ -2,23 +2,44 @@ class User < ApplicationRecord
 	belongs_to :profile
 	belongs_to :city
 	has_many :request_quotations
-	validates :IdentityNumber, presence: {
-		message: "es requerido."
+
+	validates :IdentityNumber, presence: true,
+	length: 
+	{
+		maximum: 8
+	}, 
+	uniqueness: true
+
+	validates :Name, presence: true,
+	length: 
+	{
+		maximum: 20
 	}
-	validates :Name, presence: {
-		message: "es requerido."
+
+	validates :LastName, presence: true,
+	length: 
+	{
+		maximum: 40
 	}
-	validates :LastName, presence: {
-		message: "es requerido."
+
+	validates :Address, presence: true,
+	length: 
+	{
+		maximum: 100
 	}
-	validates :Address, presence: {
-		message: "es requerido."
+
+	validates :Mail, presence: true, 
+	email: true, 
+	length: 
+	{
+		maximum: 50
 	}
-	validates :Mail, presence: {
-		message: "es requerido."
-	}
-	validates :Phone, presence: {
-		message: "es requerido."
-	}
+
+	validates :Phone, presence: true,
+	length:
+	{
+		maximum: 10
+	}	
+
 
 end

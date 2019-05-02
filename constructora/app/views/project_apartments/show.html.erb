@@ -4,11 +4,11 @@
     <h5>
       <p id="notice" class="badge badge-pill badge-success pt-2 pb-2"><%= notice %></p>
     </h5>
-
     <hr>
     <p>
       <strong>Proyecto:</strong>
-      <td><%= Project.select(:Name).where("id = " + @project_apartment.project_id.to_s).collect(&:Name)[0] %></td>    </p>
+      <td><%= Project.select(:Name).where("id = " + @project_apartment.project_id.to_s).collect(&:Name)[0] %></td>
+    </p>
 
     <p>
       <strong>Tipo Departamento:</strong>
@@ -27,7 +27,7 @@
 
     <p>
       <strong>Portada:</strong>
-      <%= @project_apartment.Picture %>
+      <%= image_tag(@project_apartment.Picture.to_s, :width => 300) %>
     </p>
 
     <p>
@@ -46,7 +46,21 @@
     </p>
     <hr>
     <%= link_to image_tag('EditIconBig.png'), edit_project_apartment_path(@project_apartment), title: 'Editar' %> |
-    <%= link_to image_tag('BackIconBig.png'), project_apartments_path, title: 'Atras'  %>
+    <%= 
+      if session[:s_project_id]
+        #project_id = session[:project_iddd]
+        #puts session[:project_iddd]
+        #session.delete(:project_id)
+        #session[:project_iddd] = nil
+        #puts 'project_path(project_id)'
+        #puts project_path(project_id)
+        #puts session[:project_iddd]
+        #link_to image_tag('BackIconBig.png'), :controller => :projects, :action => :show, title: 'Atras'
+        link_to image_tag('BackIconBig.png'), project_path(session[:s_project_id]), title: 'Atras'
+      else 
+        link_to image_tag('BackIconBig.png'), project_apartments_path, title: 'Atras'
+      end
+    %>
 
   </div>
 </div>

@@ -1,74 +1,100 @@
 <div class="jumbotron p-4">
   <h2><b>Ver | Solicitud de Cotización</b></h2>
-  <div class="table-responsive-sm w-50">
+  <div class="table-responsive-sm w-100">
     <h5>
       <p id="notice" class="badge badge-pill badge-success pt-2 pb-2"><%= notice %></p>
     </h5>
     <hr>
-    <p>
-      <strong>Número:</strong>
-      <%= @request_quotation.id %>
-    </p>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Solicitud de Cotización</a>
+        <a class="nav-item nav-link" id="nav-appointments-tab" data-toggle="tab" href="#nav-appointments" role="tab" aria-controls="nav-appointments" aria-selected="false">Citas</a>
+      </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+        <div class="container">
+          <br>
+          <p>
+            <strong>Número:</strong>
+            <%= @request_quotation.id %>
+          </p>
 
-    <p>
-      <strong>Número ID:</strong>
-      <%= @request_quotation.IdentityNumber %>
-    </p>
+          <p>
+            <strong>DNI:</strong>
+            <%= @request_quotation.IdentityNumber %>
+          </p>
 
-    <p>
-      <strong>Nombre:</strong>
-      <%= @request_quotation.Name %>
-    </p>
+          <p>
+            <strong>Nombre:</strong>
+            <%= @request_quotation.Name %>
+          </p>
 
-    <p>
-      <strong>Apellidos:</strong>
-      <%= @request_quotation.LastName %>
-    </p>
+          <p>
+            <strong>Apellidos:</strong>
+            <%= @request_quotation.LastName %>
+          </p>
 
-    <p>
-      <strong>Proyecto:</strong>
-      <td><%= Project.select(:Name).where("id = " + @request_quotation.project_id.to_s).collect(&:Name)[0] %></td>
-    </p>
+          <p>
+            <strong>Proyecto:</strong>
+            <td><%= Project.select(:Name).where("id = " + @request_quotation.project_id.to_s).collect(&:Name)[0] %></td>
+          </p>
 
-    <p>
-      <strong>Usuario:</strong>
-      <td><%= User.select(:Name).where("id = " + @request_quotation.user_id.to_s).collect(&:Name)[0] %></td>
-    </p>
+          <p>
+            <strong>Departamento:</strong>
+            <td><%= ProjectApartment.select(:Number).where("id = " + @request_quotation.project_apartment_id.to_s).collect(&:Number)[0] %></td>
+          </p>
 
-    <p>
-      <strong>Correo:</strong>
-      <%= @request_quotation.Mail %>
-    </p>
+          <p>
+            <strong>Usuario:</strong>
+            <td><%= User.select(:Name).where("id = " + @request_quotation.user_id.to_s).collect(&:Name)[0] %></td>
+          </p>
 
-    <p>
-      <strong>Teléfono:</strong>
-      <%= @request_quotation.Phone %>
-    </p>
+          <p>
+            <strong>Correo:</strong>
+            <%= @request_quotation.Mail %>
+          </p>
 
-    <p>
-      <strong>Fecha Solicitud:</strong>
-      <%= @request_quotation.RequestDate %>
-    </p>
+          <p>
+            <strong>Teléfono:</strong>
+            <%= @request_quotation.Phone %>
+          </p>
 
-    <p>
-      <strong>Estado:</strong>
-      <%=
-      case @request_quotation.Status
-      when 0
-        "Generado"
-      when 1
-        "Cotizado"
-      when 2
-        "Rechazado"
-      when 3
-        "Cancelado"        
-      else
-        "No Definido"
-      end %>
-    </p>
+          <p>
+            <strong>Fecha Solicitud:</strong>
+            <%= @request_quotation.RequestDate %>
+          </p>
+
+          <p>
+            <strong>Estado:</strong>
+            <%=
+            case @request_quotation.Status
+            when 0
+              "Generado"
+            when 1
+              "Cotizado"
+            when 2
+              "Rechazado"
+            when 3
+              "Cancelado"        
+            else
+              "No Definido"
+            end %>
+          </p>
+          <hr>
+          <%= link_to image_tag('EditIconBig.png'), edit_request_quotation_path(@request_quotation), title: 'Editar' %>
+        </div>
+
+      </div>
+      <div class="tab-pane fade" id="nav-appointments" role="tabpanel" aria-labelledby="nav-appointments-tab">
+        <%= 
+          session[:s_request_quotation_id] = @request_quotation.id
+          render 'request_quotations/appointments/index', appointments: Appointment.where(request_quotation_id: @request_quotation.id) 
+        %>        
+      </div>
+    </div>
     <hr>
-    <%= link_to image_tag('EditIconBig.png'), edit_request_quotation_path(@request_quotation), title: 'Editar' %> |
-    <%= link_to image_tag('BackIconBig.png'), request_quotations_path, title: 'Atras'  %>
-
+    <div class="container">    
+      <%= link_to image_tag('BackIconBig.png'), request_quotations_path, title: 'Atras'  %>
+    </div>
   </div>
 </div>

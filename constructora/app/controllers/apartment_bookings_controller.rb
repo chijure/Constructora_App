@@ -19,6 +19,18 @@ class ApartmentBookingsController < ApplicationController
     @apartment_booking.IsActive = true
   end
 
+  # GET /apartment_bookings/newfromquotation/1
+  def newfromquotation
+    @apartment_booking = ApartmentBooking.new
+    @apartment_booking.IsActive = true
+
+    quotation = Quotation.find(params[:id])
+    @apartment_booking.quotation_id = quotation.id
+    @apartment_booking.client_id = quotation.client_id
+
+    render "apartment_bookings/new"
+  end  
+
   # GET /apartment_bookings/1/edit
   def edit
   end
@@ -31,6 +43,15 @@ class ApartmentBookingsController < ApplicationController
     
     respond_to do |format|
       if @apartment_booking.save
+
+        if @apartment_booking.quotation_id != nil
+          project_apartment_id = Quotation.joins(:request_quotation).select("quotations.id as q_id, request_quotations.project_apartment_id as rq_project_apartment_id").where("q_id = " + @apartment_booking.quotation_id.to_s).collect {|e| [e.rq_project_apartment_id]}[0]
+
+          projectapartment = ProjectApartment.find(project_apartment_id)[0];
+          projectapartment.Status = 1
+          projectapartment.save
+        end
+                
         format.html { redirect_to @apartment_booking, notice: 'Apartment booking was successfully created.' }
         format.json { render :show, status: :created, location: @apartment_booking }
       else

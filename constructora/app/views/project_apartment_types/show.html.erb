@@ -1,42 +1,72 @@
 <div class="jumbotron p-4">
   <h2><b>Ver | Proyectos</b></h2>
-  <div class="table-responsive-sm w-50">
+
+  <div class="table-responsive-sm w-100">
     <h5>
       <p id="notice" class="badge badge-pill badge-success pt-2 pb-2"><%= notice %></p>
     </h5>
     <hr>
-    <p>
-      <strong>Proyecto:</strong>
-      <td><%= Project.select(:Name).where("id = " + @project_apartment_type.project_id.to_s).collect(&:Name)[0] %></td>
-    </p>
 
-    <p>
-      <strong>Tipo de Departamento:</strong>
-      <td><%= ApartmentType.select(:Name).where("id = " + @project_apartment_type.apartment_type_id.to_s).collect(&:Name)[0] %></td>
-    </p>
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Tipos de Departamentos</a>
+        <a class="nav-item nav-link" id="nav-apartment-types-tab" data-toggle="tab" href="#nav-apartment-type-prices" role="tab" aria-controls="nav-apartment-type-prices" aria-selected="false">Precios</a>
+      </div>
+    </nav>
 
-    <p>
-      <strong>Area:</strong>
-      <%= @project_apartment_type.Area %>
-    </p>
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+        <div class="container">
+          <p>
+            <strong>Proyecto:</strong>
+            <td><%= Project.select(:Name).where("id = " + @project_apartment_type.project_id.to_s).collect(&:Name)[0] %></td>
+          </p>
 
-    <p>
-      <strong>Piso:</strong>
-      <%= @project_apartment_type.Floor %>
-    </p>
+          <p>
+            <strong>Tipo de Departamento:</strong>
+            <td>
+              <%= ApartmentType.select(:Name).where("id = " + @project_apartment_type.apartment_type_id.to_s).collect(&:Name)[0] %>
+            </td>
+          </p>
 
-    <p>
-      <strong>Cantidad:</strong>
-      <%= @project_apartment_type.Quantity %>
-    </p>
+          <p>
+            <strong>Area:</strong>
+            <%= @project_apartment_type.Area %>
+          </p>
 
-    <p>
-      <strong>Activo:</strong>
-      <%= check_box_tag "IsActive", 0, @project_apartment_type.IsActive, disabled: true, class: "checkBoxSyleIndex" %>
-    </p>
-    <hr>
-    <%= link_to image_tag('EditIconBig.png'), edit_project_apartment_type_path(@project_apartment_type), title: 'Editar' %> |
-    <%= link_to image_tag('BackIconBig.png'), project_apartment_types_path, title: 'Atras'  %>
+          <p>
+            <strong>Piso:</strong>
+            <%= @project_apartment_type.Floor %>
+          </p>
 
-  </div>
+          <p>
+            <strong>Cantidad:</strong>
+            <%= @project_apartment_type.Quantity %>
+          </p>
+
+          <p>
+            <strong>Activo:</strong>
+            <%= check_box_tag "IsActive", 0, @project_apartment_type.IsActive, disabled: true, class: "checkBoxSyleIndex" %>
+          </p>
+          <hr>
+          <%= link_to image_tag('EditIconBig.png'), edit_project_apartment_type_path(@project_apartment_type), title: 'Editar' %>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="nav-apartment-type-prices" role="tabpanel" aria-labelledby="nav-apartment-type-prices-tab">
+        <%= 
+          session[:s_project_apartment_type_id] = @project_apartment_type.id
+          render 'project_apartment_types/prices/index', project_ap_type_prices: ProjectApTypePrice.where(project_apartment_type_id: @project_apartment_type.id)
+        %>        
+      </div>
+      <hr>
+      <div class="container">
+        <%= 
+          if session[:s_project_id]
+            link_to image_tag('BackIconBig.png'), project_path(session[:s_project_id]), title: 'Atras'
+          else 
+            link_to image_tag('BackIconBig.png'), project_apartment_types_path, title: 'Atras'
+          end
+        %>      
+      </div>
+  <br>
 </div>

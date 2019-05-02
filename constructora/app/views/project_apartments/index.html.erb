@@ -15,7 +15,7 @@
           <th>Estado</th>
         </tr>
       </thead>
-
+      <%= session[:s_project_id] = nil %>
       <tbody>
         <% @project_apartments.each do |project_apartment| %>
           <tr>

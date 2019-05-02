@@ -21,7 +21,13 @@
 		</p>
 
 		<%= link_to image_tag('EditIconBig.png'), edit_appointment_path(@appointment), title: 'Editar' %> |
-		<%= link_to image_tag('BackIconBig.png'), appointments_path, title: 'Atras'  %>
+	    <%= 
+	      if session[:s_request_quotation_id]
+	        link_to image_tag('BackIconBig.png'), request_quotation_path(session[:s_request_quotation_id]), title: 'Atras'
+	      else 
+	        link_to image_tag('BackIconBig.png'), appointments_path, title: 'Atras'
+	      end
+	    %>	
 
 	</div>
 </div>

@@ -16,6 +16,16 @@
     </p>
 
     <p>
+      <strong>Proyecto:</strong>
+      <%= Quotation.joins(request_quotation: :project).select("quotations.id as q_id, projects.Name as p_Name").where("q_id = " + @apartment_booking.quotation_id.to_s).collect {|e| e.p_Name}[0] %>
+    </p>
+
+    <p>
+      <strong>Departamento:</strong>
+      <%= Quotation.joins(request_quotation: :project_apartment).select("quotations.id as q_id, project_apartments.Number as pa_Number").where("q_id = " + @apartment_booking.quotation_id.to_s).collect {|e| e.pa_Number}[0] %>
+    </p>
+
+    <p>
       <strong>Cliente:</strong>
       <%= Client.select(:Name, :LastName).where("id = " + @apartment_booking.client_id.to_s).collect {|e| e.Name + ' ' + e.LastName} [0] %>
     </p>

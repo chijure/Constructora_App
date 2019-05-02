@@ -1,6 +1,11 @@
 Rails.application.routes.draw do 
 
-
+  get 'quotations/newfromrequest/', to: 'quotations#new'
+  get 'quotations/newfromrequest/:id', to: 'quotations#newfromrequest'
+  get 'apartment_bookings/newfromquotation/', to: 'apartment_bookings#new'
+  get 'apartment_bookings/newfromquotation/:id', to: 'apartment_bookings#newfromquotation'
+  get 'sales/newfrombooking/', to: 'sales#new'
+  get 'sales/newfrombooking/:id', to: 'sales#newfrombooking'
   resources :project_ap_type_prices
   resources :project_apartments
   resources :project_apartment_type_prices
@@ -19,6 +24,8 @@ Rails.application.routes.draw do
   resources :profiles
   resources :cities
   resources :states
+ 
+
   get 'administration/base_price'
   get 'administration/report'
   get 'administration/proforma'

@@ -43,12 +43,16 @@ class ProjectApartmentsController < ApplicationController
   def update
     respond_to do |format|
       if @project_apartment.update(project_apartment_params)
+        #puts 'AQUI ESTA EL SEGUNDO ID'
+        #puts @project_idDD
+        #puts params
         format.html { redirect_to @project_apartment, notice: 'Project apartment was successfully updated.' }
         format.json { render :show, status: :ok, location: @project_apartment }
       else
         format.html { render :edit }
         format.json { render json: @project_apartment.errors, status: :unprocessable_entity }
       end
+
     end
   end
 

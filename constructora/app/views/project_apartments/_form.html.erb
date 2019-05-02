@@ -15,8 +15,15 @@
     <div class="col-sm-4">
       <%= form.label :project_id, 'Proyecto' %>
     </div>
-    <div class="col-sm-8">
-      <%= form.select :project_id, Project.all.collect {|e| [e.Name, e.id]}, {:include_blank => "Seleccione el Proyecto"}, {:class => "form-control"} %>
+    <div class="col-sm-8">      
+      <%= 
+      if session[:s_project_id]
+        form.select :project_id, Project.all.collect {|e| [e.Name, e.id]}, { selected: session[:s_project_id] }, { class: "form-control" }
+        #form.label :project_id, value: Project.select(:Name).where("id = " + session[:s_project_id].to_s).collect(&:Name)[0]
+      else
+        form.select :project_id, Project.all.collect {|e| [e.Name, e.id]}, {:include_blank => "Seleccione el Proyecto"}, {:class => "form-control"} 
+      end
+      %>
     </div>
   </div>
 
@@ -25,7 +32,13 @@
       <%= form.label :project_apartment_type_id, 'Tipo Departamento' %>
     </div>
     <div class="col-sm-8">
-      <%= form.select :project_apartment_type_id, ProjectApartmentType.joins(:apartment_type).select("project_apartment_types.id, apartment_types.Name as at_Name").collect {|e| [e.at_Name, e.id]}, {:include_blank => "Seleccione el Tipo de Departamento"}, {:class => "form-control"} %>
+      <%= 
+      if session[:s_project_id]
+        form.select :project_apartment_type_id, ProjectApartmentType.joins(:apartment_type).select("project_apartment_types.id, project_apartment_types.project_id, apartment_types.Name as at_Name").where("project_id = " + session[:s_project_id].to_s).collect {|e| [e.at_Name, e.id]}, {:include_blank => "Seleccione el Tipo de Departamento"}, {:class => "form-control"}
+      else
+        form.select :project_apartment_type_id, ProjectApartmentType.joins(:apartment_type, :project).select("project_apartment_types.id, projects.Name as p_Name, apartment_types.Name as at_Name").collect {|e| [e.p_Name + ' - ' + e.at_Name, e.id]}, {:include_blank => "Seleccione el Tipo de Departamento"}, {:class => "form-control"}
+      end
+      %>
     </div>
   </div>
 
@@ -52,8 +65,9 @@
       <%= form.label :Picture, 'Portada' %>
     </div>
     <div class="col-sm-8">
-      <%= form.text_field :Picture, :class => "form-control" %>
-    </div>
+      <%= form.file_field :Picture, :class => "form-control" %>
+      <%= image_tag(project_apartment.Picture.to_s, :width => 400, :height => 400, :class => "img-fluid img-thumbnail") %>
+    </div>    
   </div>
 
   <div class="ml-3 mt-4 row">

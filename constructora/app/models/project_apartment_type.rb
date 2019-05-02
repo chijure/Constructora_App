@@ -6,11 +6,28 @@ class ProjectApartmentType < ApplicationRecord
 
 	validates :Area, presence: {
 		message: "es requerido."
+	},
+	:numericality =>
+	{
+		:greater_than => 0,
+		message: 'debe ser mayor que 0'
 	}
+
 	validates :Floor, presence: {
 		message: "es requerido."
+	},
+	:numericality => 
+	{
+		:greater_than => 0,
+		message: 'debe ser mayor que 0'
 	}
+
 	validates :Quantity, presence: {
 		message: "es requerido."
+	},
+	:numericality => 
+	{
+		:greater_than => 0,
+		message: 'debe ser mayor que 0'
 	}
 end

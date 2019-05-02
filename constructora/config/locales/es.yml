@@ -1,0 +1,247 @@
+# config/locales/es.yml
+es:
+  date:
+    order: [ !ruby/symbol day, !ruby/symbol month, !ruby/symbol year ] 
+    month_names: [~, Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Augosto, Septiembre, Octubre, Noviembre, Diciembre]
+  activerecord:
+    errors:
+      models:
+        apartment_booking:
+          attributes:
+            quotation:
+              required: "es requerido"
+            client:
+              required: "es requerido"
+            bank:
+              required: "es requerido"
+
+        appointment:
+          attributes:
+            request_quotation: 
+              required: "es requerido"
+
+        bank:
+          attributes:
+            Name:
+              taken: "ya existe"
+
+        city:
+          attributes:
+            Name:
+              taken: "ya existe"
+            state:
+              required: "es requerido"
+
+        client:
+          attributes:
+            city:
+              required: "es requerido"
+            IdentityNumber:
+              taken: "ya existe"
+
+        profile:
+          attributes:
+            Name:
+              taken: "ya existe"
+
+        project_ap_type_price:
+          attributes:
+            project_apartment_type:
+              required: "es requerido"
+
+        project_apartment_type:
+          attributes:
+            project:
+              required: "es requerido"
+            apartment_type:
+              required: "es requerido"
+
+        project_apartment:
+          attributes:
+            project:
+              required: "es requerido"
+            project_apartment_type:
+              required: "es requerido"
+
+        project:
+          attributes:
+            city:
+              required: "es requerido"
+
+        quotation:
+          attributes:
+            request_quotation:
+              required: "es requerido"
+            client:
+              required: "es requerido"
+
+        request_quotation:
+          attributes:
+            project:
+              required: "es requerido"
+            user:
+              required: "es requerido"
+            project_apartment:
+              required: "es requerido"
+
+        sale:
+          attributes:
+            project_apartment:
+              required: "es requerido"
+            apartment_booking:
+              required: "es requerido"
+            bank:
+              required: "es requerido"
+
+        user:
+          attributes:
+            profile:
+              required: "es requerido"
+            city:
+              required: "es requerido"
+            IdentityNumber:
+              taken: "ya existe"
+              blank: "es requerido"
+              too_long: "no debe ser mayor a 8 caracteres"
+            Name:
+              blank: "es requerido"
+              too_long: "no debe ser mayor a 20 caracteres"
+            LastName:
+              blank: "es requerido"
+              too_long: "no debe ser mayor a 40 caracteres"
+            Address:
+              blank: "es requerido"
+              too_long: "no debe ser mayor a 100 caracteres"
+            Mail:
+              blank: "es requerido"
+              too_long: "no debe ser mayor a 50 caracteres"
+            Phone:
+              blank: "es requerido"
+              too_long: "no debe ser mayor a 10 caracteres"
+
+    attributes:      
+      apartment_booking:
+        quotation: "N° de Cotización"
+        client: "Cliente"
+        bank: "Banco"
+        BookingDate: "Fecha"
+        BookPrice: "Precio"
+        VoucherNumber: "N° de Comprobante"
+        IsActive: "Activo"
+
+      apartment_type:
+        Name: "Nombre"
+        IsActive: "Activo"
+
+      appointment:
+        request_quotation: "Número de solicitud"
+        AppointmentDate: "Fecha"
+        IsAttended: "Atendido"
+
+      bank:
+        Name: "Nombre"
+        IsActive: "Activo"
+
+      city:
+        state: "Departamento"
+        Name: "Nombre"
+
+      client:
+        city: "Distrito"
+        IdentityNumber: "DNI"
+        Name: "Nombre"
+        LastName: "Apellido"
+        Address: "Dirección"
+        Mail: "Correo"
+        Phone: "Teléfono"
+        IsActive: "Activo"
+
+      profile:
+        Name: "Nombre"
+        IsActive: "Activo"
+
+      project_ap_type_price:
+        project_apartment_type: "Proyecto - Tipo de Departamento"
+        RegisterDate: "Fecha de Registro"
+        ValidFor: "Válido por"
+        PercentageDiscount: "Porcentaje de Descuento"
+        Floor: "Piso"
+        Price: "Precio"
+        IsActive: "Activo"
+
+      project_apartment_type:
+        project: "Proyecto"
+        apartment_type: "Tipo de Departamento"
+        Area: "Área"
+        Floor: "Piso"
+        Quantity: "Cantidad"
+        IsActive: "Activo"
+
+      project_apartment:
+        project: "Proyecto"
+        project_apartment_type: "Tipo de Departamento"
+        Number: "Número"
+        Description: "Descripción"
+        Picture: "Foto Portada"
+        Status: "Estado"
+
+      project:
+        city: "Ciudad"
+        Name: "Nombre"
+        StartDate: "Fecha Inicio"
+        EndDate: "Fecha Fin"
+        Price: "Precio"
+        Address: "Dirección"
+        Description: "Descripción"
+        Floors: "Pisos"
+        ApartmentsQuantity: "Cantidad de Departamentos"
+        AvailableApartments: "Departamentos Disponibles"
+        ParkingsQuantity: "Cantidad Estacionamientos"
+        AvailableParkings: "Estacionamientos Disponibles"
+        Picture: "Foto Portada"
+        Status: "Estado"
+
+      quotation:
+        request_quotation: "Número de Solicitud"
+        client: "Client"
+        QuotationDate: "Fecha"
+        Price: "Precio"
+        ValidFor: "Válido por"
+        Status: "Estado"
+
+      request_quotation:
+        project: "Proyecto"
+        user: "Cliente"
+        project_apartment: "Departamento"
+        project_apartment_id: "Departamento"
+        IdentityNumber: "DNI"
+        Name: "Nombre"
+        LastName: "Apellido"
+        Mail: "Correo"
+        Phone: "Teléfono"
+        RequestDate: "Fecha"
+        Status: "Estado"
+
+      sale:
+        project_apartment: "Departamento"
+        apartment_booking: "N° de Reserva"
+        bank: "Banco"
+        SaleDate: "Fecha"
+        PaymentType: "Modo de Pago"
+        CashAmount: "Monto en Efectivo"
+        FinancedAmount: "Monto Financiado"
+        IsActive: "Activo"
+
+      state:
+        Name: "Nombre"
+
+      user:
+        profile: "Departamento"
+        city: "Distrito"
+        IdentityNumber: "DNI"
+        Name: "Nombre"
+        LastName: "Apellido"
+        Address: "Dirección"
+        Mail: "Correo"
+        Phone: "Teléfono"
+        IsActive: "Activo"
