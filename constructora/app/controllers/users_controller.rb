@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     def create
         @user = User.new(user_params)
         if @user.save
-            flash[:success] = "Bienvenido. La autenticación exitosa !"
+            flash[:success] = "Bienvenido. La creación fue exitosa !"
             redirect_to @user
         else
           render 'new'
@@ -43,7 +43,7 @@ class UsersController < ApplicationController
 
     def destroy
         User.find(params[:id]).destroy
-        flash[:success] = "User deleted"
+        flash[:success] = "Usuario eliminado"
         redirect_to users_url
     end
 

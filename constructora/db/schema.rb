@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_05_02_234537) do
-=======
-ActiveRecord::Schema.define(version: 2019_05_02_214003) do
->>>>>>> 06ccd273771c9074eea7ecf2fb44fb5882701323
 
   create_table "apartment_bookings", force: :cascade do |t|
     t.integer "quotation_id"
@@ -168,7 +164,6 @@ ActiveRecord::Schema.define(version: 2019_05_02_214003) do
   create_table "request_quotations", force: :cascade do |t|
     t.integer "project_id"
     t.integer "user_id"
-    t.integer "project_apartment_id"
     t.string "IdentityNumber"
     t.string "Name"
     t.string "LastName"
@@ -178,6 +173,7 @@ ActiveRecord::Schema.define(version: 2019_05_02_214003) do
     t.integer "Status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "project_apartment_id"
     t.index ["project_apartment_id"], name: "index_request_quotations_on_project_apartment_id"
     t.index ["project_id"], name: "index_request_quotations_on_project_id"
     t.index ["user_id"], name: "index_request_quotations_on_user_id"
@@ -208,11 +204,6 @@ ActiveRecord::Schema.define(version: 2019_05_02_214003) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-<<<<<<< HEAD
-=======
-    t.string "Phone"
-    t.boolean "IsActive"
->>>>>>> 06ccd273771c9074eea7ecf2fb44fb5882701323
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"

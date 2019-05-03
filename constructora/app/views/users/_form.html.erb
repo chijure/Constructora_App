@@ -1,6 +1,5 @@
 <% provide(:title, "Edit user") %>
 
-<<<<<<< HEAD
 <hr>
   <%= form_for(@user) do |f| %>
     <%= render 'shared/error_messages' %>
@@ -54,64 +53,6 @@
           <%= f.password_field :password, :class => "form-control" %>
         </div>
       </div>
-=======
-      <ul class="ml-3 text-danger">
-      <% user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <hr>
-  <div class="ml-3 mt-4 row">
-    <div class="col-sm-2">
-      <%= form.label :IdentityNumber, 'DNI' %>
-    </div>
-    <div class="col-sm-10">
-      <%= form.text_field :IdentityNumber, :class => "form-control" %>
-    </div>
-  </div>
-  <div class="ml-3 mt-2 row">
-    <div class="col-sm-2">
-      <%= form.label :Name, 'Nombre' %>
-    </div>
-    <div class="col-sm-10">
-      <%= form.text_field :Name, :class => "form-control" %>
-    </div>
-  </div>
-  <div class="ml-3 mt-2 row">
-    <div class="col-sm-2">
-      <%= form.label :LastName, 'Apellidos' %>
-    </div>
-    <div class="col-sm-10">
-      <%= form.text_field :LastName, :class => "form-control" %>
-    </div>
-  </div>
-  <div class="ml-3 mt-2 row">
-    <div class="col-sm-2">
-      <%= form.label :IdProfile, 'Perfil' %>
-    </div>
-    <div class="col-sm-10">
-      <%= form.select :profile_id, Profile.all.collect {|e| [e.Name, e.id]}, {:include_blank => "Seleccione el Perfil"}, {:class => "form-control"} %>
-    </div>
-  </div>    
-  <div class="ml-3 mt-2 row">
-    <div class="col-sm-2">
-      <%= form.label :IdCity, 'Distrito' %>
-    </div>
-    <div class="col-sm-10">
-      <%= form.select :city_id, City.all.collect {|e| [e.Name, e.id]}, {:include_blank => "Seleccione el Distrito"}, {:class => "form-control"} %>
-    </div>
-  </div>
-  <div class="ml-3 mt-2 row">
-    <div class="col-sm-2">
-      <%= form.label :Address, 'Dirección' %>
-    </div>
-    <div class="col-sm-10">
-      <%= form.text_field :Address, :class => "form-control" %>
-    </div>
-  </div>
->>>>>>> 06ccd273771c9074eea7ecf2fb44fb5882701323
 
       <div class="ml-3 mt-2 row">
         <div class="col-sm-2">

@@ -1,8 +1,5 @@
 Rails.application.routes.draw do 
 
-<<<<<<< HEAD
-  #get 'users/new'
-=======
   resources :apartment_pictures
   get 'quotations/newfromrequest/', to: 'quotations#new'
   get 'quotations/newfromrequest/:id', to: 'quotations#newfromrequest'
@@ -11,7 +8,6 @@ Rails.application.routes.draw do
   get 'sales/newfrombooking/', to: 'sales#new'
   get 'sales/newfrombooking/:id', to: 'sales#newfrombooking'
   get 'sessions/new'
->>>>>>> 06ccd273771c9074eea7ecf2fb44fb5882701323
   resources :project_ap_type_prices
   resources :project_apartments
   resources :project_apartment_type_prices
