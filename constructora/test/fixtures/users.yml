@@ -1,25 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  IdUser: MyString
-  IdProfile: MyString
-  IdCity: MyString
-  IdentityNumber: MyString
-  Name: MyString
-  LastName: MyString
-  Address: MyString
-  Mail: MyString
-  Phone: MyString
-  IsActive: false
+  name: MyString
+  email: MyString
 
 two:
-  IdUser: MyString
-  IdProfile: MyString
-  IdCity: MyString
-  IdentityNumber: MyString
-  Name: MyString
-  LastName: MyString
-  Address: MyString
-  Mail: MyString
-  Phone: MyString
-  IsActive: false
+  name: MyString
+  email: MyString

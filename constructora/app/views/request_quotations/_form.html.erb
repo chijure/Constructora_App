@@ -32,7 +32,7 @@
       <%= form.label :IdUser, 'Usuario' %>
     </div>
     <div class="col-sm-9">
-    <%= form.select :user_id, User.all.collect {|e| [e.Name, e.id]}, {:include_blank => "Seleccione el Usuario"}, {:class => "form-control"} %>        
+    <%= form.select :user_id, User.all.collect {|e| [e.name, e.id]}, {:include_blank => "Seleccione el Usuario"}, {:class => "form-control"} %>        
     </div>
   </div>
 

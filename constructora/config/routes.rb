@@ -1,7 +1,6 @@
 Rails.application.routes.draw do 
 
-
-  get 'sessions/new'
+  #get 'users/new'
   resources :project_ap_type_prices
   resources :project_apartments
   resources :project_apartment_type_prices
@@ -16,14 +15,18 @@ Rails.application.routes.draw do
   resources :request_quotations
   resources :appointments
   resources :users
+ 
   resources :clients
   resources :profiles
   resources :cities
   resources :states
 
+  get 'signup'  => 'users#new'
+
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
+  
 
 
   get 'administration/base_price'

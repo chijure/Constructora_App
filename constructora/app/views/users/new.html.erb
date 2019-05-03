@@ -1,9 +1,59 @@
-<div class="jumbotron p-4">
-	<% provide(:title, 'Sign up') %>
-  <h2><b>Nuevo | Usuario</b></h2>
-	<div class="table-responsive-sm w-50">
-		<%= render 'form', user: @user %>
+<% provide(:title, 'Sign up') %>
+<div class="container p-1">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card mb-4 box-shadow m-5">
+        <div class="text-center">
+          <img class="card-img-top img-fluid" <%= link_to image_tag('loginuser.png', :size=>"200x120") %> </div> <div
+            class="card-body">
+          <h3 class="card-title text-center">Registrate</h3>
 
-		<%= link_to image_tag('BackIconBig.png'), users_path, title: 'Atras'  %>
-	</div>
+          <%= form_for(@user) do |f| %>
+            <%= render 'shared/error_messages' %>
+            <div class="form-group">
+              <%= f.label :name, "Nombre" %>
+              <%= f.text_field :name, class: 'form-control' %>
+            </div>
+            <div class="form-group">
+              <%= f.label :email, "Correo electrónico" %>
+              <%= f.email_field :email, class: 'form-control' %>
+            </div>
+            <div class="form-group">
+              <%= f.label :password, "Contraseña" %>
+              <%= f.password_field :password, class: 'form-control' %>
+            </div>
+            <div class="form-group">
+              <%= f.label :password_confirmation, "Confirmar contraseña" %>
+              <%= f.password_field :password_confirmation, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :IdProfile, 'Perfil' %>
+              <%= f.select :profile_id, Profile.all.collect {|e| [e.Name, e.id]}, {:include_blank => "Seleccione el Perfil"}, {:class => "form-control"} %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :IdCity, 'Distrito' %>
+              <%= f.select :city_id, City.all.collect {|e| [e.Name, e.id]}, {:include_blank => "Seleccione el Distrito"}, {:class => "form-control"} %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :Address, 'Dirección' %>
+              <%= f.text_field :Address, :class => "form-control" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :IsActive, 'Activo' %>
+              <%= f.check_box :IsActive, :class => "checkBoxSyleForm" %>
+            </div>
+     
+            <div class="text-center">
+              <%= f.submit "Crear una cuenta", class: "btn btn-primary" %>
+            </div>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

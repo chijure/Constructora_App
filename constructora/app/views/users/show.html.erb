@@ -1,11 +1,19 @@
+<% provide(:title, @user.name) %>
+
 <div class="jumbotron p-4">
   <h2><b>Ver | Usuario</b></h2>
   <div class="table-responsive-sm w-50">
-    <%= @user.Name %>, <%= @user.email %>
+    Bienvenido <%= @user.name %>
     <h5>
       <p id="notice" class="badge badge-pill badge-success pt-2 pb-2"><%= notice %></p>
     </h5>   
     <hr>
+
+    <p>
+      <strong>Nombre:</strong>
+      <%= @user.name %>
+    </p>
+
     <p>
       <strong>Perfil:</strong>
       <td><%= Profile.select(:Name).where("id = " + @user.profile_id.to_s).collect(&:Name)[0] %></td>
@@ -14,21 +22,6 @@
     <p>
       <strong>Distrito:</strong>
       <td><%= City.select(:Name).where("id = " + @user.city_id.to_s).collect(&:Name)[0] %></td>
-    </p>
-
-    <p>
-      <strong>Número Identidad:</strong>
-      <%= @user.IdentityNumber %>
-    </p>
-
-    <p>
-      <strong>Nombre:</strong>
-      <%= @user.Name %>
-    </p>
-
-    <p>
-      <strong>Apellidos:</strong>
-      <%= @user.LastName %>
     </p>
 
     <p>
@@ -50,6 +43,9 @@
       <strong>Activo:</strong>
       <%= check_box_tag "IsActive", 0, @user.IsActive, disabled: true, class: "checkBoxSyleIndex" %>
     </p>
+    <hr>
+
+    
     <hr>
     <%= link_to image_tag('EditIconBig.png'), edit_user_path(@user), title: 'Editar' %> |
     <%= link_to image_tag('BackIconBig.png'), users_path, title: 'Atras'  %>

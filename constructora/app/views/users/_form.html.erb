@@ -1,112 +1,91 @@
-<%= form_with(model: user, local: true) do |form| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h5 class="text-danger">Se encontraron los siguiente errores:</h5>
+<% provide(:title, "Edit user") %>
 
-      <ul class="ml-3 text-danger">
-      <% user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+<hr>
+  <%= form_for(@user) do |f| %>
+    <%= render 'shared/error_messages' %>
+      <div class="ml-3 mt-2 row">
+        <div class="col-sm-2">
+            <%= f.label :name, 'Nombre' %>
+        </div>
+        <div class="col-sm-10">
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="ml-3 mt-2 row">
+        <div class="col-sm-2">
+          <%= f.label :IdProfile, 'Perfil' %>
+        </div>
+        <div class="col-sm-10">
+          <%= f.select :profile_id, Profile.all.collect {|e| [e.Name, e.id]}, {:include_blank => "Seleccione el Perfil"}, {:class => "form-control"} %>
+        </div>
+      </div>
+      <div class="ml-3 mt-2 row">
+        <div class="col-sm-2">
+          <%= f.label :IdCity, 'Distrito' %>
+        </div>
+        <div class="col-sm-10">
+          <%= f.select :city_id, City.all.collect {|e| [e.Name, e.id]}, {:include_blank => "Seleccione el Distrito"}, {:class => "form-control"} %>
+        </div>
+      </div>
+      <div class="ml-3 mt-2 row">
+        <div class="col-sm-2">
+          <%= f.label :Address, 'Dirección' %>
+        </div>
+        <div class="col-sm-10">
+          <%= f.text_field :Address, :class => "form-control" %>
+        </div>
+      </div>
+
+      <div class="ml-3 mt-2 row">
+        <div class="col-sm-2">
+          <%= f.label :email, 'Correo' %>
+        </div>
+        <div class="col-sm-10">
+          <%= f.text_field :email, :class => "form-control" %>
+        </div>
+      </div>
+
+      <div class="ml-3 mt-2 row">
+        <div class="col-sm-2">
+          <%= f.label :password, 'Contraseña' %>
+        </div>
+        <div class="col-sm-10">
+          <%= f.password_field :password, :class => "form-control" %>
+        </div>
+      </div>
+
+      <div class="ml-3 mt-2 row">
+        <div class="col-sm-2">
+          <%= f.label :password_confirmation, 'Confirmar Contraseña' %>
+        </div>
+        <div class="col-sm-10">
+          <%= f.password_field :password_confirmation, :class => "form-control" %>
+        </div>
+      </div>
+
+      <div class="ml-3 mt-2 row">
+        <div class="col-sm-2">
+          <%= f.label :Phone, 'Telefono' %>
+        </div>
+        <div class="col-sm-10">
+          <%= f.text_field :Phone, :class => "form-control" %>
+        </div>
+      </div>
+
+      <div class="ml-3 mt-2 row">
+        <div class="col-sm-2">
+          <%= f.label :IsActive, 'Activo' %>
+        </div>
+        <div class="col-sm-10">
+          <%= f.check_box :IsActive, :class => "checkBoxSyleForm" %>
+        </div>
+      </div>
+
+      <hr>
+      <div class="actions">
+        <%= f.submit "Guardar", :type => :image, :src => "/assets/SaveIconBig.png", :title => 'Guardar' %>
+      </div>
   <% end %>
-  <hr>
-  <div class="ml-3 mt-4 row">
-    <div class="col-sm-2">
-      <%= form.label :IdentityNumber, 'Num. ID' %>
-    </div>
-    <div class="col-sm-10">
-      <%= form.text_field :IdentityNumber, :class => "form-control" %>
-    </div>
-  </div>
-  <div class="ml-3 mt-2 row">
-    <div class="col-sm-2">
-      <%= form.label :Name, 'Nombre' %>
-    </div>
-    <div class="col-sm-10">
-      <%= form.text_field :Name, :class => "form-control" %>
-    </div>
-  </div>
-  <div class="ml-3 mt-2 row">
-    <div class="col-sm-2">
-      <%= form.label :LastName, 'Apellidos' %>
-    </div>
-    <div class="col-sm-10">
-      <%= form.text_field :LastName, :class => "form-control" %>
-    </div>
-  </div>
-  <div class="ml-3 mt-2 row">
-    <div class="col-sm-2">
-      <%= form.label :IdProfile, 'Perfil' %>
-    </div>
-    <div class="col-sm-10">
-      <%= form.select :profile_id, Profile.all.collect {|e| [e.Name, e.id]}, {:include_blank => "Seleccione el Perfil"}, {:class => "form-control"} %>
-    </div>
-  </div>    
-  <div class="ml-3 mt-2 row">
-    <div class="col-sm-2">
-      <%= form.label :IdCity, 'Distrito' %>
-    </div>
-    <div class="col-sm-10">
-      <%= form.select :city_id, City.all.collect {|e| [e.Name, e.id]}, {:include_blank => "Seleccione el Distrito"}, {:class => "form-control"} %>
-    </div>
-  </div>
-  <div class="ml-3 mt-2 row">
-    <div class="col-sm-2">
-      <%= form.label :Address, 'Dirección' %>
-    </div>
-    <div class="col-sm-10">
-      <%= form.text_field :Address, :class => "form-control" %>
-    </div>
-  </div>
 
-  <div class="ml-3 mt-2 row">
-    <div class="col-sm-2">
-      <%= form.label :email, 'Correo' %>
-    </div>
-    <div class="col-sm-10">
-      <%= form.text_field :email, :class => "form-control" %>
-    </div>
-  </div>
 
-  <div class="ml-3 mt-2 row">
-    <div class="col-sm-2">
-      <%= form.label :password, 'Contraseña' %>
-    </div>
-    <div class="col-sm-10">
-      <%= form.password_field :password, :class => "form-control" %>
-    </div>
-  </div>
 
-  <div class="ml-3 mt-2 row">
-    <div class="col-sm-2">
-      <%= form.label :password_confirmation, 'Confirmar Contraseña' %>
-    </div>
-    <div class="col-sm-10">
-      <%= form.password_field :password_confirmation, :class => "form-control" %>
-    </div>
-  </div>
-
-  <div class="ml-3 mt-2 row">
-    <div class="col-sm-2">
-      <%= form.label :Phone, 'Telefono' %>
-    </div>
-    <div class="col-sm-10">
-      <%= form.text_field :Phone, :class => "form-control" %>
-    </div>
-  </div>
-
-  <div class="ml-3 mt-2 row">
-    <div class="col-sm-2">
-      <%= form.label :IsActive, 'Activo' %>
-    </div>
-    <div class="col-sm-10">
-      <%= form.check_box :IsActive, :class => "checkBoxSyleForm" %>
-    </div>
-  </div>
-
-  <hr>
-  <div class="actions">
-    <%= form.submit "Guardar", :type => :image, :src => "/assets/SaveIconBig.png", :title => 'Guardar' %>
-  </div>
-<% end %>
