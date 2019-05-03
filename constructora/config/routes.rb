@@ -35,30 +35,30 @@ Rails.application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
   
 
-  get 'administration/base_price'
+  #get 'administration/base_price'
   get 'administration/report'
   get 'administration/proforma'
-  get 'administration/register_sales'
-  get 'administration/separate_departament'
-  get 'administration/admin_quotes'
+  # get 'administration/register_sales'
+  # get 'administration/separate_departament'
+  # get 'administration/admin_quotes'
   get 'administration/intranet'
 
-  get 'login/signup'
-  get 'login/signin'
+  # get 'login/signup'
+  # get 'login/signin'
   get 'login/manager'
-  get 'login/password_recovery'
+  # get 'login/password_recovery'
 
-  get 'sales/manager'
-  get 'sales/new'
-  get 'sales/edit'
+  # get 'sales/manager'
+  # get 'sales/new'
+  # get 'sales/edit'
 
   get 'quotation/manager'
   get 'quotation/new'
   get 'quotation/edit'
 
-  get 'requestquotation/manager'
-  get 'requestquotation/new'
-  get 'requestquotation/edit'
+  # get 'requestquotation/manager'
+  # get 'requestquotation/new'
+  # get 'requestquotation/edit'
 
   get 'project/manager'
   get 'project/new'
@@ -67,6 +67,8 @@ Rails.application.routes.draw do
 
   get 'pages/aboutus'
   get 'pages/contactus'
-  root 'pages#index'
+
+  #root 'pages#index'
+  root 'home#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

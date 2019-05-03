@@ -1,0 +1,51 @@
+
+<% @projects.each do |project| %>
+    
+    <div class="col-sm-4">
+        <div class="card mb-4 box-shadow">
+            <img class="card-img-top img-fluid" <%= link_to image_tag('Edificio1_opt.jpg') %> 
+            <div class="card-body">
+                <h4 class="card-title text-center text-uppercase"><%= project.Name %></h4>
+                <div class="col-sm-12 m-2">
+                    <p class="card-text">
+                        <i class="fas fa-dollar-sign"></i>
+                        Precio desde: $ <%= project.Price %>
+                    </p>
+                    <p class="card-text">
+                        <i class="fas fa-key"></i>
+                        Estado: <%=
+                        case project.Status
+                        when 0
+                        "Creado"
+                        when 1
+                        "En Construcción"
+                        when 2
+                        "Construido"
+                        else
+                        "No Definido"
+                        end %> 
+                    </p>
+                    <p class="card-text">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Ubicación: <%= City.select(:Name).where("id = " + project.city_id.to_s).collect(&:Name)[0] %>
+                    </p>
+                </div>
+                <div class="row text-center p-2">
+                    <div class="col-sm-6">
+                        <a href="details/index" class="btn btn-primary"><i class="fas fa-eye"></i> Ver mas</a>
+                    </div>
+                    <br><br>
+                    <div class="col-sm-6">
+                        <a href="request_quotations/new" class="btn btn-primary"><i class="fas fa-pencil-alt"></i>
+                            Cotizar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<% end %>
+
+
+
+ 
