@@ -5,6 +5,14 @@
     <%= render 'shared/error_messages' %>
       <div class="ml-3 mt-2 row">
         <div class="col-sm-2">
+            <%= f.label :IdentityNumber, 'DNI' %>
+        </div>
+        <div class="col-sm-10">
+          <%= f.text_field :IdentityNumber, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="ml-3 mt-2 row">
+        <div class="col-sm-2">
             <%= f.label :name, 'Nombre' %>
         </div>
         <div class="col-sm-10">

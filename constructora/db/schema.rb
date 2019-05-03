@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_02_234537) do
+ActiveRecord::Schema.define(version: 2019_05_03_030759) do
 
   create_table "apartment_bookings", force: :cascade do |t|
     t.integer "quotation_id"
@@ -213,6 +213,7 @@ ActiveRecord::Schema.define(version: 2019_05_02_234537) do
     t.string "Address"
     t.string "Phone"
     t.boolean "IsActive"
+    t.string "IdentityNumber"
     t.index ["city_id"], name: "index_users_on_city_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["profile_id"], name: "index_users_on_profile_id"

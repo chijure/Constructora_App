@@ -4,12 +4,12 @@ class User < ApplicationRecord
 	belongs_to :city
 	has_many :request_quotations
 
-	# validates :IdentityNumber, presence: true,
-	# length: 
-	# {
-	# 	maximum: 8
-	# }, 
-	# uniqueness: true
+	validates :IdentityNumber, presence: true,
+	length: 
+	{
+		maximum: 8
+	}, 
+	uniqueness: true
 
 	validates :name, presence: true,
 	length: 

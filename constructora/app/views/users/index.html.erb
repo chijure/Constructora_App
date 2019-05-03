@@ -8,9 +8,9 @@
           <th colspan="3" class="text-center">
             <%= link_to image_tag('NewIcon.png'), new_user_path, title: 'Nuevo' %>
           </th>
-          <th>Nombre</th>
-          <!-- <th>Perfil</th> -->
-          <!-- <th>Distrito</th> -->
+          <th>DNI</th>
+          <th>Nombres</th> 
+          <!--<th>Perfil</th> -->
           <th>Correo</th>
           <th>Teléfono</th>
           <th class="text-center">Activo</th>
@@ -27,8 +27,8 @@
             <td style="width:40px" class="pr-1 pl-2">
               <%= link_to image_tag('DeleteIcon.png'), user, title: 'Eliminar', method: :delete, data: { confirm: '¿Esta seguro?' } %>              
             </td>
+            <td><%= user.IdentityNumber %></td>
             <td><%= user.name %></td>
-           
             <td><%= user.email %></td>
             <td><%= user.Phone %></td>
             <td class="text-center">

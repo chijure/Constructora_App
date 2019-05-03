@@ -10,13 +10,18 @@
     <hr>
 
     <p>
+      <strong>DNI:</strong>
+      <%= @user.IdentityNumber %>
+    </p>
+
+    <p>
       <strong>Nombre:</strong>
       <%= @user.name %>
     </p>
 
     <p>
       <strong>Perfil:</strong>
-      
+      <td><%= Profile.select(:Name).where("id = " + @user.profile_id.to_s).collect(&:Name)[0] %></td>
     </p>
 
     <p>
@@ -26,7 +31,7 @@
 
     <p>
       <strong>Distrito:</strong>
-      
+      <td><%= City.select(:Name).where("id = " + @user.city_id.to_s).collect(&:Name)[0] %></td>
     </p>
 
     <p>

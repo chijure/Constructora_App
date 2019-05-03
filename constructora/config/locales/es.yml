@@ -108,7 +108,7 @@ es:
               taken: "ya existe"
               blank: "es requerido"
               too_long: "no debe ser mayor a 8 caracteres"
-            Name:
+            name:
               blank: "es requerido"
               too_long: "no debe ser mayor a 20 caracteres"
             LastName:
@@ -117,12 +117,19 @@ es:
             Address:
               blank: "es requerido"
               too_long: "no debe ser mayor a 100 caracteres"
-            Mail:
+            email:
               blank: "es requerido"
               too_long: "no debe ser mayor a 50 caracteres"
             Phone:
               blank: "es requerido"
               too_long: "no debe ser mayor a 10 caracteres"
+            password:
+              blank: "es requerido"
+              too_long: "debe ser mayor a 6 caracteres"
+            password_confirmation:
+              blank: "es requerido"
+              too_long: "debe ser mayor a 6 caracteres"
+            
 
     attributes:      
       apartment_booking:
@@ -250,9 +257,11 @@ es:
         profile: "Departamento"
         city: "Distrito"
         IdentityNumber: "DNI"
-        Name: "Nombre"
+        name: "Nombre"
         LastName: "Apellido"
         Address: "Dirección"
-        Mail: "Correo"
+        email: "Correo"
+        password: "Contraseña"
+        password_confirmation: "Confirmar contraseña"
         Phone: "Teléfono"
         IsActive: "Activo"
