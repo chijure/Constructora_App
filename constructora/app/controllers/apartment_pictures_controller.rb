@@ -30,7 +30,7 @@ class ApartmentPicturesController < ApplicationController
 
     respond_to do |format|
       if @apartment_picture.save
-        format.html { redirect_to @apartment_picture, notice: 'Apartment picture was successfully created.' }
+        format.html { redirect_to @apartment_picture, notice: 'Imagen creada exitosamente.' }
         format.json { render :show, status: :created, location: @apartment_picture }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class ApartmentPicturesController < ApplicationController
   def update
     respond_to do |format|
       if @apartment_picture.update(apartment_picture_params)
-        format.html { redirect_to @apartment_picture, notice: 'Apartment picture was successfully updated.' }
+        format.html { redirect_to @apartment_picture, notice: 'Imagen actualizada exitosamente.' }
         format.json { render :show, status: :ok, location: @apartment_picture }
       else
         format.html { render :edit }
@@ -58,7 +58,11 @@ class ApartmentPicturesController < ApplicationController
   def destroy
     @apartment_picture.destroy
     respond_to do |format|
-      format.html { redirect_to apartment_pictures_url, notice: 'Apartment picture was successfully destroyed.' }
+        if session[:s_project_apartment_id]
+          format.html { redirect_to project_apartment_path(session[:s_project_apartment_id]), notice: 'Imagen eliminada exitosamente.' }
+        else 
+          format.html { redirect_to apartment_pictures_url, notice: 'Imagen eliminada exitosamente.' }
+        end
       format.json { head :no_content }
     end
   end

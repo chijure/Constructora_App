@@ -27,7 +27,9 @@
           <tr>
             <td style="width:33px" class="pr-2 pl-2"><%= link_to image_tag('ShowIcon.png'), request_quotation, title: 'Ver' %></td>
             <td style="width:33px" class="pr-1 pl-1"><%= link_to image_tag('EditIcon.png'), edit_request_quotation_path(request_quotation), title: 'Editar' %></td>
-            <td style="width:33px" class="pr-1 pl-1"><%= link_to image_tag('NewDocIcon.png'), quotations_newfromrequest_path + '/' + request_quotation.id.to_s, title: 'Generar Cotización' %></td>
+            <td style="width:33px" class="pr-1 pl-1">
+              <%= link_to image_tag('NewDocIcon.png'), quotations_newfromrequest_path + '/' + request_quotation.id.to_s, title: 'Generar Cotización' %>
+            </td>
             <td style="width:40px" class="pr-1 pl-2">
               <%= link_to image_tag('DeleteIcon.png'), request_quotation, title: 'Eliminar', method: :delete, data: { confirm: '¿Esta seguro?' } %>              
             </td>

@@ -58,7 +58,11 @@ class AppointmentsController < ApplicationController
   def destroy
     @appointment.destroy
     respond_to do |format|
-      format.html { redirect_to appointments_url, notice: 'Appointment was successfully destroyed.' }
+        if session[:s_request_quotation_id]
+          format.html { redirect_to request_quotation_path(session[:s_request_quotation_id]), notice: 'Appointment was successfully destroyed.' }
+        else 
+          format.html { redirect_to appointments_url, notice: 'Appointment was successfully destroyed.' }
+        end
       format.json { head :no_content }
     end
   end

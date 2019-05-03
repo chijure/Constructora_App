@@ -25,10 +25,22 @@ class ApartmentBookingsController < ApplicationController
     @apartment_booking.IsActive = true
 
     quotation = Quotation.find(params[:id])
-    @apartment_booking.quotation_id = quotation.id
-    @apartment_booking.client_id = quotation.client_id
 
-    render "apartment_bookings/new"
+      if quotation.Status != 0
+        respond_to do |format|
+          format.html { redirect_to quotations_url, notice: 'La cotización ya tiene una reserva asociada o esta rechazada.' }
+          format.json { head :no_content }
+        end
+      else
+
+        quotation.Status = 1
+        quotation.save
+
+        @apartment_booking.quotation_id = quotation.id
+        @apartment_booking.client_id = quotation.client_id
+
+        render "apartment_bookings/new"
+      end
   end  
 
   # GET /apartment_bookings/1/edit
@@ -52,7 +64,7 @@ class ApartmentBookingsController < ApplicationController
           projectapartment.save
         end
                 
-        format.html { redirect_to @apartment_booking, notice: 'Apartment booking was successfully created.' }
+        format.html { redirect_to @apartment_booking, notice: 'Reserva creada exitosamente.' }
         format.json { render :show, status: :created, location: @apartment_booking }
       else
         format.html { render :new }
@@ -66,7 +78,7 @@ class ApartmentBookingsController < ApplicationController
   def update
     respond_to do |format|
       if @apartment_booking.update(apartment_booking_params)
-        format.html { redirect_to @apartment_booking, notice: 'Apartment booking was successfully updated.' }
+        format.html { redirect_to @apartment_booking, notice: 'Reserva actualizada exitosamente.' }
         format.json { render :show, status: :ok, location: @apartment_booking }
       else
         format.html { render :edit }
@@ -78,9 +90,14 @@ class ApartmentBookingsController < ApplicationController
   # DELETE /apartment_bookings/1
   # DELETE /apartment_bookings/1.json
   def destroy
+    
+    quotation = Quotation.find(@apartment_booking.quotation_id)
+    quotation.Status = 0
+    quotation.save
+
     @apartment_booking.destroy
     respond_to do |format|
-      format.html { redirect_to apartment_bookings_url, notice: 'Apartment booking was successfully destroyed.' }
+      format.html { redirect_to apartment_bookings_url, notice: 'Reserva eliminada exitosamente.' }
       format.json { head :no_content }
     end
   end

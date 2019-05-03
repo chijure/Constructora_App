@@ -25,28 +25,55 @@ class QuotationsController < ApplicationController
     @quotation.Status = 0
     
     begin
+      #Setting up client
       request_quotation = RequestQuotation.find(params[:id])
-      @quotation.request_quotation_id = request_quotation.id
 
-      client = Client.find_by IdentityNumber: request_quotation.IdentityNumber
-      if client == nil
-        client = Client.new
-        client.IdentityNumber = request_quotation.IdentityNumber
-        client.Name = request_quotation.Name
-        client.LastName = request_quotation.LastName
-        client.Mail = request_quotation.Mail
-        client.Phone = request_quotation.Phone
-        client.IsActive = true
-        client.save
+      if request_quotation.Status != 0
+        respond_to do |format|
+          format.html { redirect_to request_quotations_url, notice: 'La solicitud ya tiene una cotización o esta rechazada.' }
+          format.json { head :no_content }
+        end
+      else
+        
+        @quotation.request_quotation_id = request_quotation.id
+
+        client = Client.find_by IdentityNumber: request_quotation.IdentityNumber
+        if client == nil
+          client = Client.new
+          client.IdentityNumber = request_quotation.IdentityNumber
+          client.Name = request_quotation.Name
+          client.LastName = request_quotation.LastName
+          client.Mail = request_quotation.Mail
+          client.Phone = request_quotation.Phone
+          client.IsActive = true
+          client.save
+        end
+        
+        @quotation.client_id = client.id
+
+        #query_apartment_type = ProjectApartment.joins(project_apartment_type: :project_ap_type_price).select('project_apartments.id as pa_id, project_apartment_type.Area as pat_Area, project_apartment_type.Floor as pat_Floor, project_ap_type_prices.PercentajeDiscount as patp_PercentajeDiscount, project_ap_type_prices.Price as patp_Price').where('pa_id = ' + request_quotation.project_apartment_id.to_s)[0]
+        
+        #Computing Apartment Price
+        ap_discount = 0
+        query_apartment = ProjectApartment.joins(:project, :project_apartment_type).select('projects.price as p_Price, project_apartments.id as pa_id, project_apartment_types.id as pat_project_apartment_type_id, project_apartment_types.Area as pat_Area, project_apartment_types.Floor as pat_Floor').where('pa_id = ' + request_quotation.project_apartment_id.to_s)[0]
+        query_apartment_discount = ProjectApTypePrice.where('IsActive = 1 and project_apartment_type_id = ' + query_apartment.pat_project_apartment_type_id.to_s)        
+        query_apartment_discount.count
+        
+        ap_price = query_apartment.p_Price * query_apartment.pat_Area
+        if query_apartment_discount.count > 0
+          ap_discount = (ap_price / 100) * query_apartment_discount[0].PercentageDiscount
+        end
+
+        ap_floor_discount = (ap_price / 100) * (query_apartment.pat_Floor - 1)
+
+        @quotation.Price = ap_price - ap_discount - ap_floor_discount
+
+        render "quotations/new"
       end
-      
-      @quotation.client_id = client.id
 
     rescue ActiveRecord::RecordNotFound => e
       request_quotation = nil
     end    
-
-    render "quotations/new"
   end
 
   # GET /quotations/1/edit

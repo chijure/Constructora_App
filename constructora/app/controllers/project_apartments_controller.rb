@@ -61,7 +61,12 @@ class ProjectApartmentsController < ApplicationController
   def destroy
     @project_apartment.destroy
     respond_to do |format|
-      format.html { redirect_to project_apartments_url, notice: 'Project apartment was successfully destroyed.' }
+        if session[:s_project_id]
+          format.html { redirect_to project_path(session[:s_project_id]), notice: 'Project apartment was successfully destroyed.' }
+        else 
+          format.html { redirect_to project_apartments_url, notice: 'Project apartment was successfully destroyed.' }
+        end
+      
       format.json { head :no_content }
     end
   end

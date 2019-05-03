@@ -93,7 +93,7 @@ es:
           attributes:
             project_apartment:
               required: "es requerido"
-            apartment_booking:
+            quotation:
               required: "es requerido"
             bank:
               required: "es requerido"
@@ -108,7 +108,7 @@ es:
               taken: "ya existe"
               blank: "es requerido"
               too_long: "no debe ser mayor a 8 caracteres"
-            name:
+            Name:
               blank: "es requerido"
               too_long: "no debe ser mayor a 20 caracteres"
             LastName:
@@ -120,12 +120,14 @@ es:
             email:
               blank: "es requerido"
               too_long: "no debe ser mayor a 50 caracteres"
+              invalid: "inválido"
             Phone:
               blank: "es requerido"
               too_long: "no debe ser mayor a 10 caracteres"
             password:
               blank: "es requerido"
-              too_long: "debe ser mayor a 6 caracteres"
+              too_long: "debe ser menor a 20 caracteres"
+              too_short: "debe ser mayor o igual a 6 caracteres"
             password_confirmation:
               blank: "es requerido"
               too_long: "debe ser mayor a 6 caracteres"
@@ -242,12 +244,13 @@ es:
 
       sale:
         project_apartment: "Departamento"
-        apartment_booking: "N° de Reserva"
+        quotation: "Cotización"
         bank: "Banco"
         SaleDate: "Fecha"
         PaymentType: "Modo de Pago"
         CashAmount: "Monto en Efectivo"
         FinancedAmount: "Monto Financiado"
+        Voucher: "Comprobante"
         IsActive: "Activo"
 
       state:
@@ -257,7 +260,7 @@ es:
         profile: "Departamento"
         city: "Distrito"
         IdentityNumber: "DNI"
-        name: "Nombre"
+        Name: "Nombre"
         LastName: "Apellido"
         Address: "Dirección"
         email: "Correo"

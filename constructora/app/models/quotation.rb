@@ -2,6 +2,7 @@ class Quotation < ApplicationRecord
 	belongs_to :request_quotation
 	belongs_to :client
 	has_many :apartment_bookings
+	has_many :sales
 
 	validates :Price, presence: {
 		message: "es requerido."

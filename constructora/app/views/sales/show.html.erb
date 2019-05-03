@@ -11,8 +11,8 @@
     </p>
 
     <p>
-      <strong>N° de Reserva:</strong>
-      <%= ApartmentBooking.select(:id).where("id = " + @sale.apartment_booking_id.to_s).collect(&:id)[0] %>
+      <strong>Cotización:</strong>
+      <%= Quotation.select(:id).where("id = " + @sale.quotation_id.to_s).collect(&:id)[0] %>
     </p>
 
     <p>
@@ -43,6 +43,12 @@
       <strong>Monto Financiado:</strong>
       <%= @sale.FinancedAmount %>
     </p>
+
+    <p>
+      <strong>Comprobante / Operación:</strong>
+      <%= @sale.Voucher %>
+    </p>
+
     <hr>
     <%= link_to image_tag('EditIconBig.png'), edit_sale_path(@sale), title: 'Editar' %> |
     <%= link_to image_tag('BackIconBig.png'), sales_path, title: 'Atras'  %>
