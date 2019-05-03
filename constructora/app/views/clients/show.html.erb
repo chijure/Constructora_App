@@ -6,12 +6,7 @@
     </h5>   
     <hr>
     <p>
-      <strong>Ciudad:</strong>
-      <td><%= City.select(:Name).where("id = " + @client.city_id.to_s).collect(&:Name)[0] %></td>
-    </p>
-
-    <p>
-      <strong>Num. ID:</strong>
+      <strong>DNI:</strong>
       <%= @client.IdentityNumber %>
     </p>
 
@@ -29,7 +24,16 @@
       <strong>Dirección:</strong>
       <%= @client.Address %>
     </p>
-
+    <p>
+      <strong>Distrito:</strong>
+      <td>
+        <%= 
+          if @client.city_id != nil
+            City.select(:Name).where("id = " + @client.city_id.to_s).collect(&:Name)[0] 
+          end
+        %>
+      </td>
+    </p>
     <p>
       <strong>Correo:</strong>
       <%= @client.Mail %>

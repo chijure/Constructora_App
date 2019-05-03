@@ -16,7 +16,7 @@
           <th class="text-center">Activo</th>
         </tr>
       </thead>
-
+      <%= session[:s_project_id] = nil %>
       <tbody>
         <% @project_apartment_types.each do |project_apartment_type| %>
           <tr>

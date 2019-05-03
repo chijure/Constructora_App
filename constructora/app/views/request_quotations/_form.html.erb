@@ -1,11 +1,14 @@
 <%= form_with(model: request_quotation, local: true) do |form| %>
-  <% if request_quotation.errors.any? %>
+  <% if request_quotation.errors.any? || @valerror != nil %>
     <div id="error_explanation">
       <h5 class="text-danger">Se encontraron los siguiente errores:</h5>
 
       <ul class="ml-3 text-danger">
       <% request_quotation.errors.full_messages.each do |message| %>
         <li><%= message %></li>
+      <% end %>
+      <% if @valerror != nil %>
+          <li><%= @valerror %></li>
       <% end %>
       </ul>
     </div>
@@ -38,10 +41,19 @@
 
   <div class="ml-3 mt-4 row">
     <div class="col-sm-3">
-      <%= form.label :IdentityNumber, 'Num. ID' %>
+      <%= form.label :IdProjectDepartment, 'Departamento' %>
     </div>
     <div class="col-sm-9">
-      <%= form.text_field :IdentityNumber %>
+    <%= form.select :project_apartment_id, ProjectApartment.all.collect {|e| [e.Number, e.id]}, {:include_blank => "Seleccione el Departamento"}, {:class => "form-control"} %>        
+    </div>
+  </div>
+
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-3">
+      <%= form.label :IdentityNumber, 'DNI' %>
+    </div>
+    <div class="col-sm-9">
+      <%= form.text_field :IdentityNumber, :class => "form-control" %>
     </div>
   </div>
 
@@ -50,16 +62,16 @@
       <%= form.label :Name, 'Nombre' %>
     </div>
     <div class="col-sm-9">
-      <%= form.text_field :Name %>
+      <%= form.text_field :Name, :class => "form-control" %>
     </div>
   </div>
 
   <div class="ml-3 mt-4 row">
     <div class="col-sm-3">
-      <%= form.label :LastName, 'LastName' %>
+      <%= form.label :LastName, 'Apellidos' %>
     </div>
     <div class="col-sm-9">
-      <%= form.text_field :LastName %>
+      <%= form.text_field :LastName, :class => "form-control" %>
     </div>
   </div>
 
@@ -68,7 +80,7 @@
       <%= form.label :Mail, 'Correo' %>
     </div>
     <div class="col-sm-9">
-      <%= form.text_field :Mail %>
+      <%= form.text_field :Mail, :class => "form-control" %>
     </div>
   </div>
 
@@ -77,7 +89,7 @@
       <%= form.label :Phone, 'Teléfono' %>
     </div>
     <div class="col-sm-9">
-      <%= form.text_field :Phone %>
+      <%= form.text_field :Phone, :class => "form-control" %>
     </div>
   </div>
 
@@ -86,7 +98,7 @@
       <%= form.label :RequestDate, 'Fecha' %>
     </div>
     <div class="col-sm-9">
-      <%= form.date_select :RequestDate %>
+      <%= form.date_select :RequestDate, :class => "form-control" %>
     </div>
   </div>
 
@@ -95,7 +107,7 @@
       <%= form.label :Status, 'Estado' %>
     </div>
     <div class="col-sm-8">
-    <%= form.select :Status, ([["Generado", "0"], ["Cotizado", "1"], ["Rechazado", "2"], ["Cancelado", "3"]]), {:class => "form-control"} %>      
+    <%= form.select :Status, ([["Generado", "0"], ["Cotizado", "1"], ["Rechazado", "2"], ["Cancelado", "3"]]), { :class => "form-control" } %>      
     </div>
   </div>
   <hr>

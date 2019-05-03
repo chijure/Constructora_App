@@ -1,5 +1,5 @@
 <div class="jumbotron p-4">
-  <h2><b>Ver | Proyectos</b></h2>
+  <h2><b>Ver | Cotizaciones</b></h2>
   <div class="table-responsive-sm w-50">
     <h5>
       <p id="notice" class="badge badge-pill badge-success pt-2 pb-2"><%= notice %></p>
@@ -14,6 +14,15 @@
       <strong>N° de Solicitud:</strong>
       <td><%= RequestQuotation.select(:id).where("id = " + @quotation.request_quotation_id.to_s).collect(&:id)[0] %></td>
     </p>
+
+    <p>
+      <strong>Proyecto:</strong>
+      <td><%= RequestQuotation.joins(:project).select("request_quotations.id as rq_id, projects.Name as p_Name").where("rq_id = " + @quotation.request_quotation_id.to_s).collect {|e| e.p_Name}[0] %></td>
+    </p>
+    <p>
+      <strong>Departamento:</strong>
+      <td><%= RequestQuotation.joins(:project_apartment).select("request_quotations.id as rq_id, project_apartments.Number as pa_Number").where("rq_id = " + @quotation.request_quotation_id.to_s).collect {|e| e.pa_Number}[0] %></td>
+    </p>        
 
     <p>
       <strong>Cliente:</strong>

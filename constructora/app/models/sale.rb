@@ -7,8 +7,19 @@ class Sale < ApplicationRecord
 	}
 	validates :CashAmount, presence: {
 		message: "es requerido."
+	}, 
+	:numericality => 
+	{ 
+		:greater_than_or_equal_to => 0, 
+	  	message: ' debe ser mayor o igual a 0'
 	}
+
 	validates :FinancedAmount, presence: {
 		message: "es requerido."
-	}  
+	}, 
+	:numericality => 
+	{ 
+		:greater_than_or_equal_to => 0, 
+	  	message: ' debe ser mayor o igual a 0'
+	}
 end

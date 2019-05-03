@@ -16,7 +16,13 @@
       <%= form.label :IdRequestQuotation, 'N° Solicitud' %>
     </div>
     <div class="col-sm-9">
-    <%= form.select :request_quotation_id, RequestQuotation.all.collect {|e| [e.id, e.id]}, {:include_blank => "Seleccione la Solicitud"}, {:class => "form-control"} %>        
+      <%= 
+      if session[:s_request_quotation_id]
+        form.select :request_quotation_id, RequestQuotation.all.collect {|e| [e.id, e.id]}, { selected: session[:s_request_quotation_id] }, { class: "form-control" }
+      else
+        form.select :request_quotation_id, RequestQuotation.all.collect {|e| [e.id, e.id]}, {:include_blank => "Seleccione la Solicitud"}, {:class => "form-control"}
+      end
+      %>
     </div>
   </div>
   <div class="ml-3 mt-4 row">

@@ -1,0 +1,48 @@
+<div class="jumbotron p-4">
+  <h2><b>Precios por Tipo de Departamento</b></h2>
+  <p id="notice" class="badge badge-pill badge-danger pt-2 pb-2"><%= notice %></p>
+  <div class="table-responsive-sm">
+    <table class="table table-striped table-hover w-100">
+      <thead class="thead-dark">
+        <tr>
+          <th colspan="3" class="text-center">
+            <%= link_to image_tag('NewIcon.png'), new_project_ap_type_price_path, title: 'Nuevo' %>
+          </th>
+          <th>Proyecto</th>
+          <th>Tipo Departamento</th>
+          <th>Fecha Registro</th>
+          <th>Válido por</th>
+          <th>% Descuento</th>
+          <th>Piso</th>
+          <th>Precio</th>
+          <th class="text-center">Activo</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% project_ap_type_prices.each do |project_ap_type_price| %>
+          <tr>
+            <td style="width:33px" class="pr-2 pl-2"><%= link_to image_tag('ShowIcon.png'), project_ap_type_price, title: 'Ver' %></td>
+            <td style="width:33px" class="pr-1 pl-1"><%= link_to image_tag('EditIcon.png'), edit_project_ap_type_price_path(project_ap_type_price), title: 'Editar' %></td>
+            <td style="width:40px" class="pr-1 pl-2">
+              <%= link_to image_tag('DeleteIcon.png'), project_ap_type_price, title: 'Eliminar', method: :delete, data: { confirm: '¿Esta seguro?' } %>
+
+            <td><%= ProjectApartmentType.joins(:project).select("project_apartment_types.id as pat_id, projects.Name").where("pat_id = " + project_ap_type_price.project_apartment_type_id.to_s).collect(&:Name)[0] %></td>
+            
+            <td><%= ProjectApartmentType.joins(:apartment_type).select("project_apartment_types.id as pat_id, apartment_types.Name").where("pat_id = " + project_ap_type_price.project_apartment_type_id.to_s).collect(&:Name)[0] %></td>
+
+            <td><%= project_ap_type_price.RegisterDate %></td>
+            <td><%= project_ap_type_price.ValidFor %></td>
+            <td><%= project_ap_type_price.PercentageDiscount %>%</td>
+            <td><%= project_ap_type_price.Floor %></td>
+            <td><%= project_ap_type_price.Price %></td>
+            <td class="text-center">
+              <%= check_box_tag "IsActive", 0, project_ap_type_price.IsActive, disabled: true, class: "checkBoxSyleIndex" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<br>

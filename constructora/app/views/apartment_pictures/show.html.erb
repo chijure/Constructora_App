@@ -1,0 +1,38 @@
+<div class="jumbotron p-4">
+  <h2><b>Ver | Proyectos</b></h2>
+  <div class="table-responsive-sm w-50">
+    <h5>
+      <p id="notice" class="badge badge-pill badge-success pt-2 pb-2"><%= notice %></p>
+    </h5>
+    <hr>
+	<p>
+	  <strong>Departamento:</strong>
+	  <%= ProjectApartment.select(:Number).where("id = " + @apartment_picture.project_apartment_id.to_s).collect(&:Number)[0] %>
+	</p>
+	<p>
+	  <strong>Imagen:</strong>
+    <br>
+    <%= image_tag(@apartment_picture.Picture.to_s, :width => 300) %>
+	</p>
+
+	<p>
+	  <strong>Descripción:</strong>
+	  <%= @apartment_picture.Description %>
+	</p>
+
+    <p>
+      <strong>Activo:</strong>
+      <%= check_box_tag "IsActive", 0, @apartment_picture.IsActive, disabled: true, class: "checkBoxSyleIndex" %>
+    </p>
+    <hr>
+    <%= link_to image_tag('EditIconBig.png'), edit_apartment_picture_path(@apartment_picture), title: 'Editar' %> |
+    <%= 
+      if session[:s_project_apartment_id]
+        link_to image_tag('BackIconBig.png'), project_apartment_path(session[:s_project_apartment_id]), title: 'Atras'
+      else 
+        link_to image_tag('BackIconBig.png'), apartment_pictures_path, title: 'Atras'
+      end
+    %>    
+
+  </div>
+</div>

@@ -24,7 +24,7 @@
       <%= form.label :IdCity, 'Distrito' %>
     </div>
     <div class="col-sm-8">
-    <%= form.select :city_id, City.all.collect {|e| [e.Name, e.id]}, {:include_blank => "Seleccione el Distrito"}, {:class => "form-control"} %>
+    <%= form.select :city_id, City.all.order("Name asc").collect {|e| [e.Name, e.id]}, {:include_blank => "Seleccione el Distrito"}, {:class => "form-control"} %>
     </div>
   </div>
   <div class="ml-3 mt-4 row">

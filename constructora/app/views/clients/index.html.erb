@@ -8,11 +8,11 @@
           <th colspan="3" class="text-center">
             <%= link_to image_tag('NewIcon.png'), new_client_path, title: 'Nuevo' %>
           </th>
-          <th>Num. ID</th>
+          <th>DNI</th>
           <th>Nombre</th>
           <th>Apellidos</th>
           <th>Dirección</th>
-          <th>Ciudad</th>
+          <th>Distrito</th>
           <th>Correo</th>
           <th>Teléfono</th>
           <th class="text-center">Activo</th>
@@ -31,7 +31,13 @@
             <td><%= client.Name %></td>
             <td><%= client.LastName %></td>
             <td><%= client.Address %></td>
-            <td><%= City.select(:Name).where("id = " + client.city_id.to_s).collect(&:Name)[0] %></td>
+            <td>
+              <%= 
+                if client.city_id != nil
+                  City.select(:Name).where("id = " + client.city_id.to_s).collect(&:Name)[0] 
+                end
+              %>
+            </td>
             <td><%= client.Mail %></td>
             <td><%= client.Phone %></td>
             <td class="text-center">

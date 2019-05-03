@@ -18,6 +18,18 @@ class SalesController < ApplicationController
     @sale = Sale.new
   end
 
+  # GET /apartment_bookings/newfromquotation/1
+  def newfrombooking
+    @sale = Sale.new
+
+    query = ApartmentBooking.joins(quotation: :request_quotation).select("apartment_bookings.id as ab_id, apartment_bookings.bank_id as ab_bank_id, request_quotations.project_apartment_id as rq_project_apartment_id").where("ab_id = " + params[:id].to_s)
+    @sale.project_apartment_id = query[0].rq_project_apartment_id
+    @sale.apartment_booking_id = query[0].ab_id
+    @sale.bank_id = query[0].ab_bank_id
+
+    render "sales/new"
+  end  
+
   # GET /sales/1/edit
   def edit
   end
@@ -30,6 +42,15 @@ class SalesController < ApplicationController
 
     respond_to do |format|
       if @sale.save
+
+        if @sale.project_apartment_id != nil
+          projectapartment = ProjectApartment.find(@sale.project_apartment_id)
+
+          projectapartment.Status = 2
+          projectapartment.save
+        end
+
+
         format.html { redirect_to @sale, notice: 'Sale was successfully created.' }
         format.json { render :show, status: :created, location: @sale }
       else

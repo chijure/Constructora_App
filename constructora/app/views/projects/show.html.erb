@@ -1,93 +1,135 @@
 <div class="jumbotron p-4">
   <h2><b>Ver | Proyectos</b></h2>
+
   <div class="table-responsive-sm w-100">
     <h5>
       <p id="notice" class="badge badge-pill badge-success pt-2 pb-2"><%= notice %></p>
     </h5>
     <hr>
-    <p>
-      <strong>Distrito:</strong>
-      <td><%= City.select(:Name).where("id = " + @project.city_id.to_s).collect(&:Name)[0] %></td>
-    </p>
 
-    <p>
-      <strong>
-        Nombre:
-      <%= @project.Name %>
-      </strong>
-    </p>
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Proyectos</a>
+        <a class="nav-item nav-link" id="nav-apartment-types-tab" data-toggle="tab" href="#nav-apartment-types" role="tab" aria-controls="nav-apartment-types" aria-selected="false">Tipos de Departamento</a>        
+        <a class="nav-item nav-link" id="nav-apartments-tab" data-toggle="tab" href="#nav-apartments" role="tab" aria-controls="nav-apartments" aria-selected="false">Departamentos</a>
+      </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+        <div class="container">
+          <br>
+          <p>
+            <strong>Distrito:</strong>
+            <td><%= City.select(:Name).where("id = " + @project.city_id.to_s).collect(&:Name)[0] %></td>
+          </p>
 
-    <p>
-      <strong>Precio:</strong>
-      <%= @project.Price %>
-    </p>
+          <p>
+            <strong>
+              Nombre:
+            <%= @project.Name %>
+            </strong>
+          </p>
 
-    <p>
-      <strong>Fecha Inicio:</strong>
-      <%= @project.StartDate %>
-    </p>
+          <p>
+            <strong>Precio:</strong>
+            <%= @project.Price %>
+          </p>
 
-    <p>
-      <strong>Fecha Fin:</strong>
-      <%= @project.EndDate %>
-    </p>
+          <p>
+            <strong>Fecha Inicio:</strong>
+            <%= @project.StartDate %>
+          </p>
 
-    <p>
-      <strong>Dirección:</strong>
-      <%= @project.Address %>
-    </p>
+          <p>
+            <strong>Fecha Fin:</strong>
+            <%= @project.EndDate %>
+          </p>
 
-    <p>
-      <p class="text-justify"><strong>Descripción: </strong><%= @project.Description%></p>
-    </p>
+          <p>
+            <strong>Dirección:</strong>
+            <%= @project.Address %>
+          </p>
 
-    <p>
-      <strong>Pisos:</strong>
-      <%= @project.Floors %>
-    </p>
+          <p>
+            <p class="text-justify"><strong>Descripción: </strong><%= @project.Description%></p>
+          </p>
 
-    <p>
-      <strong>Departamentos:</strong>
-      <%= @project.ApartmentsQuantity %>
-    </p>
-    
-    <p>
-      <strong>Departamentos Disponibles:</strong>
-      <%= @project.AvailableApartments %>
-    </p>
+          <p>
+            <strong>Pisos:</strong>
+            <%= @project.Floors %>
+          </p>
 
-    <p>
-      <strong>Estacionamientos:</strong>
-      <%= @project.ParkingsQuantity %>
-    </p>
+          <p>
+            <strong>Departamentos:</strong>
+            <%= @project.ApartmentsQuantity %>
+          </p>
+          
+          <p>
+            <strong>Departamentos Disponibles:</strong>
+            <%= @project.AvailableApartments %>
+          </p>
 
-    <p>
-      <strong>Estacionamientos Disponibles:</strong>
-      <%= @project.AvailableParkings %>
-    </p>
+          <p>
+            <strong>Estacionamientos:</strong>
+            <%= @project.ParkingsQuantity %>
+          </p>
 
-    <p>
-      <strong>Foto Portada:</strong>
-        <%= image_tag(@project.Picture.to_s, :width => 300) %>
-    </p>
+          <p>
+            <strong>Estacionamientos Disponibles:</strong>
+            <%= @project.AvailableParkings %>
+          </p>
 
-    <p>
-      <strong>Estado:</strong>
-      <%=
-      case @project.Status
-      when 0
-        "Creado"
-      when 1
-        "En Construcción"
-      when 2
-        "Construido"
-      else
-        "No Definido"
-      end %>  
-    </p>
+          <p>
+            <strong>Foto Portada:</strong>
+              <%= image_tag(@project.Picture.to_s, :width => 300) %>
+          </p>
+
+          <p>
+            <strong>Estado:</strong>
+            <%=
+            case @project.Status
+            when 0
+              "Creado"
+            when 1
+              "En Construcción"
+            when 2
+              "Construido"
+            else
+              "No Definido"
+            end %>  
+          </p>
+          <hr>
+          <%= link_to image_tag('EditIconBig.png'), edit_project_path(@project), title: 'Editar' %>
+        </div>
+
+      </div>
+      <div class="tab-pane fade" id="nav-apartment-types" role="tabpanel" aria-labelledby="nav-apartment-types-tab">
+        <%= 
+          session[:s_project_id] = @project.id
+          render 'projects/apartment_types/index', project_apartment_types: ProjectApartmentType.where(project_id: @project.id) 
+        %>        
+      </div>
+      <div class="tab-pane fade" id="nav-apartments" role="tabpanel" aria-labelledby="nav-apartments-tab">
+        
+        <% 
+          #depa = ProjectApartment.find_by('project_id' => @project.id)
+          #depa = ProjectApartment.where(project_id: 1)
+          #puts depa.count
+        %>
+        <%= 
+          #puts 'AQUI ESTA PRIMER ID'
+          #@project_idDD = 1111
+          #puts @project_idDD
+          session[:s_project_id] = @project.id
+          render 'projects/apartments/index', project_apartments: ProjectApartment.where(project_id: @project.id) 
+        %>
+        
+      </div>
+    </div>
+
     <hr>
-    <%= link_to image_tag('EditIconBig.png'), edit_project_path(@project), title: 'Editar' %> |
-    <%= link_to image_tag('BackIconBig.png'), projects_path, title: 'Atras'  %>
-
+    <div class="container">
+      <%= link_to image_tag('BackIconBig.png'), projects_path, title: 'Atras'  %>
+    </div>
   </div>
 </div>

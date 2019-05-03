@@ -5,10 +5,22 @@ class Quotation < ApplicationRecord
 
 	validates :Price, presence: {
 		message: "es requerido."
+	}, 
+	:numericality => 
+	{ 
+		:greater_than => 0, 
+	  	message: ' debe ser mayor a 0'
 	}
+
 	validates :ValidFor, presence: {
 		message: "es requerido."
+	}, 
+	:numericality => 
+	{ 
+		:greater_than => 0, 
+	  	message: ' debe ser mayor a 0'
 	}
+	
 	validates :Status, presence: {
 		message: "es requerido."
 	}

@@ -4,6 +4,12 @@
 		<%= render 'form', project_apartment_type: @project_apartment_type %>
 
 		<%= link_to image_tag('ShowIconBig.png'), @project_apartment_type, title: 'Ver' %> |
-		<%= link_to image_tag('BackIconBig.png'), project_apartment_types_path, title: 'Atras'  %>
+	    <%= 
+	      if session[:s_project_id]
+	        link_to image_tag('BackIconBig.png'), project_path(session[:s_project_id]), title: 'Atras'
+	      else 
+	        link_to image_tag('BackIconBig.png'), project_apartment_types_path, title: 'Atras'
+	      end
+	    %>
 	</div>
 </div>

@@ -4,6 +4,12 @@
 		<%= render 'form', project_ap_type_price: @project_ap_type_price %>
 
 		<%= link_to image_tag('ShowIconBig.png'), @project_ap_type_price, title: 'Ver' %> |
-		<%= link_to image_tag('BackIconBig.png'), project_ap_type_prices_path, title: 'Atras'  %>
+	    <%= 
+	      if session[:s_project_apartment_type_id]
+	        link_to image_tag('BackIconBig.png'), project_apartment_type_path(session[:s_project_apartment_type_id]), title: 'Atras'
+	      else 
+	        link_to image_tag('BackIconBig.png'), project_ap_type_prices_path, title: 'Atras'
+	      end
+	    %>				
 	</div>
 </div>

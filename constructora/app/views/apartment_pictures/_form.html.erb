@@ -1,0 +1,62 @@
+<%= form_with(model: apartment_picture, local: true) do |form| %>
+  <% if apartment_picture.errors.any? %>
+    <div id="error_explanation">
+      <h5 class="text-danger">Se encontraron los siguiente errores:</h5>
+
+      <ul class="ml-3 text-danger">
+      <% apartment_picture.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <hr>
+
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-4">
+      <%= form.label :project_apartment_id, 'Departamento' %>
+    </div>
+    <div class="col-sm-8">
+      <%= 
+      if session[:s_project_apartment_id]
+        form.select :project_apartment_id, ProjectApartment.all.order("Number asc").collect {|e| [e.Number, e.id]}, { selected: session[:s_project_apartment_id] }, { class: "form-control" }
+      else
+        form.select :project_apartment_id, ProjectApartment.all.order("Number asc").collect {|e| [e.Number, e.id]}, {:include_blank => "Seleccione el Departamento"}, {:class => "form-control"}
+      end
+      %>      
+    </div>
+  </div>
+
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-4">
+      <%= form.label :Picture, 'Imagen' %>
+    </div>
+    <div class="col-sm-8">
+      <%= form.file_field :Picture, :class => "form-control" %>
+      <%= image_tag(apartment_picture.Picture.to_s, :width => 400, :height => 400, :class => "img-fluid img-thumbnail") %>
+    </div>
+  </div>
+
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-4">
+      <%= form.label :Description, 'Descripción' %>
+    </div>
+    <div class="col-sm-8">
+      <%= form.text_area :Description, :rows => 4, :class => "form-control" %>
+    </div>
+  </div>
+
+
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-4">
+      <%= form.label :IsActive, 'Activo' %>
+    </div>
+    <div class="col-sm-8">
+      <%= form.check_box :IsActive, :class => "checkBoxSyleForm" %>
+    </div>
+  </div>
+  <hr>
+  <div class="actions">
+    <%= form.submit "Guardar", :type => :image, :src => "/assets/SaveIconBig.png", :title => 'Guardar' %>
+  </div>
+<% end %>

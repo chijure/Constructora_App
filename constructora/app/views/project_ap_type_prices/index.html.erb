@@ -18,7 +18,7 @@
           <th class="text-center">Activo</th>
         </tr>
       </thead>
-
+      <%= session[:s_project_apartment_type_id] = nil %>
       <tbody>
         <% @project_ap_type_prices.each do |project_ap_type_price| %>
           <tr>

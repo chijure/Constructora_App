@@ -5,11 +5,13 @@
     <table class="table table-striped table-hover w-100">
       <thead class="thead-dark">
         <tr>
-          <th colspan="3" class="text-center">
+          <th colspan="4" class="text-center">
             <%= link_to image_tag('NewIcon.png'), new_quotation_path, title: 'Nuevo' %>
           </th>
-          <th class="text-center">N° Cotización</th>
-          <th class="text-center">N° Solicitud</th>
+          <th class="text-center">Cotización</th>
+          <th class="text-center">Solicitud</th>
+          <th>Proyecto</th>
+          <th class="text-center">Depart.</th>
           <th>Cliente</th>
           <th>Fecha</th>
           <th>Precio</th>
@@ -23,10 +25,13 @@
           <tr>
             <td style="width:33px" class="pr-2 pl-2"><%= link_to image_tag('ShowIcon.png'), quotation, title: 'Ver' %></td>
             <td style="width:33px" class="pr-1 pl-1"><%= link_to image_tag('EditIcon.png'), edit_quotation_path(quotation), title: 'Editar' %></td>
+            <td style="width:33px" class="pr-1 pl-1"><%= link_to image_tag('NewDocIcon.png'), apartment_bookings_newfromquotation_path + '/' + quotation.id.to_s, title: 'Generar Reserva' %></td>
             <td style="width:40px" class="pr-1 pl-2">
               <%= link_to image_tag('DeleteIcon.png'), quotation, title: 'Eliminar', method: :delete, data: { confirm: '¿Esta seguro?' } %></td>
             <td class="text-center"><%= quotation.id %></td>
             <td class="text-center"><%= RequestQuotation.select(:id).where("id = " + quotation.request_quotation_id.to_s).collect(&:id)[0] %></td>
+            <td><%= RequestQuotation.joins(:project).select("request_quotations.id as rq_id, projects.Name as p_Name").where("rq_id = " + quotation.request_quotation_id.to_s).collect {|e| e.p_Name}[0]  %></td>
+            <td class="text-center"><%= RequestQuotation.joins(:project_apartment).select("request_quotations.id as rq_id, project_apartments.Number as pa_Number").where("rq_id = " + quotation.request_quotation_id.to_s).collect {|e| e.pa_Number}[0] %></td>
             <td><%= Client.select(:Name, :LastName).where("id = " + quotation.client_id.to_s).collect {|e| e.Name + ' ' + e.LastName} [0] %></td>              
             </td>
             <td><%= quotation.QuotationDate %></td>

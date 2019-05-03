@@ -3,7 +3,12 @@
 	<div class="table-responsive-sm w-50">
 		<%= render 'form', appointment: @appointment %>
 
-		<%= link_to image_tag('ShowIconBig.png'), @appointment, title: 'Ver' %> |
-		<%= link_to image_tag('BackIconBig.png'), appointments_path, title: 'Atras'  %>
+	    <%= 
+	      if session[:s_request_quotation_id]
+	        link_to image_tag('BackIconBig.png'), request_quotation_path(session[:s_request_quotation_id]), title: 'Atras'
+	      else 
+	        link_to image_tag('BackIconBig.png'), appointments_path, title: 'Atras'
+	      end
+	    %>		
 	</div>
 </div>

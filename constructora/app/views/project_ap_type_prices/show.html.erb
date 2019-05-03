@@ -46,7 +46,13 @@
     </p>
 
     <%= link_to image_tag('EditIconBig.png'), edit_project_ap_type_price_path(@project_ap_type_price), title: 'Editar' %> |
-    <%= link_to image_tag('BackIconBig.png'), project_ap_type_prices_path, title: 'Atras'  %>
+    <%= 
+      if session[:s_project_apartment_type_id]
+        link_to image_tag('BackIconBig.png'), project_apartment_type_path(session[:s_project_apartment_type_id]), title: 'Atras'
+      else 
+        link_to image_tag('BackIconBig.png'), project_ap_type_prices_path, title: 'Atras'
+      end
+    %>
 
   </div>
 </div>
