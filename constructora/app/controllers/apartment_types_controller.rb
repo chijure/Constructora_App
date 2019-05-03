@@ -30,7 +30,7 @@ class ApartmentTypesController < ApplicationController
 
     respond_to do |format|
       if @apartment_type.save
-        format.html { redirect_to @apartment_type, notice: 'Apartment type was successfully created.' }
+        format.html { redirect_to @apartment_type, notice: 'Departamento creado exitosamente.' }
         format.json { render :show, status: :created, location: @apartment_type }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class ApartmentTypesController < ApplicationController
   def update
     respond_to do |format|
       if @apartment_type.update(apartment_type_params)
-        format.html { redirect_to @apartment_type, notice: 'Apartment type was successfully updated.' }
+        format.html { redirect_to @apartment_type, notice: 'Departamento actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @apartment_type }
       else
         format.html { render :edit }
@@ -58,7 +58,7 @@ class ApartmentTypesController < ApplicationController
   def destroy
     @apartment_type.destroy
     respond_to do |format|
-      format.html { redirect_to apartment_types_url, notice: 'Apartment type was successfully destroyed.' }
+      format.html { redirect_to apartment_types_url, notice: 'Departamento eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

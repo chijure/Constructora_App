@@ -21,21 +21,21 @@ class ProjectApTypePrice < ApplicationRecord
 	  	message: ' debe ser menor o igual a 100%'
 	}
 
-	validates :Floor, presence: {
-		message: "es requerido."
-	}, 
-	:numericality => 
-	{ 
-		:greater_than => 0, 
-	  	message: ' debe ser mayor a 0'
-	}
+#	validates :Floor, presence: {
+#		message: "es requerido."
+#	}, 
+#	:numericality => 
+#	{ 
+#		:greater_than => 0, 
+#	  	message: ' debe ser mayor a 0'
+#	}
 
-	validates :Price, presence: {
-		message: "es requerido."
-	}, 
-	:numericality => 
-	{ 
-		:greater_than => 0, 
-	  	message: ' debe ser mayor a 0'
-	}
+#	validates :Price, presence: {
+#		message: "es requerido."
+#	}, 
+#	:numericality => 
+#	{ 
+#		:greater_than => 0, 
+#	  	message: ' debe ser mayor a 0'
+#	}
 end

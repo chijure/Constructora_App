@@ -28,6 +28,14 @@ class ProjectApTypePricesController < ApplicationController
   def create
     @project_ap_type_price = ProjectApTypePrice.new(project_ap_type_price_params)
 
+
+    @project_ap_type_price_list = ProjectApTypePrice.where('IsActive = 1 and project_apartment_type_id = ' + @project_ap_type_price.project_apartment_type_id.to_s)
+
+    @project_ap_type_price_list.each do |project_ap_type_price|
+      project_ap_type_price.IsActive = 0
+      project_ap_type_price.save
+    end
+
     respond_to do |format|
       if @project_ap_type_price.save
         format.html { redirect_to @project_ap_type_price, notice: 'Project ap type price was successfully created.' }
@@ -58,7 +66,13 @@ class ProjectApTypePricesController < ApplicationController
   def destroy
     @project_ap_type_price.destroy
     respond_to do |format|
-      format.html { redirect_to project_ap_type_prices_url, notice: 'Project ap type price was successfully destroyed.' }
+
+        if session[:s_project_apartment_type_id]
+          format.html { redirect_to project_apartment_type_path(session[:s_project_apartment_type_id]), notice: 'Project ap type price was successfully destroyed.' }
+        else 
+          format.html { redirect_to project_ap_type_prices_url, notice: 'Project ap type price was successfully destroyed.' }
+        end
+
       format.json { head :no_content }
     end
   end

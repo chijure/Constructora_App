@@ -1,5 +1,5 @@
 <div class="jumbotron p-4">
-  <h2><b>Ver | Precios por Tipo de Departamento</b></h2>
+  <h2><b>Ver | Descuentos por Tipo de Departamento</b></h2>
   <div class="table-responsive-sm w-50">
     <h5>
       <p id="notice" class="badge badge-pill badge-success pt-2 pb-2"><%= notice %></p>
@@ -30,7 +30,7 @@
       <%= @project_ap_type_price.PercentageDiscount %>%
     </p>
 
-    <p>
+<!--    <p>
       <strong>Piso:</strong>
       <%= @project_ap_type_price.Floor %>
     </p>
@@ -39,7 +39,7 @@
       <strong>Precio:</strong>
       <%= @project_ap_type_price.Price %>
     </p>
-
+-->
     <p>
       <strong>Activo:</strong>
       <%= check_box_tag "IsActive", 0, @project_ap_type_price.IsActive, disabled: true, class: "checkBoxSyleIndex" %>

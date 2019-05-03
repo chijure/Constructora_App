@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   get 'quotations/newfromrequest/:id', to: 'quotations#newfromrequest'
   get 'apartment_bookings/newfromquotation/', to: 'apartment_bookings#new'
   get 'apartment_bookings/newfromquotation/:id', to: 'apartment_bookings#newfromquotation'
-  get 'sales/newfrombooking/', to: 'sales#new'
-  get 'sales/newfrombooking/:id', to: 'sales#newfrombooking'
+  get 'sales/newfromquotation/', to: 'sales#new'
+  get 'sales/newfromquotation/:id', to: 'sales#newfromquotation'
   get 'sessions/new'
   resources :project_ap_type_prices
   resources :project_apartments

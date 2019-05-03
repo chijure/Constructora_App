@@ -13,8 +13,8 @@
           <th>Fecha Registro</th>
           <th>Válido por</th>
           <th>% Descuento</th>
-          <th>Piso</th>
-          <th>Precio</th>
+          <!--<th>Piso</th>
+          <th>Precio</th>-->
           <th class="text-center">Activo</th>
         </tr>
       </thead>
@@ -34,8 +34,8 @@
             <td><%= project_ap_type_price.RegisterDate %></td>
             <td><%= project_ap_type_price.ValidFor %></td>
             <td><%= project_ap_type_price.PercentageDiscount %>%</td>
-            <td><%= project_ap_type_price.Floor %></td>
-            <td><%= project_ap_type_price.Price %></td>
+            <!--<td><%= project_ap_type_price.Floor %></td>
+            <td><%= project_ap_type_price.Price %></td>-->
             <td class="text-center">
               <%= check_box_tag "IsActive", 0, project_ap_type_price.IsActive, disabled: true, class: "checkBoxSyleIndex" %>
             </td>

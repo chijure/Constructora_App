@@ -14,67 +14,77 @@
   <hr>
 
   <div class="ml-3 mt-4 row">
-    <div class="col-sm-4">
+    <div class="col-sm-5">
       <%= form.label :project_apartment_id, 'Departamento' %>
     </div>
-    <div class="col-sm-8">
+    <div class="col-sm-7">
       <%= form.select :project_apartment_id, ProjectApartment.all.collect {|e| [e.Number, e.id]}, {:include_blank => "Seleccione el Departamento"}, {:class => "form-control"} %>
     </div>
   </div>
 
   <div class="ml-3 mt-4 row">
-    <div class="col-sm-4">
-      <%= form.label :apartment_booking_id, 'N° de Reserva' %>
+    <div class="col-sm-5">
+      <%= form.label :quotation_id, 'Cotización' %>
     </div>
-    <div class="col-sm-8">
-      <%= form.select :apartment_booking_id, ApartmentBooking.all.collect {|e| [e.id, e.id]}, {:include_blank => "Seleccione la Reserva"}, {:class => "form-control"} %>
+    <div class="col-sm-7">
+      <%= form.select :quotation_id, Quotation.all.collect {|e| [e.id, e.id]}, {:include_blank => "Seleccione la Cotización"}, {:class => "form-control"} %>
     </div>
   </div>
 
   <div class="ml-3 mt-4 row">
-    <div class="col-sm-4">
+    <div class="col-sm-5">
       <%= form.label :bank_id, 'Banco' %>
     </div>
-    <div class="col-sm-8">
+    <div class="col-sm-7">
       <%= form.select :bank_id, Bank.all.collect {|e| [e.Name, e.id]}, {:include_blank => "Seleccione el Banco"}, {:class => "form-control"} %>
     </div>
   </div>
 
   <div class="ml-3 mt-4 row">
-    <div class="col-sm-4">
+    <div class="col-sm-5">
       <%= form.label :SaleDate, 'Fecha de Venta' %>
     </div>
-    <div class="col-sm-8">
+    <div class="col-sm-7">
       <%= form.date_select :SaleDate, {:class => "form-control"} %>
     </div>
   </div>
 
   <div class="ml-3 mt-4 row">
-    <div class="col-sm-4">
+    <div class="col-sm-5">
       <%= form.label :PaymentType, 'Forma de Pago' %>
     </div>
-    <div class="col-sm-8">
-      <%= form.select :PaymentType, ([["Efectivo", "0"], ["Financiado", "1"]]), {:class => "form-control"} %>
+    <div class="col-sm-7">
+      <%= form.select :PaymentType, ([["Efectivo", "0"], ["Financiado", "1"]]), { :class => "form-control" }, { :onChange => "onChangeComboBox()", :onLoad => "conInit()" }  %>
     </div>
   </div>
 
-  <div class="ml-3 mt-4 row">
-    <div class="col-sm-4">
+  <div id="divCashAmount" class="ml-3 mt-4 row">
+    <div class="col-sm-5">
       <%= form.label :CashAmount, 'Monto Efectivo' %>
     </div>
-    <div class="col-sm-8">
+    <div class="col-sm-7">
       <%= form.number_field :CashAmount, {:class => "form-control"} %>
     </div>
   </div>
 
-  <div class="ml-3 mt-4 row">
-    <div class="col-sm-4">
+  <div id="divFinancedAmount" style="display: none;" class="ml-3 mt-4 row">
+    <div class="col-sm-5">
       <%= form.label :FinancedAmount, 'Monto Financiado' %>
     </div>
-    <div class="col-sm-8">
+    <div class="col-sm-7">
       <%= form.number_field :FinancedAmount, {:class => "form-control"} %>
     </div>
   </div>
+
+  <div class="ml-3 mt-4 row">
+    <div class="col-sm-5">
+      <%= form.label :Voucher, 'Comprobante / Operación' %>
+    </div>
+    <div class="col-sm-7">
+      <%= form.text_field :Voucher, {:class => "form-control"} %>
+    </div>
+  </div>  
+
   <hr>
   <div class="actions">
     <%= form.submit "Guardar", :type => :image, :src => "/assets/SaveIconBig.png", :title => 'Guardar' %>

@@ -9,7 +9,7 @@
             <%= link_to image_tag('NewIcon.png'), new_sale_path, title: 'Nuevo' %>
           </th>
           <th>Departamento</th>
-          <th>N° de Reserva</th>
+          <th>Cotización</th>
           <th>Banco</th>
           <th>Fecha Venta</th>
           <th>Tipo Pago</th>
@@ -26,7 +26,7 @@
             <td style="width:40px" class="pr-1 pl-2">
               <%= link_to image_tag('DeleteIcon.png'), sale, title: 'Eliminar', method: :delete, data: { confirm: '¿Esta seguro?' } %></td>         
             <td><%= ProjectApartment.select(:Number).where("id = " + sale.project_apartment_id.to_s).collect(&:Number)[0] %></td>
-            <td><%= ApartmentBooking.select(:id).where("id = " + sale.apartment_booking_id.to_s).collect {|e| e.id} [0] %></td>
+            <td><%= Quotation.select(:id).where("id = " + sale.quotation_id.to_s).collect {|e| e.id} [0] %></td>
             <td><%= Bank.select(:Name).where("id = " + sale.bank_id.to_s).collect(&:Name)[0] %></td>
             <td><%= sale.SaleDate %></td>
             <td>
