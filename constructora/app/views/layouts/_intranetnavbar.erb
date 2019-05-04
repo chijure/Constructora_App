@@ -90,9 +90,11 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Reportes
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+             Reportes
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <%= link_to "Reportes", { :controller => "administration", :action => "report" }, :class => "dropdown-item" %> 
+       
           </div>
         </li>
       <% else %>
